@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-const Register = ({ onRegister }) => {
+const Register = ({ onRegister, isAuthenticated }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,8 +10,15 @@ const Register = ({ onRegister }) => {
     confirmPassword: ''
   });
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  // If already authenticated, redirect to dashboard
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" />;
+  }
 
   const handleChange = (e) => {
+    setError(''); // Clear any previous errors
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -19,9 +27,12 @@ const Register = ({ onRegister }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError('');
     
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
+      setIsLoading(false);
       return;
     }
 
@@ -43,11 +54,14 @@ const Register = ({ onRegister }) => {
       if (response.ok) {
         localStorage.setItem('token', data.token);
         onRegister(data.user);
+        navigate('/dashboard'); // Redirect to dashboard after successful registration
       } else {
         setError(data.message || 'Registration failed');
       }
     } catch (err) {
       setError('An error occurred during registration');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -55,6 +69,7 @@ const Register = ({ onRegister }) => {
     <div className="auth-section">
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
+        {error && <div className="error-message">{error}</div>}
         <div className="form-group">
           <label htmlFor="name">Full Name</label>
           <input
@@ -64,6 +79,7 @@ const Register = ({ onRegister }) => {
             value={formData.name}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
         <div className="form-group">
@@ -75,6 +91,7 @@ const Register = ({ onRegister }) => {
             value={formData.email}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
         <div className="form-group">
@@ -86,6 +103,7 @@ const Register = ({ onRegister }) => {
             value={formData.password}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
         <div className="form-group">
@@ -97,12 +115,18 @@ const Register = ({ onRegister }) => {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
-        {error && <div className="error-message">{error}</div>}
-        <button type="submit">Create Account</button>
-        <p className="auth-switch">
-          Already have an account? <Link to="/login">Login</Link>
+        <button 
+          type="submit" 
+          className="auth-button"
+          disabled={isLoading}
+        >
+          {isLoading ? 'Creating Account...' : 'Create Account'}
+        </button>
+        <p className="auth-link">
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </form>
     </div>
