@@ -4,12 +4,17 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  sendPasswordResetEmail,
+  updateProfile,
+  sendEmailVerification
 } from '../firebase/config';
 
 const FirebaseContext = createContext();
 
-export const useFirebase = () => useContext(FirebaseContext);
+export const useFirebase = () => {
+  return useContext(FirebaseContext);
+};
 
 export const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -25,29 +30,29 @@ export const FirebaseProvider = ({ children }) => {
   }, []);
 
   const signup = async (email, password) => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      return userCredential.user;
-    } catch (error) {
-      throw error;
-    }
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = async (email, password) => {
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      return userCredential.user;
-    } catch (error) {
-      throw error;
-    }
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      throw error;
-    }
+    return signOut(auth);
+  };
+
+  const resetPassword = async (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  const updateUserProfile = async (profile) => {
+    if (!auth.currentUser) throw new Error('No user logged in');
+    return updateProfile(auth.currentUser, profile);
+  };
+
+  const verifyEmail = async () => {
+    if (!auth.currentUser) throw new Error('No user logged in');
+    return sendEmailVerification(auth.currentUser);
   };
 
   const value = {
@@ -55,7 +60,10 @@ export const FirebaseProvider = ({ children }) => {
     loading,
     signup,
     login,
-    logout
+    logout,
+    resetPassword,
+    updateUserProfile,
+    verifyEmail
   };
 
   return (
