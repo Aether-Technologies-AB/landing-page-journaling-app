@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FirebaseProvider } from './contexts/FirebaseContext';
 import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import Login from './components/Login';
 import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
+import Profile from './components/Profile';
 import PricingPlans from './components/PricingPlans';
-import Dashboard from './components/Dashboard'; 
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 function App() {
@@ -42,48 +45,66 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="app">
-        <Header 
-          isAuthenticated={isAuthenticated} 
-          onLogout={handleLogout}
-          user={user}
-        />
-        <main>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route 
-              path="/login" 
-              element={
-                <Login 
-                  onLogin={handleLogin} 
-                  isAuthenticated={isAuthenticated}
-                />
-              } 
-            />
-            <Route 
-              path="/register" 
-              element={
-                <Register 
-                  onRegister={handleRegister}
-                  isAuthenticated={isAuthenticated}
-                />
-              } 
-            />
-            <Route 
-              path="/dashboard" 
-              element={
-                <Dashboard 
-                  user={user}
-                  isAuthenticated={isAuthenticated}
-                />
-              } 
-            />
-            <Route path="/pricing" element={<PricingPlans />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <FirebaseProvider>
+      <Router>
+        <div className="app">
+          <Header 
+            isAuthenticated={isAuthenticated} 
+            onLogout={handleLogout}
+            user={user}
+          />
+          <main>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route 
+                path="/login" 
+                element={
+                  <Login 
+                    onLogin={handleLogin} 
+                    isAuthenticated={isAuthenticated}
+                  />
+                } 
+              />
+              <Route 
+                path="/register" 
+                element={
+                  <Register 
+                    onRegister={handleRegister}
+                    isAuthenticated={isAuthenticated}
+                  />
+                } 
+              />
+              <Route 
+                path="/forgot-password" 
+                element={
+                  <ForgotPassword 
+                  />
+                } 
+              />
+              <Route 
+                path="/profile" 
+                element={
+                  <Profile 
+                    user={user}
+                    isAuthenticated={isAuthenticated}
+                  />
+                } 
+              />
+              <Route 
+                path="/dashboard" 
+                element={
+                  <Dashboard 
+                    user={user}
+                    isAuthenticated={isAuthenticated}
+                  />
+                } 
+              />
+              <Route path="/pricing" element={<PricingPlans />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </FirebaseProvider>
   );
 }
 

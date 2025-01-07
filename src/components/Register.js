@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useFirebase } from '../contexts/FirebaseContext';
+import './Register.css';
 
-const Register = ({ onRegister, isAuthenticated }) => {
+const Register = () => {
   const navigate = useNavigate();
+  const { signup } = useFirebase();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,15 +13,11 @@ const Register = ({ onRegister, isAuthenticated }) => {
     confirmPassword: ''
   });
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // If already authenticated, redirect to dashboard
-  if (isAuthenticated) {
-    return <Navigate to="/dashboard" />;
-  }
-
   const handleChange = (e) => {
-    setError(''); // Clear any previous errors
+    setError('');
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -37,29 +36,21 @@ const Register = ({ onRegister, isAuthenticated }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          password: formData.password
-        }),
+      const userCredential = await signup(formData.email, formData.password);
+      
+      // Update user profile with name
+      await userCredential.user.updateProfile({
+        displayName: formData.name
       });
 
-      const data = await response.json();
+      // Send email verification
+      await userCredential.user.sendEmailVerification();
 
-      if (response.ok) {
-        localStorage.setItem('token', data.token);
-        onRegister(data.user);
-        navigate('/dashboard'); // Redirect to dashboard after successful registration
-      } else {
-        setError(data.message || 'Registration failed');
-      }
-    } catch (err) {
-      setError('An error occurred during registration');
+      navigate('/dashboard');
+      setSuccessMessage('Verification email sent! Please check your inbox.');
+    } catch (error) {
+      console.error('Registration error:', error);
+      setError(error.message || 'Failed to create account. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -70,6 +61,8 @@ const Register = ({ onRegister, isAuthenticated }) => {
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Create Account</h2>
         {error && <div className="error-message">{error}</div>}
+        {successMessage && <div className="success-message">{successMessage}</div>}
+        
         <div className="form-group">
           <label htmlFor="name">Full Name</label>
           <input
@@ -82,6 +75,7 @@ const Register = ({ onRegister, isAuthenticated }) => {
             disabled={isLoading}
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -94,6 +88,7 @@ const Register = ({ onRegister, isAuthenticated }) => {
             disabled={isLoading}
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="password">Password</label>
           <input
@@ -106,6 +101,7 @@ const Register = ({ onRegister, isAuthenticated }) => {
             disabled={isLoading}
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
@@ -118,6 +114,7 @@ const Register = ({ onRegister, isAuthenticated }) => {
             disabled={isLoading}
           />
         </div>
+
         <button 
           type="submit" 
           className="auth-button"
@@ -125,6 +122,7 @@ const Register = ({ onRegister, isAuthenticated }) => {
         >
           {isLoading ? 'Creating Account...' : 'Create Account'}
         </button>
+
         <p className="auth-link">
           Already have an account? <Link to="/login">Login here</Link>
         </p>

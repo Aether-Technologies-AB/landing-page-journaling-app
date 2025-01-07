@@ -62,7 +62,7 @@ const PricingPlans = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:5001/api/create-checkout-session', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/create-checkout-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
