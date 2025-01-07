@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFirebase } from '../contexts/FirebaseContext';
-import './Register.css';
+import './Auth.css';
 
 const Register = () => {
   const navigate = useNavigate();
