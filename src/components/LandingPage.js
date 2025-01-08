@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBabyCarriage, FaBook, FaHeart, FaClock, FaMobile, FaCloud, FaShare, FaBell } from 'react-icons/fa';
+import { FaCamera, FaCloud, FaShare } from 'react-icons/fa';
 
 const heroImageUrl = "https://www.dropbox.com/scl/fi/3j35ymlx1w2q46fgfdetb/DALL-E-2024-12-24-02.37.10-A-realistic-scene-of-a-mother-sitting-on-the-floor-with-her-baby-reading-a-journal-style-baby-milestone-book-together.-The-book-is-open-showing-page.webp?rlkey=f5tbo43ed2k16smpmk2aycwvr&dl=1";
 
@@ -16,7 +16,7 @@ const LandingPage = () => {
             </p>
             <div className="hero-features">
               <div className="hero-feature">
-                <FaMobile className="hero-icon" />
+                <FaCamera className="hero-icon" />
                 <span>Capture moments instantly</span>
               </div>
               <div className="hero-feature">
@@ -30,9 +30,9 @@ const LandingPage = () => {
             </div>
             <Link to="/register" className="cta-button">Start Your Journey</Link>
           </div>
-          <div className="hero-image">
-            <img src={heroImageUrl} alt="Mother reading baby milestone book with her child" />
-          </div>
+        </div>
+        <div className="hero-image">
+          <img src={heroImageUrl} alt="Mother reading baby milestone book with her child" />
         </div>
       </section>
 
