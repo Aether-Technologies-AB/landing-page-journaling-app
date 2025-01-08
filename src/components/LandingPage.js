@@ -1,6 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaCamera, FaCloud, FaShare } from 'react-icons/fa';
+import { 
+  FaCamera, 
+  FaCloud, 
+  FaShare, 
+  FaMobile, 
+  FaBell, 
+  FaBabyCarriage,
+  FaHeart,
+  FaClock,
+  FaBook 
+} from 'react-icons/fa';
 
 const heroImageUrl = "https://www.dropbox.com/scl/fi/3j35ymlx1w2q46fgfdetb/DALL-E-2024-12-24-02.37.10-A-realistic-scene-of-a-mother-sitting-on-the-floor-with-her-baby-reading-a-journal-style-baby-milestone-book-together.-The-book-is-open-showing-page.webp?rlkey=f5tbo43ed2k16smpmk2aycwvr&dl=1";
 
@@ -50,14 +60,24 @@ const LandingPage = () => {
             <p>Never miss important moments with smart reminders for developmental milestones and vaccinations.</p>
           </div>
           <div className="feature-card">
-            <FaCloud className="feature-icon" />
-            <h3>Safe Storage</h3>
-            <p>All memories are securely stored in the cloud, accessible anytime, anywhere.</p>
+            <FaBabyCarriage className="feature-icon" />
+            <h3>Growth Tracking</h3>
+            <p>Monitor your child's growth with easy-to-use charts and comparisons to WHO standards.</p>
           </div>
           <div className="feature-card">
-            <FaShare className="feature-icon" />
+            <FaHeart className="feature-icon" />
             <h3>Family Sharing</h3>
-            <p>Share special moments with family members through private, secure links.</p>
+            <p>Share special moments with family members and close friends through secure invitations.</p>
+          </div>
+          <div className="feature-card">
+            <FaClock className="feature-icon" />
+            <h3>Timeline View</h3>
+            <p>View your child's journey chronologically with our beautiful timeline interface.</p>
+          </div>
+          <div className="feature-card">
+            <FaBook className="feature-icon" />
+            <h3>Digital Memory Book</h3>
+            <p>Create a beautiful digital memory book that you can print or share digitally.</p>
           </div>
         </div>
       </section>
