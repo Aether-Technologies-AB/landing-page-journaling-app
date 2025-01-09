@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFirebase } from '../contexts/FirebaseContext';
+import { updateProfile } from 'firebase/auth';
 import './Auth.css';
 
 const Register = () => {
@@ -38,8 +39,8 @@ const Register = () => {
     try {
       const userCredential = await signup(formData.email, formData.password);
       
-      // Update user profile with name
-      await userCredential.user.updateProfile({
+      // Update user profile with name using the new updateProfile function
+      await updateProfile(userCredential.user, {
         displayName: formData.name
       });
 
