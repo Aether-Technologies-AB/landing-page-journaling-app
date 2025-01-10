@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFirebase } from '../contexts/FirebaseContext';
-import { updateProfile } from 'firebase/auth';
+import { updateProfile, sendEmailVerification } from 'firebase/auth';
 import './Auth.css';
 
 const Register = () => {
@@ -44,11 +44,11 @@ const Register = () => {
         displayName: formData.name
       });
 
-      // Send email verification
-      await userCredential.user.sendEmailVerification();
+      // Send email verification using the new sendEmailVerification function
+      await sendEmailVerification(userCredential.user);
 
-      navigate('/dashboard');
       setSuccessMessage('Verification email sent! Please check your inbox.');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
       setError(error.message || 'Failed to create account. Please try again.');
