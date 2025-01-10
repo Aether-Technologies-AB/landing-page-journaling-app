@@ -20,7 +20,7 @@ const Header = () => {
     <header className="header">
       <div className="header-content">
         <Link to="/" className="logo">
-          ChildStory
+          Nest of Memories
         </Link>
         
         <nav className="nav-links">

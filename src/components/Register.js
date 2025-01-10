@@ -47,7 +47,7 @@ const Register = () => {
       // Send email verification using the new sendEmailVerification function
       await sendEmailVerification(userCredential.user);
 
-      setSuccessMessage('Verification email sent! Please check your inbox.');
+      setSuccessMessage('Account created successfully! Verification email sent.');
       navigate('/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
@@ -65,7 +65,7 @@ const Register = () => {
         {successMessage && <div className="success-message">{successMessage}</div>}
         
         <div className="form-group">
-          <label htmlFor="name">Full Name</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
@@ -99,6 +99,7 @@ const Register = () => {
             value={formData.password}
             onChange={handleChange}
             required
+            minLength="6"
             disabled={isLoading}
           />
         </div>
@@ -112,6 +113,7 @@ const Register = () => {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
+            minLength="6"
             disabled={isLoading}
           />
         </div>
@@ -121,11 +123,11 @@ const Register = () => {
           className="auth-button"
           disabled={isLoading}
         >
-          {isLoading ? 'Creating Account...' : 'Create Account'}
+          {isLoading ? 'Creating Account...' : 'Sign Up'}
         </button>
 
         <p className="auth-link">
-          Already have an account? <Link to="/login">Login here</Link>
+          Already have an account? <Link to="/login">Log In</Link>
         </p>
       </form>
     </div>

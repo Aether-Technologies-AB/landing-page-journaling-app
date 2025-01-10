@@ -52,7 +52,6 @@ const Login = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            disabled={isLoading}
           />
         </div>
 
@@ -65,18 +64,15 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
             required
-            disabled={isLoading}
+            minLength="6"
           />
-          <Link to="/forgot-password" className="forgot-password-link">
-            Forgot Password?
-          </Link>
         </div>
 
-        <button 
-          type="submit" 
-          className="auth-button"
-          disabled={isLoading}
-        >
+        <Link to="/forgot-password" className="forgot-password">
+          Forgot Password?
+        </Link>
+
+        <button type="submit" className="auth-button" disabled={isLoading}>
           {isLoading ? 'Logging in...' : 'Login'}
         </button>
 
