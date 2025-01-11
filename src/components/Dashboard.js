@@ -5,11 +5,14 @@ import { FaBook, FaCamera, FaBaby, FaChartLine, FaCog, FaPlus } from 'react-icon
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const { user } = useFirebase();
+  const { user, userData } = useFirebase();
 
   if (!user) {
     return <Navigate to="/login" />;
   }
+
+  // Get display name from user auth or userData
+  const displayName = user?.displayName || userData?.displayName || 'Parent';
 
   const recentMilestones = [
     { date: '2025-01-08', title: 'First Steps', type: 'Movement' },
@@ -20,7 +23,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
-        <h1>Welcome, {user.displayName || 'Parent'}!</h1>
+        <h1>Welcome, {displayName}!</h1>
         <p className="last-login">Last login: {new Date().toLocaleDateString()}</p>
       </div>
 

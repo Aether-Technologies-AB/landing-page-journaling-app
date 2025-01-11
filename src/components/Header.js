@@ -5,7 +5,7 @@ import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { user, logout } = useFirebase();
+  const { user, userData, logout } = useFirebase();
 
   const handleLogout = async () => {
     try {
@@ -15,6 +15,9 @@ const Header = () => {
       console.error('Logout error:', error);
     }
   };
+
+  // Get display name from user auth or userData
+  const displayName = user?.displayName || userData?.displayName || 'Guest';
 
   return (
     <header className="header">
@@ -29,7 +32,7 @@ const Header = () => {
               <Link to="/dashboard">Dashboard</Link>
               <Link to="/pricing">Pricing</Link>
               <div className="user-menu">
-                <span className="user-name">{user.displayName || 'User'}</span>
+                <span className="user-name">{displayName}</span>
                 <button onClick={handleLogout} className="logout-button">
                   Logout
                 </button>

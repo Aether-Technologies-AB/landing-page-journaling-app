@@ -25,16 +25,25 @@ export const FirebaseProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setUser(user);
       if (user) {
-        // Fetch user data from Firestore when auth state changes
+        // Get the latest user data from Firestore
         const userDoc = await getDoc(doc(db, 'users', user.uid));
         if (userDoc.exists()) {
-          setUserData(userDoc.data());
+          const firestoreData = userDoc.data();
+          
+          // Update Auth profile if displayName is missing
+          if (!user.displayName && firestoreData.displayName) {
+            await updateProfile(user, {
+              displayName: firestoreData.displayName
+            });
+          }
+          
+          setUserData(firestoreData);
         }
       } else {
         setUserData(null);
       }
+      setUser(user);
       setLoading(false);
     });
 
@@ -46,9 +55,15 @@ export const FirebaseProvider = ({ children }) => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
+      // Update Auth profile with displayName
+      await updateProfile(user, {
+        displayName: additionalData.displayName
+      });
+
       // Create user document in Firestore
       await setDoc(doc(db, 'users', user.uid), {
         email: user.email,
+        displayName: additionalData.displayName,
         createdAt: new Date().toISOString(),
         ...additionalData
       });
@@ -69,7 +84,16 @@ export const FirebaseProvider = ({ children }) => {
       // Fetch user data after login
       const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
       if (userDoc.exists()) {
-        setUserData(userDoc.data());
+        const firestoreData = userDoc.data();
+        
+        // Update Auth profile if displayName is missing
+        if (!userCredential.user.displayName && firestoreData.displayName) {
+          await updateProfile(userCredential.user, {
+            displayName: firestoreData.displayName
+          });
+        }
+        
+        setUserData(firestoreData);
       }
       return userCredential;
     } catch (error) {
@@ -92,7 +116,10 @@ export const FirebaseProvider = ({ children }) => {
     
     try {
       // Update auth profile
-      await updateProfile(auth.currentUser, profile);
+      await updateProfile(auth.currentUser, {
+        displayName: profile.displayName,
+        photoURL: profile.photoURL
+      });
       
       // Update Firestore document
       const userRef = doc(db, 'users', auth.currentUser.uid);
