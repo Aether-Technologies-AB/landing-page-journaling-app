@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { 
   auth,
+  db,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -9,6 +10,7 @@ import {
   updateProfile,
   sendEmailVerification
 } from '../firebase/config';
+import { doc, setDoc, getDoc, updateDoc, collection } from 'firebase/firestore';
 
 const FirebaseContext = createContext();
 
@@ -19,25 +21,65 @@ export const useFirebase = () => {
 export const FirebaseProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
+      if (user) {
+        // Fetch user data from Firestore when auth state changes
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
+        if (userDoc.exists()) {
+          setUserData(userDoc.data());
+        }
+      } else {
+        setUserData(null);
+      }
       setLoading(false);
     });
 
     return unsubscribe;
   }, []);
 
-  const signup = async (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const signup = async (email, password, additionalData = {}) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Create user document in Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        email: user.email,
+        createdAt: new Date().toISOString(),
+        ...additionalData
+      });
+
+      // Send email verification
+      await sendEmailVerification(user);
+
+      return userCredential;
+    } catch (error) {
+      console.error('Error in signup:', error);
+      throw error;
+    }
   };
 
   const login = async (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // Fetch user data after login
+      const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
+      if (userDoc.exists()) {
+        setUserData(userDoc.data());
+      }
+      return userCredential;
+    } catch (error) {
+      console.error('Error in login:', error);
+      throw error;
+    }
   };
 
   const logout = async () => {
+    setUserData(null);
     return signOut(auth);
   };
 
@@ -47,23 +89,61 @@ export const FirebaseProvider = ({ children }) => {
 
   const updateUserProfile = async (profile) => {
     if (!auth.currentUser) throw new Error('No user logged in');
-    return updateProfile(auth.currentUser, profile);
+    
+    try {
+      // Update auth profile
+      await updateProfile(auth.currentUser, profile);
+      
+      // Update Firestore document
+      const userRef = doc(db, 'users', auth.currentUser.uid);
+      await updateDoc(userRef, {
+        displayName: profile.displayName,
+        photoURL: profile.photoURL,
+        updatedAt: new Date().toISOString()
+      });
+
+      // Fetch updated user data
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        setUserData(userDoc.data());
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      throw error;
+    }
   };
 
-  const verifyEmail = async () => {
+  const updateUserData = async (data) => {
     if (!auth.currentUser) throw new Error('No user logged in');
-    return sendEmailVerification(auth.currentUser);
+    
+    try {
+      const userRef = doc(db, 'users', auth.currentUser.uid);
+      await updateDoc(userRef, {
+        ...data,
+        updatedAt: new Date().toISOString()
+      });
+
+      // Fetch updated user data
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        setUserData(userDoc.data());
+      }
+    } catch (error) {
+      console.error('Error updating user data:', error);
+      throw error;
+    }
   };
 
   const value = {
     user,
+    userData,
     loading,
     signup,
     login,
     logout,
     resetPassword,
     updateUserProfile,
-    verifyEmail
+    updateUserData
   };
 
   return (

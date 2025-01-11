@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFirebase } from '../contexts/FirebaseContext';
-import { updateProfile, sendEmailVerification } from 'firebase/auth';
 import './Auth.css';
 
 const Register = () => {
@@ -37,21 +36,27 @@ const Register = () => {
     }
 
     try {
-      const userCredential = await signup(formData.email, formData.password);
-      
-      // Update user profile with name using the new updateProfile function
-      await updateProfile(userCredential.user, {
-        displayName: formData.name
+      // Pass additional user data to signup function
+      await signup(formData.email, formData.password, {
+        displayName: formData.name,
+        createdAt: new Date().toISOString(),
+        role: 'user',
+        settings: {
+          notifications: true,
+          emailUpdates: true
+        },
+        profile: {
+          name: formData.name,
+          bio: '',
+          children: []
+        }
       });
-
-      // Send email verification using the new sendEmailVerification function
-      await sendEmailVerification(userCredential.user);
 
       setSuccessMessage('Account created successfully! Verification email sent.');
       navigate('/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
-      setError(error.message || 'Failed to create account. Please try again.');
+      setError(error.message || 'Failed to create account');
     } finally {
       setIsLoading(false);
     }
@@ -65,7 +70,7 @@ const Register = () => {
         {successMessage && <div className="success-message">{successMessage}</div>}
         
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Full Name</label>
           <input
             type="text"
             id="name"
@@ -118,16 +123,12 @@ const Register = () => {
           />
         </div>
 
-        <button 
-          type="submit" 
-          className="auth-button"
-          disabled={isLoading}
-        >
-          {isLoading ? 'Creating Account...' : 'Sign Up'}
+        <button type="submit" className="auth-button" disabled={isLoading}>
+          {isLoading ? 'Creating Account...' : 'Register'}
         </button>
 
         <p className="auth-link">
-          Already have an account? <Link to="/login">Log In</Link>
+          Already have an account? <Link to="/login">Login here</Link>
         </p>
       </form>
     </div>
