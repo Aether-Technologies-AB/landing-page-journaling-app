@@ -1,89 +1,82 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { useFirebase } from '../contexts/FirebaseContext';
+import { createCheckoutSession } from '../services/stripeService';
+import STRIPE_CONFIG from '../config/stripe';
 import './PricingPlans.css';
 
 const PricingPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { user, updateUserData } = useFirebase();
 
   const plans = [
     {
-      id: 'basic',
-      name: 'Basic Plan',
-      price: 'Free',
-      features: [
-        'Limited storage for transcripts',
-        'Essential tools for organizing',
-        'Basic review features',
-      ],
-      priceId: null // Free plan doesn't need a price ID
+      ...STRIPE_CONFIG.plans.basic,
+      priceId: null,
+      isFree: true
     },
     {
-      id: 'enhanced',
-      name: 'Enhanced Plan',
+      ...STRIPE_CONFIG.plans.enhanced,
+      priceId: STRIPE_CONFIG.prices.enhanced,
       price: '29',
       currency: 'SEK',
-      period: '/month',
-      features: [
-        'Increased storage space',
-        'Share transcripts with others',
-        'Collaborative viewing',
-        'Comment on shared transcripts'
-      ],
-      priceId: 'prod_RTdqf9C5cXh8xr'
+      period: '/month'
     },
     {
-      id: 'premium',
-      name: 'Premium Plan',
+      ...STRIPE_CONFIG.plans.premium,
+      priceId: STRIPE_CONFIG.prices.premium,
       price: '39',
       currency: 'SEK',
-      period: '/month',
-      features: [
-        'All Enhanced Plan features',
-        'Interactive transcripts',
-        'Highlight and annotate',
-        'Real-time collaboration',
-        'Live comments and updates'
-      ],
-      priceId: 'prod_RTdr7hKvDAJbM7'
+      period: '/month'
     }
   ];
 
-  const handleSubscribe = async (priceId) => {
-    if (!priceId) {
-      // Handle free plan subscription
+  const handleFreePlan = async () => {
+    if (!user) {
+      window.location.href = '/login';
       return;
     }
 
+    setLoading(true);
     try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        // Redirect to login if not authenticated
-        window.location.href = '/login';
-        return;
-      }
-
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/create-checkout-session`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          priceId: priceId
-        })
+      // Update user's subscription status in Firestore
+      await updateUserData({
+        subscription: {
+          plan: 'basic',
+          status: 'active',
+          startDate: new Date().toISOString()
+        }
       });
+      
+      // Redirect to dashboard
+      window.location.href = '/dashboard?subscription=activated';
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to activate free plan. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      if (!response.ok) {
-        throw new Error('Failed to create checkout session');
+  const handleSubscribe = async (plan) => {
+    if (!user) {
+      window.location.href = '/login';
+      return;
+    }
+
+    setLoading(true);
+    try {
+      if (plan.isFree) {
+        await handleFreePlan();
+      } else {
+        await createCheckoutSession(plan.priceId, user.uid);
       }
-
-      const session = await response.json();
-
-      // Redirect to Stripe Checkout
-      window.location.href = session.url;
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to process subscription. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -96,41 +89,44 @@ const PricingPlans = () => {
         {plans.map((plan) => (
           <div 
             key={plan.id}
-            className={`pricing-plan ${selectedPlan === plan.id ? 'selected' : ''}`}
+            className={`pricing-plan ${selectedPlan === plan.id ? 'selected' : ''} ${plan.id === 'premium' ? 'featured' : ''}`}
             onClick={() => setSelectedPlan(plan.id)}
           >
-            <div className="plan-header">
-              <h3>{plan.name}</h3>
-              <div className="plan-price">
-                {plan.price === 'Free' ? (
-                  <span className="price">{plan.price}</span>
-                ) : (
-                  <>
-                    <span className="currency">{plan.currency}</span>
-                    <span className="price">{plan.price}</span>
-                    <span className="period">{plan.period}</span>
-                  </>
-                )}
-              </div>
+            {plan.id === 'premium' && <div className="featured-badge">Most Popular</div>}
+            <h3>{plan.name}</h3>
+            <div className="price">
+              {plan.isFree ? (
+                <span className="amount">Free</span>
+              ) : (
+                <>
+                  <span className="amount">{plan.price}</span>
+                  <span className="currency">{plan.currency}</span>
+                  <span className="period">{plan.period}</span>
+                </>
+              )}
             </div>
-
-            <ul className="plan-features">
+            <ul className="features">
               {plan.features.map((feature, index) => (
                 <li key={index}>
-                  <FaCheck className="feature-icon" />
+                  <FaCheck className="check-icon" />
                   {feature}
                 </li>
               ))}
             </ul>
-
-            <button 
-              className="subscribe-button"
+            <button
+              className={`subscribe-button ${plan.id === 'premium' ? 'featured' : ''}`}
               onClick={(e) => {
                 e.stopPropagation();
-                handleSubscribe(plan.priceId);
+                handleSubscribe(plan);
               }}
+              disabled={loading}
             >
-              {plan.price === 'Free' ? 'Get Started' : 'Subscribe Now'}
+              {loading && selectedPlan === plan.id 
+                ? 'Processing...' 
+                : plan.isFree 
+                  ? 'Get Started' 
+                  : 'Subscribe Now'
+              }
             </button>
           </div>
         ))}
