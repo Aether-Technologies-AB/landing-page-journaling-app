@@ -20,6 +20,7 @@ const STRIPE_CONFIG = {
     enhanced: {
       id: 'enhanced',
       name: 'Enhanced Plan',
+      priceId: process.env.REACT_APP_STRIPE_ENHANCED_PRICE_ID,
       price: '29 SEK/month',
       features: [
         'Store up to 500 memories',
@@ -34,6 +35,7 @@ const STRIPE_CONFIG = {
     premium: {
       id: 'premium',
       name: 'Premium Plan',
+      priceId: process.env.REACT_APP_STRIPE_PREMIUM_PRICE_ID,
       price: '39 SEK/month',
       features: [
         'Unlimited memories',
@@ -49,5 +51,11 @@ const STRIPE_CONFIG = {
     }
   }
 };
+
+console.log('Stripe Config:', {
+  publishableKey: STRIPE_CONFIG.publishableKey,
+  enhancedPriceId: STRIPE_CONFIG.prices.enhanced,
+  premiumPriceId: STRIPE_CONFIG.prices.premium
+});
 
 export default STRIPE_CONFIG;
