@@ -31,10 +31,10 @@
   "scripts": {
     "dev": "react-scripts start",
     "start": "node server.js",
-    "build": "react-scripts build",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "GENERATE_SOURCEMAP=false npm run build"
   },
   "eslintConfig": {
     "extends": [
