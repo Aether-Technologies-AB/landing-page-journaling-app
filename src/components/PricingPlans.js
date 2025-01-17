@@ -13,19 +13,16 @@ const PricingPlans = () => {
   const plans = [
     {
       ...STRIPE_CONFIG.plans.basic,
-      priceId: null,
       isFree: true
     },
     {
       ...STRIPE_CONFIG.plans.enhanced,
-      priceId: STRIPE_CONFIG.prices.enhanced,
       price: '29',
       currency: 'SEK',
       period: '/month'
     },
     {
       ...STRIPE_CONFIG.plans.premium,
-      priceId: STRIPE_CONFIG.prices.premium,
       price: '39',
       currency: 'SEK',
       period: '/month'

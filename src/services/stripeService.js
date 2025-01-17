@@ -29,21 +29,21 @@ export const createCheckoutSession = async (priceId, userId) => {
       }),
     });
 
+    console.log('Server response status:', response.status);
+    const data = await response.json();
+    console.log('Server response data:', data);
+
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to create checkout session');
+      throw new Error(data.error || 'Failed to create checkout session');
     }
 
-    const session = await response.json();
-    console.log('Checkout session created:', session);
-
-    if (!session.id) {
+    if (!data.id) {
       throw new Error('No session ID returned from server');
     }
 
-    // Redirect to Stripe checkout
+    console.log('Redirecting to checkout with session ID:', data.id);
     const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
+      sessionId: data.id,
     });
 
     if (result.error) {

@@ -13,7 +13,13 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
     const { priceId, userId, successUrl, cancelUrl } = req.body;
-    console.log('Received checkout request:', { priceId, userId, successUrl, cancelUrl });
+    console.log('Creating checkout session with:', {
+      priceId,
+      userId,
+      successUrl,
+      cancelUrl,
+      stripeKey: process.env.STRIPE_SECRET_KEY ? 'present' : 'missing'
+    });
 
     if (!priceId) {
       throw new Error('Price ID is required');
@@ -23,8 +29,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
       throw new Error('Stripe secret key is not configured');
     }
 
-    console.log('Creating Stripe checkout session...');
-    const session = await stripe.checkout.sessions.create({
+    const sessionConfig = {
       mode: 'subscription',
       payment_method_types: ['card'],
       line_items: [
@@ -36,14 +41,23 @@ app.post('/api/create-checkout-session', async (req, res) => {
       success_url: successUrl || `${process.env.CLIENT_URL}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: cancelUrl || `${process.env.CLIENT_URL}/pricing`,
       client_reference_id: userId,
-    });
+    };
 
-    console.log('Checkout session created:', session.id);
+    console.log('Session config:', sessionConfig);
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
+    console.log('Session created:', session.id);
+
     res.json({ id: session.id });
   } catch (error) {
-    console.error('Error creating checkout session:', error.message);
+    console.error('Error creating checkout session:', {
+      message: error.message,
+      type: error.type,
+      stack: error.stack
+    });
     res.status(500).json({ 
       error: error.message,
+      type: error.type,
       stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
     });
   }
