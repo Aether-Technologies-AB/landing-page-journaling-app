@@ -44,15 +44,7 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 export { 
-  app,
   auth,
   db,
-  storage,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
-  updateProfile,
-  sendEmailVerification
+  storage
 };
