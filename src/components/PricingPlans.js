@@ -67,6 +67,10 @@ const PricingPlans = () => {
 
     setLoading(true);
     try {
+      console.log('Subscribing to plan:', plan);
+      console.log('Price ID:', plan.priceId);
+      console.log('User ID:', user.uid);
+      
       if (plan.isFree) {
         await handleFreePlan();
       } else {

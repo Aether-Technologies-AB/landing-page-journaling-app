@@ -12,6 +12,7 @@ export const getStripe = () => {
 
 export const createCheckoutSession = async (priceId, userId) => {
   try {
+    console.log('Creating checkout session with:', { priceId, userId });
     const stripe = await getStripe();
     
     // Create a checkout session
@@ -28,7 +29,17 @@ export const createCheckoutSession = async (priceId, userId) => {
       }),
     });
 
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to create checkout session');
+    }
+
     const session = await response.json();
+    console.log('Checkout session created:', session);
+
+    if (!session.id) {
+      throw new Error('No session ID returned from server');
+    }
 
     // Redirect to Stripe checkout
     const result = await stripe.redirectToCheckout({

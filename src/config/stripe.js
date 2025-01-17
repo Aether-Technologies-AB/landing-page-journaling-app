@@ -1,5 +1,5 @@
 const STRIPE_CONFIG = {
-  publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY,
+  publishableKey: process.env.REACT_APP_STRIPE_PUBLIC_KEY,
   prices: {
     enhanced: process.env.REACT_APP_STRIPE_ENHANCED_PRICE_ID,
     premium: process.env.REACT_APP_STRIPE_PREMIUM_PRICE_ID

@@ -9,6 +9,32 @@ app.use(express.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
+// Create Checkout Session endpoint
+app.post('/api/create-checkout-session', async (req, res) => {
+  try {
+    const { priceId, userId, successUrl, cancelUrl } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      success_url: successUrl,
+      cancel_url: cancelUrl,
+      client_reference_id: userId,
+    });
+
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error('Error creating checkout session:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Stripe webhook endpoint
 app.post('/webhook', express.raw({type: 'application/json'}), async (req, res) => {
   const sig = req.headers['stripe-signature'];
@@ -50,30 +76,6 @@ app.post('/webhook', express.raw({type: 'application/json'}), async (req, res) =
   }
 
   res.json({received: true});
-});
-
-// Create checkout session endpoint
-app.post('/api/create-checkout-session', async (req, res) => {
-  const { priceId, userId, successUrl, cancelUrl } = req.body;
-
-  try {
-    const session = await stripe.checkout.sessions.create({
-      mode: 'subscription',
-      payment_method_types: ['card'],
-      line_items: [{
-        price: priceId,
-        quantity: 1,
-      }],
-      success_url: successUrl,
-      cancel_url: cancelUrl,
-      client_reference_id: userId,
-    });
-
-    res.json({ id: session.id });
-  } catch (error) {
-    console.error('Error creating checkout session:', error);
-    res.status(500).json({ error: error.message });
-  }
 });
 
 // Update subscription endpoint
