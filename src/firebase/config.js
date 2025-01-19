@@ -35,11 +35,17 @@ const firebaseConfig = {
 
 console.log('Firebase Config:', firebaseConfig);
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// Initialize Firebase with explicit config
+const app = initializeApp({
+  apiKey: "AIzaSyDAqieq7SssPjNBdgWIHS8l6cP0ipWhJ4Y",
+  authDomain: "whisperjournal-bbe7d.firebaseapp.com",
+  projectId: "whisperjournal-bbe7d",
+  storageBucket: "whisperjournal-bbe7d.appspot.com",
+  messagingSenderId: "245116053413",
+  appId: "1:245116053413:web:b110438ae2408dc54a2a4c"
+});
 
-// Get Firebase services
+const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
