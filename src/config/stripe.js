@@ -1,9 +1,5 @@
 const STRIPE_CONFIG = {
-  publishableKey: process.env.REACT_APP_STRIPE_PUBLIC_KEY,
-  prices: {
-    enhanced: process.env.REACT_APP_STRIPE_ENHANCED_PRICE_ID,
-    premium: process.env.REACT_APP_STRIPE_PREMIUM_PRICE_ID
-  },
+  publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY,
   plans: {
     basic: {
       id: 'basic',
@@ -52,10 +48,10 @@ const STRIPE_CONFIG = {
   }
 };
 
-console.log('Stripe Config:', {
-  publishableKey: STRIPE_CONFIG.publishableKey,
-  enhancedPriceId: STRIPE_CONFIG.prices.enhanced,
-  premiumPriceId: STRIPE_CONFIG.prices.premium
+console.log('Stripe Environment Variables:', {
+  publishableKey: process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY ? 'present' : 'missing',
+  enhancedPriceId: process.env.REACT_APP_STRIPE_ENHANCED_PRICE_ID,
+  premiumPriceId: process.env.REACT_APP_STRIPE_PREMIUM_PRICE_ID
 });
 
 export default STRIPE_CONFIG;
