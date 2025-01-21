@@ -37,13 +37,13 @@ export const createCheckoutSession = async (priceId, userId) => {
       throw new Error(data.error || 'Failed to create checkout session');
     }
 
-    if (!data.id) {
+    if (!data.sessionId) {
       throw new Error('No session ID returned from server');
     }
 
-    console.log('Redirecting to checkout with session ID:', data.id);
+    console.log('Redirecting to checkout with session ID:', data.sessionId);
     const result = await stripe.redirectToCheckout({
-      sessionId: data.id,
+      sessionId: data.sessionId,
     });
 
     if (result.error) {
