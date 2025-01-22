@@ -1,7 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const admin = require('firebase-admin');
 const app = express();
+
+// Initialize Firebase Admin with service account credentials directly
+const serviceAccount = require('./config/serviceAccountKey.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
 
 // Middleware to parse JSON payloads
 app.use(express.json());
@@ -40,7 +50,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
       mode: 'subscription',
       success_url: successUrl,
       cancel_url: cancelUrl,
-      client_reference_id: userId
+      client_reference_id: userId,
+      metadata: {
+        userId: userId,
+        priceId: priceId
+      }
     });
 
     res.json({ sessionId: session.id });
@@ -49,6 +63,15 @@ app.post('/api/create-checkout-session', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// Helper function to get plan name from price ID
+const getPlanFromPriceId = (priceId) => {
+  const priceToPlan = {
+    [process.env.REACT_APP_STRIPE_ENHANCED_PRICE_ID]: 'enhanced',
+    [process.env.REACT_APP_STRIPE_PREMIUM_PRICE_ID]: 'premium'
+  };
+  return priceToPlan[priceId] || 'basic';
+};
 
 // Webhook endpoint to handle Stripe events
 app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
@@ -63,14 +86,76 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   }
 
   // Handle the event
-  switch (event.type) {
-    case 'checkout.session.completed':
-      const session = event.data.object;
-      // Handle successful payment
-      console.log('Payment successful for session:', session.id);
-      break;
-    default:
-      console.log(`Unhandled event type ${event.type}`);
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed':
+        const session = event.data.object;
+        const userId = session.metadata.userId;
+        const priceId = session.metadata.priceId;
+        const planName = getPlanFromPriceId(priceId);
+        
+        // Update user's subscription in Firebase
+        await db.collection('users').doc(userId).update({
+          subscription: {
+            plan: planName,
+            status: 'active',
+            startDate: new Date().toISOString(),
+            stripeSubscriptionId: session.subscription,
+            lastUpdated: admin.firestore.FieldValue.serverTimestamp()
+          }
+        });
+        
+        console.log(`Updated subscription for user ${userId} to ${planName} plan`);
+        break;
+
+      case 'customer.subscription.updated':
+        const subscription = event.data.object;
+        const customerId = subscription.customer;
+        
+        // Get user by Stripe customer ID
+        const usersSnapshot = await db.collection('users')
+          .where('stripeCustomerId', '==', customerId)
+          .limit(1)
+          .get();
+        
+        if (!usersSnapshot.empty) {
+          const userDoc = usersSnapshot.docs[0];
+          await userDoc.ref.update({
+            'subscription.status': subscription.status,
+            'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
+          });
+        }
+        break;
+
+      case 'customer.subscription.deleted':
+        const cancelledSubscription = event.data.object;
+        const cancelledCustomerId = cancelledSubscription.customer;
+        
+        // Get user by Stripe customer ID
+        const cancelledUserSnapshot = await db.collection('users')
+          .where('stripeCustomerId', '==', cancelledCustomerId)
+          .limit(1)
+          .get();
+        
+        if (!cancelledUserSnapshot.empty) {
+          const userDoc = cancelledUserSnapshot.docs[0];
+          await userDoc.ref.update({
+            subscription: {
+              plan: 'basic',
+              status: 'inactive',
+              cancelDate: new Date().toISOString(),
+              lastUpdated: admin.firestore.FieldValue.serverTimestamp()
+            }
+          });
+        }
+        break;
+
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+    }
+  } catch (error) {
+    console.error('Error processing webhook:', error);
+    return res.status(500).send(`Webhook processing failed: ${error.message}`);
   }
 
   res.json({ received: true });
