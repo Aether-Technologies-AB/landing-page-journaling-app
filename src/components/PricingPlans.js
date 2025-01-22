@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaStar } from 'react-icons/fa';
 import { useFirebase } from '../contexts/FirebaseContext';
 import { createCheckoutSession } from '../services/stripeService';
 import STRIPE_CONFIG from '../config/stripe';
@@ -8,7 +8,10 @@ import './PricingPlans.css';
 const PricingPlans = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { user, updateUserData } = useFirebase();
+  const { user, userData, updateUserData } = useFirebase();
+
+  const currentPlan = userData?.subscription?.plan || 'none';
+  const isSubscriptionActive = userData?.subscription?.status === 'active';
 
   const plans = [
     {
@@ -84,53 +87,50 @@ const PricingPlans = () => {
   return (
     <div className="pricing-container">
       <h2>Choose Your Plan</h2>
-      <p className="pricing-subtitle">Select the perfect plan for your needs</p>
-      
       <div className="pricing-plans">
-        {plans.map((plan) => (
-          <div 
-            key={plan.id}
-            className={`pricing-plan ${selectedPlan === plan.id ? 'selected' : ''} ${plan.id === 'premium' ? 'featured' : ''}`}
-            onClick={() => setSelectedPlan(plan.id)}
-          >
-            {plan.id === 'premium' && <div className="featured-badge">Most Popular</div>}
-            <h3>{plan.name}</h3>
-            <div className="price">
-              {plan.isFree ? (
-                <span className="amount">Free</span>
-              ) : (
-                <>
-                  <span className="amount">{plan.price}</span>
-                  <span className="currency">{plan.currency}</span>
-                  <span className="period">{plan.period}</span>
-                </>
-              )}
-            </div>
-            <ul className="features">
-              {plan.features.map((feature, index) => (
-                <li key={index}>
-                  <FaCheck className="check-icon" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <button
-              className={`subscribe-button ${plan.id === 'premium' ? 'featured' : ''}`}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleSubscribe(plan);
-              }}
-              disabled={loading}
+        {plans.map((plan) => {
+          const isCurrentPlan = currentPlan === plan.id && isSubscriptionActive;
+          
+          return (
+            <div 
+              key={plan.id} 
+              className={`pricing-plan ${isCurrentPlan ? 'current-plan' : ''}`}
             >
-              {loading && selectedPlan === plan.id 
-                ? 'Processing...' 
-                : plan.isFree 
-                  ? 'Get Started' 
-                  : 'Subscribe Now'
-              }
-            </button>
-          </div>
-        ))}
+              {isCurrentPlan && (
+                <div className="current-plan-badge">
+                  <FaStar /> Current Plan
+                </div>
+              )}
+              <h3>{plan.name}</h3>
+              <div className="price">
+                {plan.isFree ? (
+                  <span>Free</span>
+                ) : (
+                  <>
+                    <span className="amount">{plan.price}</span>
+                    <span className="currency">{plan.currency}</span>
+                    <span className="period">{plan.period}</span>
+                  </>
+                )}
+              </div>
+              <ul className="features">
+                {plan.features.map((feature, index) => (
+                  <li key={index}>
+                    <FaCheck className="check-icon" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => handleSubscribe(plan)}
+                disabled={loading || isCurrentPlan}
+                className={`subscribe-button ${isCurrentPlan ? 'current' : ''}`}
+              >
+                {isCurrentPlan ? 'Current Plan' : plan.isFree ? 'Get Started' : 'Subscribe'}
+              </button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

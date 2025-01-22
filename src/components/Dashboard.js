@@ -1,7 +1,8 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { useFirebase } from '../contexts/FirebaseContext';
-import { FaBook, FaCamera, FaBaby, FaChartLine, FaCog, FaPlus } from 'react-icons/fa';
+import { FaBook, FaCamera, FaBaby, FaChartLine, FaCog, FaPlus, FaCrown, FaArrowRight } from 'react-icons/fa';
+import STRIPE_CONFIG from '../config/stripe';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -13,6 +14,10 @@ const Dashboard = () => {
 
   // Get display name from user auth or userData
   const displayName = user?.displayName || userData?.displayName || 'Parent';
+
+  // Get subscription details
+  const subscription = userData?.subscription || { plan: 'none', status: 'inactive' };
+  const currentPlan = STRIPE_CONFIG.plans[subscription.plan] || STRIPE_CONFIG.plans.basic;
 
   const recentMilestones = [
     { date: '2025-01-08', title: 'First Steps', type: 'Movement' },
@@ -28,6 +33,34 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-grid">
+        {/* Subscription Status Card */}
+        <section className="dashboard-card subscription-status">
+          <div className="subscription-header">
+            <FaCrown className="subscription-icon" />
+            <h2>Your Subscription</h2>
+          </div>
+          
+          <div className="subscription-details">
+            <h3>{currentPlan.name}</h3>
+            <p className="subscription-status-text">
+              Status: <span className={`status-badge ${subscription.status}`}>
+                {subscription.status === 'active' ? 'Active' : 'Inactive'}
+              </span>
+            </p>
+            <ul className="subscription-features">
+              {currentPlan.features.slice(0, 3).map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+            <Link to="/pricing" className="upgrade-button">
+              {subscription.plan === 'premium' 
+                ? 'View Plans' 
+                : 'Upgrade Plan'} 
+              <FaArrowRight />
+            </Link>
+          </div>
+        </section>
+
         <section className="dashboard-card quick-add">
           <h2>Quick Add</h2>
           <div className="quick-add-buttons">
@@ -51,10 +84,13 @@ const Dashboard = () => {
           <div className="milestone-list">
             {recentMilestones.map((milestone, index) => (
               <div key={index} className="milestone-item">
-                <div className="milestone-date">{milestone.date}</div>
-                <div className="milestone-info">
+                <div className="milestone-icon">
+                  <FaBaby />
+                </div>
+                <div className="milestone-details">
                   <h3>{milestone.title}</h3>
-                  <span className="milestone-type">{milestone.type}</span>
+                  <p>{milestone.type}</p>
+                  <small>{milestone.date}</small>
                 </div>
               </div>
             ))}
@@ -62,27 +98,34 @@ const Dashboard = () => {
         </section>
 
         <section className="dashboard-card stats">
-          <h2>Statistics</h2>
+          <h2>Quick Stats</h2>
           <div className="stats-grid">
             <div className="stat-item">
               <FaCamera className="stat-icon" />
-              <div className="stat-info">
-                <span className="stat-value">24</span>
-                <span className="stat-label">Photos</span>
+              <div className="stat-details">
+                <h3>Photos</h3>
+                <p>24</p>
               </div>
             </div>
             <div className="stat-item">
               <FaBook className="stat-icon" />
-              <div className="stat-info">
-                <span className="stat-value">12</span>
-                <span className="stat-label">Stories</span>
+              <div className="stat-details">
+                <h3>Stories</h3>
+                <p>12</p>
               </div>
             </div>
             <div className="stat-item">
               <FaBaby className="stat-icon" />
-              <div className="stat-info">
-                <span className="stat-value">8</span>
-                <span className="stat-label">Milestones</span>
+              <div className="stat-details">
+                <h3>Milestones</h3>
+                <p>8</p>
+              </div>
+            </div>
+            <div className="stat-item">
+              <FaChartLine className="stat-icon" />
+              <div className="stat-details">
+                <h3>Growth</h3>
+                <p>6</p>
               </div>
             </div>
           </div>

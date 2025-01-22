@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 64px);
-  background-color: #f8f9fa;
+  background-color: var(--background-color);
 }
 
 .dashboard-header {
@@ -41,10 +41,98 @@
   font-weight: 600;
 }
 
+/* Subscription Status Card */
+.subscription-status {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border: 1px solid var(--border-color);
+}
+
+.subscription-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscription-icon {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.subscription-details h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.subscription-status-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color-light);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.status-badge.inactive {
+  background-color: var(--text-color-light);
+  color: white;
+}
+
+.subscription-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.subscription-features li {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.subscription-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+.upgrade-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.upgrade-button:hover {
+  background: var(--accent-color-dark);
+}
+
 /* Quick Add Section */
 .quick-add-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -54,24 +142,25 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  border: none;
-  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
+  background: white;
   color: var(--text-color);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .quick-add-btn:hover {
-  background-color: var(--accent-color);
-  color: white;
+  background: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 .quick-add-btn svg {
   font-size: 1.5rem;
+  color: var(--accent-color);
 }
 
-/* Recent Milestones Section */
+/* Recent Activity Section */
 .milestone-list {
   display: flex;
   flex-direction: column;
@@ -80,94 +169,77 @@
 
 .milestone-item {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  padding: 0.75rem;
-  background-color: var(--background-color);
+  padding: 1rem;
+  background: var(--background-color);
   border-radius: 8px;
 }
 
-.milestone-date {
-  font-size: 0.9rem;
-  color: var(--text-color-light);
-  min-width: 90px;
+.milestone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  color: white;
 }
 
-.milestone-info h3 {
+.milestone-details {
+  flex: 1;
+}
+
+.milestone-details h3 {
   font-size: 1rem;
+  margin: 0;
   color: var(--text-color);
-  margin-bottom: 0.25rem;
 }
 
-.milestone-type {
-  font-size: 0.8rem;
-  color: var(--accent-color);
-  background-color: var(--background-color);
-  padding: 0.25rem 0.5rem;
-  border-radius: 12px;
+.milestone-details p {
+  font-size: 0.875rem;
+  color: var(--text-color-light);
+  margin: 0.25rem 0;
 }
 
-/* Statistics Section */
+.milestone-details small {
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+}
+
+/* Stats Section */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
 .stat-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  gap: 1rem;
   padding: 1rem;
-  background-color: var(--background-color);
+  background: var(--background-color);
   border-radius: 8px;
 }
 
 .stat-icon {
-  font-size: 1.5rem;
   color: var(--accent-color);
-  margin-bottom: 0.5rem;
-}
-
-.stat-value {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
 }
 
-.stat-label {
-  font-size: 0.9rem;
+.stat-details h3 {
+  font-size: 0.875rem;
   color: var(--text-color-light);
+  margin: 0;
 }
 
-/* Quick Links Section */
-.quick-links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-}
-
-.quick-link-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border: none;
-  background-color: var(--background-color);
-  border-radius: 8px;
-  color: var(--text-color);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.quick-link-btn:hover {
-  background-color: var(--accent-color);
-  color: white;
-}
-
-.quick-link-btn svg {
+.stat-details p {
   font-size: 1.25rem;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -179,8 +251,11 @@
     grid-template-columns: 1fr;
   }
   
-  .quick-add-buttons,
-  .quick-links-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .quick-add-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }

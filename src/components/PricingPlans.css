@@ -1,7 +1,7 @@
 .pricing-container {
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
   text-align: center;
 }
 
@@ -20,17 +20,18 @@
 .pricing-plans {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .pricing-plan {
-  background: #fff;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   position: relative;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
@@ -42,6 +43,11 @@
 .pricing-plan.featured {
   border: 2px solid #4CAF50;
   transform: scale(1.05);
+}
+
+.pricing-plan.current-plan {
+  border-color: var(--accent-color);
+  transform: scale(1.02);
 }
 
 .featured-badge {
@@ -56,6 +62,20 @@
   font-weight: bold;
 }
 
+.current-plan-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: var(--accent-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .pricing-plan h3 {
   font-size: 1.8rem;
   color: #333;
@@ -63,60 +83,67 @@
 }
 
 .price {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  color: var(--text-color);
   display: flex;
   align-items: baseline;
-  justify-content: center;
+  gap: 0.25rem;
 }
 
-.currency {
-  font-size: 1.5rem;
-  margin-right: 5px;
+.price .currency {
+  font-size: 1.2rem;
+  color: var(--text-color-light);
 }
 
-.period {
+.price .period {
   font-size: 1rem;
-  color: #666;
-  margin-left: 5px;
+  color: var(--text-color-light);
 }
 
 .features {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px;
+  margin: 2rem 0;
   text-align: left;
 }
 
 .features li {
-  margin: 15px 0;
-  color: #555;
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .check-icon {
-  color: #4CAF50;
-  margin-right: 10px;
-  font-size: 1.1rem;
+  color: var(--accent-color);
 }
 
 .subscribe-button {
-  background: #2196F3;
-  color: white;
+  width: 100%;
+  padding: 1rem;
   border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  font-size: 1.1rem;
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
-  font-weight: 600;
 }
 
-.subscribe-button:hover {
-  background: #1976D2;
+.subscribe-button:hover:not(:disabled) {
+  background: var(--primary-color-dark);
+}
+
+.subscribe-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.subscribe-button.current {
+  background: var(--accent-color);
 }
 
 .subscribe-button.featured {
@@ -125,11 +152,6 @@
 
 .subscribe-button.featured:hover {
   background: #388E3C;
-}
-
-.subscribe-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
