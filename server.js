@@ -5,8 +5,21 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const admin = require('firebase-admin');
 const app = express();
 
-// Initialize Firebase Admin with service account credentials directly
-const serviceAccount = require('./config/serviceAccountKey.json');
+// Initialize Firebase Admin with service account credentials
+let serviceAccount;
+try {
+  // Try to parse the credentials from environment variable first (for Heroku)
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+  } else {
+    // Fallback to local file for development
+    serviceAccount = require('./config/serviceAccountKey.json');
+  }
+} catch (error) {
+  console.error('Error initializing Firebase Admin:', error);
+  process.exit(1);
+}
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
