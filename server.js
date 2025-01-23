@@ -8,18 +8,17 @@ const app = express();
 // Initialize Firebase Admin with service account credentials
 let serviceAccount;
 try {
-  // Try to parse the credentials from environment variable first (for Heroku)
-  if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-  } else {
-    // Fallback to local file for development
-    serviceAccount = require('./config/serviceAccountKey.json');
+  // Try to parse the credentials from environment variable
+  serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+  if (!serviceAccount) {
+    throw new Error('No service account credentials found');
   }
 } catch (error) {
-  console.error('Error initializing Firebase Admin:', error);
+  console.error('Error parsing Firebase credentials:', error);
   process.exit(1);
 }
 
+// Initialize Firebase Admin
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
