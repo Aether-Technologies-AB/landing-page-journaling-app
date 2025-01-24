@@ -6,22 +6,26 @@ const admin = require('firebase-admin');
 const app = express();
 
 // Initialize Firebase Admin with service account credentials
-let serviceAccount;
 try {
-  // Try to parse the credentials from environment variable
-  serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-  if (!serviceAccount) {
-    throw new Error('No service account credentials found');
+  const serviceAccount = {
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : undefined,
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL
+  };
+
+  if (!serviceAccount.projectId || !serviceAccount.privateKey || !serviceAccount.clientEmail) {
+    throw new Error('Missing required Firebase configuration. Check environment variables.');
   }
+
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+  });
+  
+  console.log('Firebase Admin initialized successfully');
 } catch (error) {
-  console.error('Error parsing Firebase credentials:', error);
+  console.error('Error initializing Firebase Admin:', error);
   process.exit(1);
 }
-
-// Initialize Firebase Admin
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
 
 const db = admin.firestore();
 
