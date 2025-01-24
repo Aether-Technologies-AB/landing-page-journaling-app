@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc, onSnapshot } from 'firebase/firestore';
 
 export const handleSuccessfulPayment = async (session) => {
   const userId = session.client_reference_id;
@@ -53,5 +53,40 @@ export const handleSubscriptionChange = async (subscription) => {
   } catch (error) {
     console.error('Error updating subscription status:', error);
     throw error;
+  }
+};
+
+export const subscribeToUserPlan = (userId, callback) => {
+  const userRef = doc(db, 'users', userId);
+  return onSnapshot(userRef, (doc) => {
+    if (doc.exists()) {
+      const userData = doc.data();
+      callback({
+        plan: userData.subscription?.plan || 'basic',
+        status: userData.subscription?.status || 'inactive',
+        currentPeriodEnd: userData.subscription?.currentPeriodEnd,
+      });
+    }
+  });
+};
+
+export const getCurrentPlan = async (userId) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    const userDoc = await getDoc(userRef);
+
+    if (!userDoc.exists()) {
+      return { plan: 'basic', status: 'inactive' };
+    }
+
+    const userData = userDoc.data();
+    return {
+      plan: userData.subscription?.plan || 'basic',
+      status: userData.subscription?.status || 'inactive',
+      currentPeriodEnd: userData.subscription?.currentPeriodEnd,
+    };
+  } catch (error) {
+    console.error('Error getting current plan:', error);
+    return { plan: 'basic', status: 'inactive' };
   }
 };

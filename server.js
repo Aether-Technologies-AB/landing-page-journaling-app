@@ -110,13 +110,18 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         const priceId = session.metadata.priceId;
         const planName = getPlanFromPriceId(priceId);
         
+        // Get the subscription details
+        const subscription = await stripe.subscriptions.retrieve(session.subscription);
+        
         // Update user's subscription in Firebase
         await db.collection('users').doc(userId).update({
           subscription: {
             plan: planName,
             status: 'active',
-            startDate: new Date().toISOString(),
+            priceId: priceId,
+            stripeCustomerId: session.customer,
             stripeSubscriptionId: session.subscription,
+            currentPeriodEnd: new Date(subscription.current_period_end * 1000),
             lastUpdated: admin.firestore.FieldValue.serverTimestamp()
           }
         });
