@@ -5,6 +5,135 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const admin = require('firebase-admin');
 const app = express();
 
+// Webhook endpoint must come before any middleware that parses the body
+app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  let event;
+
+  console.log('Received webhook:', {
+    type: req.body.type,
+    signature: sig ? 'present' : 'missing'
+  });
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+    console.log('Webhook verified. Event type:', event.type);
+  } catch (err) {
+    console.error('Webhook Error:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the event
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed':
+        const session = event.data.object;
+        const userId = session.metadata.userId;
+        const priceId = session.metadata.priceId;
+        const planName = getPlanFromPriceId(priceId);
+        
+        console.log('Processing checkout.session.completed:', {
+          userId,
+          priceId,
+          planName,
+          sessionId: session.id,
+          subscriptionId: session.subscription
+        });
+        
+        // Get the subscription details
+        const subscriptionDetails = await stripe.subscriptions.retrieve(session.subscription);
+        console.log('Retrieved subscription details:', {
+          status: subscriptionDetails.status,
+          currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000)
+        });
+        
+        // Update user's subscription in Firebase
+        await db.collection('users').doc(userId).update({
+          subscription: {
+            plan: planName,
+            status: 'active',
+            priceId: priceId,
+            stripeCustomerId: session.customer,
+            stripeSubscriptionId: session.subscription,
+            currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000),
+            lastUpdated: admin.firestore.FieldValue.serverTimestamp()
+          }
+        });
+        
+        console.log(`Successfully updated subscription for user ${userId} to ${planName} plan`);
+        break;
+
+      case 'customer.subscription.updated':
+        const updatedSubscription = event.data.object;
+        const customerId = updatedSubscription.customer;
+        
+        console.log('Processing customer.subscription.updated:', {
+          subscriptionId: updatedSubscription.id,
+          customerId,
+          status: updatedSubscription.status
+        });
+        
+        // Get user by Stripe customer ID
+        const usersSnapshot = await db.collection('users')
+          .where('stripeCustomerId', '==', customerId)
+          .limit(1)
+          .get();
+        
+        if (!usersSnapshot.empty) {
+          const userDoc = usersSnapshot.docs[0];
+          await userDoc.ref.update({
+            'subscription.status': updatedSubscription.status,
+            'subscription.currentPeriodEnd': new Date(updatedSubscription.current_period_end * 1000),
+            'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
+          });
+          console.log(`Updated subscription status for user ${userDoc.id} to ${updatedSubscription.status}`);
+        }
+        break;
+
+      case 'customer.subscription.deleted':
+        const cancelledSubscription = event.data.object;
+        const cancelledCustomerId = cancelledSubscription.customer;
+        
+        console.log('Processing customer.subscription.deleted:', {
+          subscriptionId: cancelledSubscription.id,
+          customerId: cancelledCustomerId
+        });
+        
+        // Get user by Stripe customer ID
+        const cancelledUserSnapshot = await db.collection('users')
+          .where('stripeCustomerId', '==', cancelledCustomerId)
+          .limit(1)
+          .get();
+        
+        if (!cancelledUserSnapshot.empty) {
+          const userDoc = cancelledUserSnapshot.docs[0];
+          await userDoc.ref.update({
+            subscription: {
+              plan: 'basic',
+              status: 'inactive',
+              cancelDate: new Date().toISOString(),
+              lastUpdated: admin.firestore.FieldValue.serverTimestamp()
+            }
+          });
+          console.log(`Updated subscription status for user ${userDoc.id} to inactive`);
+        }
+        break;
+
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+    }
+
+    res.json({ received: true });
+  } catch (err) {
+    console.error('Error processing webhook:', err);
+    res.status(500).send(`Webhook Error: ${err.message}`);
+  }
+});
+
+// Regular middleware for other routes
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'build')));
+
 // Initialize Firebase Admin with service account credentials
 try {
   const serviceAccount = {
@@ -89,100 +218,6 @@ const getPlanFromPriceId = (priceId) => {
   return priceToPlan[priceId] || 'basic';
 };
 
-// Webhook endpoint to handle Stripe events
-app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
-  const sig = req.headers['stripe-signature'];
-  let event;
-
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.error('Webhook Error:', err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
-
-  // Handle the event
-  try {
-    switch (event.type) {
-      case 'checkout.session.completed':
-        const session = event.data.object;
-        const userId = session.metadata.userId;
-        const priceId = session.metadata.priceId;
-        const planName = getPlanFromPriceId(priceId);
-        
-        // Get the subscription details
-        const subscriptionDetails = await stripe.subscriptions.retrieve(session.subscription);
-        
-        // Update user's subscription in Firebase
-        await db.collection('users').doc(userId).update({
-          subscription: {
-            plan: planName,
-            status: 'active',
-            priceId: priceId,
-            stripeCustomerId: session.customer,
-            stripeSubscriptionId: session.subscription,
-            currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000),
-            lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-          }
-        });
-        
-        console.log(`Updated subscription for user ${userId} to ${planName} plan`);
-        break;
-
-      case 'customer.subscription.updated':
-        const updatedSubscription = event.data.object;
-        const customerId = updatedSubscription.customer;
-        
-        // Get user by Stripe customer ID
-        const usersSnapshot = await db.collection('users')
-          .where('stripeCustomerId', '==', customerId)
-          .limit(1)
-          .get();
-        
-        if (!usersSnapshot.empty) {
-          const userDoc = usersSnapshot.docs[0];
-          await userDoc.ref.update({
-            'subscription.status': updatedSubscription.status,
-            'subscription.currentPeriodEnd': new Date(updatedSubscription.current_period_end * 1000),
-            'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
-          });
-        }
-        break;
-
-      case 'customer.subscription.deleted':
-        const cancelledSubscription = event.data.object;
-        const cancelledCustomerId = cancelledSubscription.customer;
-        
-        // Get user by Stripe customer ID
-        const cancelledUserSnapshot = await db.collection('users')
-          .where('stripeCustomerId', '==', cancelledCustomerId)
-          .limit(1)
-          .get();
-        
-        if (!cancelledUserSnapshot.empty) {
-          const userDoc = cancelledUserSnapshot.docs[0];
-          await userDoc.ref.update({
-            subscription: {
-              plan: 'basic',
-              status: 'inactive',
-              cancelDate: new Date().toISOString(),
-              lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-            }
-          });
-        }
-        break;
-
-      default:
-        console.log(`Unhandled event type ${event.type}`);
-    }
-  } catch (error) {
-    console.error('Error processing webhook:', error);
-    return res.status(500).send(`Webhook processing failed: ${error.message}`);
-  }
-
-  res.json({ received: true });
-});
-
 // Log environment variables (excluding sensitive values)
 console.log('Environment variables status:', {
   NODE_ENV: process.env.NODE_ENV,
@@ -190,6 +225,7 @@ console.log('Environment variables status:', {
   FIREBASE_AUTH_DOMAIN: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ? 'present' : 'missing',
   FIREBASE_PROJECT_ID: process.env.REACT_APP_FIREBASE_PROJECT_ID ? 'present' : 'missing',
   STRIPE_PUBLIC_KEY: process.env.REACT_APP_STRIPE_PUBLIC_KEY ? 'present' : 'missing',
+  STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET ? 'present' : 'missing',
   PORT: process.env.PORT || 3000
 });
 
