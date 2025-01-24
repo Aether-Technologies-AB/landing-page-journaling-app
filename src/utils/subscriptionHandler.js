@@ -57,20 +57,37 @@ export const handleSubscriptionChange = async (subscription) => {
 };
 
 export const subscribeToUserPlan = (userId, callback) => {
+  if (!userId) {
+    callback({ plan: 'basic', status: 'inactive' });
+    return () => {};
+  }
+
   const userRef = doc(db, 'users', userId);
   return onSnapshot(userRef, (doc) => {
     if (doc.exists()) {
       const userData = doc.data();
+      const subscription = userData.subscription || {};
+      
       callback({
-        plan: userData.subscription?.plan || 'basic',
-        status: userData.subscription?.status || 'inactive',
-        currentPeriodEnd: userData.subscription?.currentPeriodEnd,
+        plan: subscription.plan || 'basic',
+        status: subscription.status || 'inactive',
+        currentPeriodEnd: subscription.currentPeriodEnd,
+        lastUpdated: subscription.lastUpdated?.toDate(),
       });
+    } else {
+      callback({ plan: 'basic', status: 'inactive' });
     }
+  }, (error) => {
+    console.error('Error subscribing to user plan:', error);
+    callback({ plan: 'basic', status: 'inactive' });
   });
 };
 
 export const getCurrentPlan = async (userId) => {
+  if (!userId) {
+    return { plan: 'basic', status: 'inactive' };
+  }
+
   try {
     const userRef = doc(db, 'users', userId);
     const userDoc = await getDoc(userRef);
@@ -80,10 +97,13 @@ export const getCurrentPlan = async (userId) => {
     }
 
     const userData = userDoc.data();
+    const subscription = userData.subscription || {};
+
     return {
-      plan: userData.subscription?.plan || 'basic',
-      status: userData.subscription?.status || 'inactive',
-      currentPeriodEnd: userData.subscription?.currentPeriodEnd,
+      plan: subscription.plan || 'basic',
+      status: subscription.status || 'inactive',
+      currentPeriodEnd: subscription.currentPeriodEnd,
+      lastUpdated: subscription.lastUpdated?.toDate(),
     };
   } catch (error) {
     console.error('Error getting current plan:', error);

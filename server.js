@@ -111,7 +111,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         const planName = getPlanFromPriceId(priceId);
         
         // Get the subscription details
-        const subscription = await stripe.subscriptions.retrieve(session.subscription);
+        const subscriptionDetails = await stripe.subscriptions.retrieve(session.subscription);
         
         // Update user's subscription in Firebase
         await db.collection('users').doc(userId).update({
@@ -121,7 +121,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
             priceId: priceId,
             stripeCustomerId: session.customer,
             stripeSubscriptionId: session.subscription,
-            currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+            currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000),
             lastUpdated: admin.firestore.FieldValue.serverTimestamp()
           }
         });
@@ -130,8 +130,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         break;
 
       case 'customer.subscription.updated':
-        const subscription = event.data.object;
-        const customerId = subscription.customer;
+        const updatedSubscription = event.data.object;
+        const customerId = updatedSubscription.customer;
         
         // Get user by Stripe customer ID
         const usersSnapshot = await db.collection('users')
@@ -142,7 +142,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         if (!usersSnapshot.empty) {
           const userDoc = usersSnapshot.docs[0];
           await userDoc.ref.update({
-            'subscription.status': subscription.status,
+            'subscription.status': updatedSubscription.status,
+            'subscription.currentPeriodEnd': new Date(updatedSubscription.current_period_end * 1000),
             'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
           });
         }
