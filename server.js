@@ -72,11 +72,12 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         console.log(`Successfully updated subscription for user ${userId} to ${planName} plan`);
         break;
 
+      case 'customer.subscription.created':
       case 'customer.subscription.updated':
         const updatedSubscription = event.data.object;
         const customerId = updatedSubscription.customer;
         
-        console.log('Processing customer.subscription.updated:', {
+        console.log(`Processing ${event.type}:`, {
           subscriptionId: updatedSubscription.id,
           customerId,
           status: updatedSubscription.status
@@ -132,6 +133,16 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         }
         break;
 
+      case 'invoice.payment_succeeded':
+      case 'invoice.payment_failed':
+        // Log these events but no action needed as subscription.updated will handle the status
+        console.log(`Received ${event.type} event:`, {
+          customerId: event.data.object.customer,
+          subscriptionId: event.data.object.subscription,
+          status: event.data.object.status
+        });
+        break;
+
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
@@ -149,26 +160,23 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Initialize Firebase Admin with service account credentials
 try {
-  const serviceAccount = {
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY,  // No need to replace \n as it's already formatted
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL
-  };
-
-  if (!serviceAccount.projectId || !serviceAccount.privateKey || !serviceAccount.clientEmail) {
-    throw new Error('Missing required Firebase configuration. Check environment variables.');
+  // Parse the complete Firebase config
+  const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+  
+  if (!firebaseConfig.project_id || !firebaseConfig.private_key || !firebaseConfig.client_email) {
+    throw new Error('Missing required Firebase configuration. Check FIREBASE_CONFIG environment variable.');
   }
 
   // Log the first few characters of credentials for debugging (not the whole thing for security)
   console.log('Firebase credentials check:', {
-    projectId: serviceAccount.projectId,
-    clientEmail: serviceAccount.clientEmail,
-    privateKeyLength: serviceAccount.privateKey?.length,
-    privateKeyStart: serviceAccount.privateKey?.substring(0, 50)
+    projectId: firebaseConfig.project_id,
+    clientEmail: firebaseConfig.client_email,
+    privateKeyLength: firebaseConfig.private_key?.length,
+    privateKeyStart: firebaseConfig.private_key?.substring(0, 50)
   });
 
   admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
+    credential: admin.credential.cert(firebaseConfig)
   });
   
   console.log('Firebase Admin initialized successfully');
