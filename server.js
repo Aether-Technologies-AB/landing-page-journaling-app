@@ -28,8 +28,17 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object;
-        const userId = session.metadata.userId;
-        const priceId = session.metadata.priceId;
+        const userId = session.metadata?.userId;
+        const priceId = session.metadata?.priceId;
+
+        if (!userId) {
+          throw new Error('No userId found in session metadata');
+        }
+
+        if (!priceId) {
+          throw new Error('No priceId found in session metadata');
+        }
+
         const planName = getPlanFromPriceId(priceId);
         
         console.log('Processing checkout.session.completed:', {
@@ -75,7 +84,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         
         // Get user by Stripe customer ID
         const usersSnapshot = await db.collection('users')
-          .where('stripeCustomerId', '==', customerId)
+          .where('subscription.stripeCustomerId', '==', customerId)
           .limit(1)
           .get();
         
@@ -87,6 +96,8 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
             'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
           });
           console.log(`Updated subscription status for user ${userDoc.id} to ${updatedSubscription.status}`);
+        } else {
+          console.log(`No user found with Stripe customer ID: ${customerId}`);
         }
         break;
 
@@ -101,7 +112,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
         
         // Get user by Stripe customer ID
         const cancelledUserSnapshot = await db.collection('users')
-          .where('stripeCustomerId', '==', cancelledCustomerId)
+          .where('subscription.stripeCustomerId', '==', cancelledCustomerId)
           .limit(1)
           .get();
         
@@ -111,11 +122,13 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
             subscription: {
               plan: 'basic',
               status: 'inactive',
-              cancelDate: new Date().toISOString(),
+              cancelDate: admin.firestore.FieldValue.serverTimestamp(),
               lastUpdated: admin.firestore.FieldValue.serverTimestamp()
             }
           });
           console.log(`Updated subscription status for user ${userDoc.id} to inactive`);
+        } else {
+          console.log(`No user found with Stripe customer ID: ${cancelledCustomerId}`);
         }
         break;
 
@@ -178,6 +191,10 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
     if (!priceId) {
       throw new Error('Price ID is required');
+    }
+
+    if (!userId) {
+      throw new Error('User ID is required');
     }
 
     if (!process.env.STRIPE_SECRET_KEY) {
