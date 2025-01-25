@@ -160,23 +160,36 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Initialize Firebase Admin with service account credentials
 try {
-  // Parse the complete Firebase config
-  const firebaseConfig = JSON.parse(process.env.FIREBASE_CONFIG);
+  // Get the private key from environment variable and handle newlines
+  const privateKey = process.env.FIREBASE_PRIVATE_KEY;
   
-  if (!firebaseConfig.project_id || !firebaseConfig.private_key || !firebaseConfig.client_email) {
-    throw new Error('Missing required Firebase configuration. Check FIREBASE_CONFIG environment variable.');
+  if (!privateKey) {
+    throw new Error('FIREBASE_PRIVATE_KEY environment variable is required');
   }
 
-  // Log the first few characters of credentials for debugging (not the whole thing for security)
+  const serviceAccount = {
+    type: 'service_account',
+    project_id: process.env.FIREBASE_PROJECT_ID,
+    private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
+    private_key: privateKey,
+    client_email: process.env.FIREBASE_CLIENT_EMAIL,
+    client_id: process.env.FIREBASE_CLIENT_ID,
+    auth_uri: "https://accounts.google.com/o/oauth2/auth",
+    token_uri: "https://oauth2.googleapis.com/token",
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+    client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${encodeURIComponent(process.env.FIREBASE_CLIENT_EMAIL)}`
+  };
+
+  // Log configuration for debugging (excluding sensitive data)
   console.log('Firebase credentials check:', {
-    projectId: firebaseConfig.project_id,
-    clientEmail: firebaseConfig.client_email,
-    privateKeyLength: firebaseConfig.private_key?.length,
-    privateKeyStart: firebaseConfig.private_key?.substring(0, 50)
+    projectId: serviceAccount.project_id,
+    clientEmail: serviceAccount.client_email,
+    privateKeyPresent: !!serviceAccount.private_key,
+    privateKeyLength: serviceAccount.private_key?.length
   });
 
   admin.initializeApp({
-    credential: admin.credential.cert(firebaseConfig)
+    credential: admin.credential.cert(serviceAccount)
   });
   
   console.log('Firebase Admin initialized successfully');
