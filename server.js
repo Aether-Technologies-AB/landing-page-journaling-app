@@ -160,11 +160,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Initialize Firebase Admin with service account credentials
 try {
-  // Get the private key from environment variable and handle newlines
-  const privateKey = process.env.FIREBASE_PRIVATE_KEY;
+  // Get the private key and ensure proper formatting
+  let privateKey = process.env.FIREBASE_PRIVATE_KEY;
   
-  if (!privateKey) {
-    throw new Error('FIREBASE_PRIVATE_KEY environment variable is required');
+  // If the key is wrapped in quotes, remove them and replace escaped newlines
+  if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+    privateKey = privateKey.slice(1, -1).replace(/\\n/g, '\n');
   }
 
   const serviceAccount = {
@@ -185,7 +186,8 @@ try {
     projectId: serviceAccount.project_id,
     clientEmail: serviceAccount.client_email,
     privateKeyPresent: !!serviceAccount.private_key,
-    privateKeyLength: serviceAccount.private_key?.length
+    privateKeyLength: serviceAccount.private_key?.length,
+    privateKeyStart: serviceAccount.private_key?.substring(0, 50)
   });
 
   admin.initializeApp({
@@ -252,6 +254,29 @@ app.post('/api/create-checkout-session', async (req, res) => {
   } catch (error) {
     console.error('Error creating checkout session:', error);
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Test endpoint for Firebase connection
+app.get('/test-firebase', async (req, res) => {
+  try {
+    // Try to read from users collection
+    const usersRef = db.collection('users');
+    const snapshot = await usersRef.limit(1).get();
+    
+    console.log('Firebase test - Document exists:', !snapshot.empty);
+    
+    res.json({
+      success: true,
+      message: 'Firebase connection successful',
+      hasDocuments: !snapshot.empty
+    });
+  } catch (error) {
+    console.error('Firebase test error:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
   }
 });
 
