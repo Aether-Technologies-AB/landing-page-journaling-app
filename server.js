@@ -18,139 +18,168 @@ app.post('/webhook', express.raw({ type: 'application/json' }), async (req, res)
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
     console.log('Webhook verified. Event type:', event.type);
-  } catch (err) {
-    console.error('Webhook Error:', err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
-  }
 
-  // Handle the event
-  try {
-    switch (event.type) {
-      case 'checkout.session.completed':
-        const session = event.data.object;
-        const userId = session.metadata?.userId;
-        const priceId = session.metadata?.priceId;
-
-        if (!userId) {
-          throw new Error('No userId found in session metadata');
+    // Log the full event data for debugging (excluding sensitive info)
+    console.log('Event data:', {
+      id: event.id,
+      type: event.type,
+      created: event.created,
+      data: {
+        object: {
+          id: event.data.object.id,
+          customer: event.data.object.customer,
+          subscription: event.data.object.subscription,
+          status: event.data.object.status,
+          metadata: event.data.object.metadata
         }
+      }
+    });
 
-        if (!priceId) {
-          throw new Error('No priceId found in session metadata');
-        }
+    // Handle the event
+    try {
+      switch (event.type) {
+        case 'checkout.session.completed':
+          const session = event.data.object;
+          const userId = session.metadata?.userId;
+          const priceId = session.metadata?.priceId;
 
-        const planName = getPlanFromPriceId(priceId);
-        
-        console.log('Processing checkout.session.completed:', {
-          userId,
-          priceId,
-          planName,
-          sessionId: session.id,
-          subscriptionId: session.subscription
-        });
-        
-        // Get the subscription details
-        const subscriptionDetails = await stripe.subscriptions.retrieve(session.subscription);
-        console.log('Retrieved subscription details:', {
-          status: subscriptionDetails.status,
-          currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000)
-        });
-        
-        // Update user's subscription in Firebase
-        await db.collection('users').doc(userId).update({
-          subscription: {
+          console.log('Processing checkout.session.completed:', {
+            userId,
+            priceId,
+            sessionId: session.id,
+            customer: session.customer,
+            subscription: session.subscription,
+            metadata: session.metadata
+          });
+
+          if (!userId || !priceId) {
+            throw new Error(`Missing metadata: userId=${userId}, priceId=${priceId}`);
+          }
+
+          const planName = getPlanFromPriceId(priceId);
+          
+          // Get the subscription details
+          const subscriptionDetails = await stripe.subscriptions.retrieve(session.subscription);
+          console.log('Retrieved subscription details:', {
+            id: subscriptionDetails.id,
+            status: subscriptionDetails.status,
+            currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000)
+          });
+          
+          // Update user's subscription in Firebase
+          const userRef = db.collection('users').doc(userId);
+          const userDoc = await userRef.get();
+          
+          if (!userDoc.exists) {
+            throw new Error(`No user found with ID: ${userId}`);
+          }
+
+          console.log('Updating user subscription:', {
+            userId,
             plan: planName,
             status: 'active',
-            priceId: priceId,
             stripeCustomerId: session.customer,
-            stripeSubscriptionId: session.subscription,
-            currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000),
-            lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-          }
-        });
-        
-        console.log(`Successfully updated subscription for user ${userId} to ${planName} plan`);
-        break;
-
-      case 'customer.subscription.created':
-      case 'customer.subscription.updated':
-        const updatedSubscription = event.data.object;
-        const customerId = updatedSubscription.customer;
-        
-        console.log(`Processing ${event.type}:`, {
-          subscriptionId: updatedSubscription.id,
-          customerId,
-          status: updatedSubscription.status
-        });
-        
-        // Get user by Stripe customer ID
-        const usersSnapshot = await db.collection('users')
-          .where('subscription.stripeCustomerId', '==', customerId)
-          .limit(1)
-          .get();
-        
-        if (!usersSnapshot.empty) {
-          const userDoc = usersSnapshot.docs[0];
-          await userDoc.ref.update({
-            'subscription.status': updatedSubscription.status,
-            'subscription.currentPeriodEnd': new Date(updatedSubscription.current_period_end * 1000),
-            'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
+            stripeSubscriptionId: session.subscription
           });
-          console.log(`Updated subscription status for user ${userDoc.id} to ${updatedSubscription.status}`);
-        } else {
-          console.log(`No user found with Stripe customer ID: ${customerId}`);
-        }
-        break;
 
-      case 'customer.subscription.deleted':
-        const cancelledSubscription = event.data.object;
-        const cancelledCustomerId = cancelledSubscription.customer;
-        
-        console.log('Processing customer.subscription.deleted:', {
-          subscriptionId: cancelledSubscription.id,
-          customerId: cancelledCustomerId
-        });
-        
-        // Get user by Stripe customer ID
-        const cancelledUserSnapshot = await db.collection('users')
-          .where('subscription.stripeCustomerId', '==', cancelledCustomerId)
-          .limit(1)
-          .get();
-        
-        if (!cancelledUserSnapshot.empty) {
-          const userDoc = cancelledUserSnapshot.docs[0];
-          await userDoc.ref.update({
+          await userRef.update({
             subscription: {
-              plan: 'basic',
-              status: 'inactive',
-              cancelDate: admin.firestore.FieldValue.serverTimestamp(),
+              plan: planName,
+              status: 'active',
+              priceId: priceId,
+              stripeCustomerId: session.customer,
+              stripeSubscriptionId: session.subscription,
+              currentPeriodEnd: new Date(subscriptionDetails.current_period_end * 1000),
               lastUpdated: admin.firestore.FieldValue.serverTimestamp()
             }
           });
-          console.log(`Updated subscription status for user ${userDoc.id} to inactive`);
-        } else {
-          console.log(`No user found with Stripe customer ID: ${cancelledCustomerId}`);
-        }
-        break;
+          
+          console.log(`Successfully updated subscription for user ${userId}`);
+          break;
 
-      case 'invoice.payment_succeeded':
-      case 'invoice.payment_failed':
-        // Log these events but no action needed as subscription.updated will handle the status
-        console.log(`Received ${event.type} event:`, {
-          customerId: event.data.object.customer,
-          subscriptionId: event.data.object.subscription,
-          status: event.data.object.status
-        });
-        break;
+        case 'customer.subscription.created':
+        case 'customer.subscription.updated':
+          const updatedSubscription = event.data.object;
+          const customerId = updatedSubscription.customer;
+          
+          console.log(`Processing ${event.type}:`, {
+            subscriptionId: updatedSubscription.id,
+            customerId,
+            status: updatedSubscription.status
+          });
+          
+          // Get user by Stripe customer ID
+          const usersSnapshot = await db.collection('users')
+            .where('subscription.stripeCustomerId', '==', customerId)
+            .limit(1)
+            .get();
+          
+          if (!usersSnapshot.empty) {
+            const userDoc = usersSnapshot.docs[0];
+            await userDoc.ref.update({
+              'subscription.status': updatedSubscription.status,
+              'subscription.currentPeriodEnd': new Date(updatedSubscription.current_period_end * 1000),
+              'subscription.lastUpdated': admin.firestore.FieldValue.serverTimestamp()
+            });
+            console.log(`Updated subscription status for user ${userDoc.id} to ${updatedSubscription.status}`);
+          } else {
+            console.log(`No user found with Stripe customer ID: ${customerId}`);
+          }
+          break;
 
-      default:
-        console.log(`Unhandled event type ${event.type}`);
+        case 'customer.subscription.deleted':
+          const cancelledSubscription = event.data.object;
+          const cancelledCustomerId = cancelledSubscription.customer;
+          
+          console.log('Processing customer.subscription.deleted:', {
+            subscriptionId: cancelledSubscription.id,
+            customerId: cancelledCustomerId
+          });
+          
+          // Get user by Stripe customer ID
+          const cancelledUserSnapshot = await db.collection('users')
+            .where('subscription.stripeCustomerId', '==', cancelledCustomerId)
+            .limit(1)
+            .get();
+          
+          if (!cancelledUserSnapshot.empty) {
+            const userDoc = cancelledUserSnapshot.docs[0];
+            await userDoc.ref.update({
+              subscription: {
+                plan: 'basic',
+                status: 'inactive',
+                cancelDate: admin.firestore.FieldValue.serverTimestamp(),
+                lastUpdated: admin.firestore.FieldValue.serverTimestamp()
+              }
+            });
+            console.log(`Updated subscription status for user ${userDoc.id} to inactive`);
+          } else {
+            console.log(`No user found with Stripe customer ID: ${cancelledCustomerId}`);
+          }
+          break;
+
+        case 'invoice.payment_succeeded':
+        case 'invoice.payment_failed':
+          // Log these events but no action needed as subscription.updated will handle the status
+          console.log(`Received ${event.type} event:`, {
+            customerId: event.data.object.customer,
+            subscriptionId: event.data.object.subscription,
+            status: event.data.object.status
+          });
+          break;
+
+        default:
+          console.log(`Unhandled event type ${event.type}`);
+      }
+
+      res.json({ received: true });
+    } catch (err) {
+      console.error('Error processing webhook:', err);
+      res.status(500).send(`Webhook Error: ${err.message}`);
     }
-
-    res.json({ received: true });
   } catch (err) {
-    console.error('Error processing webhook:', err);
-    res.status(500).send(`Webhook Error: ${err.message}`);
+    console.error('Webhook Error:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 });
 
