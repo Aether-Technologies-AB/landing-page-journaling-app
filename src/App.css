@@ -1,14 +1,14 @@
 :root {
-  --primary-color: #FF9EAA;
-  --primary-color-dark: #FF8396;
-  --secondary-color: #8FB8DE;
-  --secondary-color-dark: #7AA3C9;
-  --accent-color: #FFB5C2;
-  --accent-color-dark: #FF9EAA;
-  --text-color: #2C3E50;
-  --text-color-light: #6B7C93;
-  --background-color: #FFF5F6;
-  --border-color: #E8EDF3;
+  --primary-color: #D4B8A8;  /* Beige primary color from buttons */
+  --primary-color-dark: #C5A797;
+  --secondary-color: #F5E6E0;  /* Light beige secondary color */
+  --secondary-color-dark: #E6D7D1;
+  --accent-color: #F8F1ED;  /* Very light beige for backgrounds */
+  --accent-color-dark: #E9E2DE;
+  --text-color: #4A4A4A;  /* Dark gray for text */
+  --text-color-light: #8A8A8A;
+  --background-color: #FFFFFF;  /* Pure white background */
+  --border-color: #E8E8E8;
   --error-color: #D93025;
   --success-color: #4A6741;
   --button-text-color: #FFFFFF;
@@ -107,7 +107,7 @@ input:focus {
 
 .hero {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--background-color) 0%, #FFF 100%);
+  background-color: var(--accent-color);
   position: relative;
 }
 
@@ -180,7 +180,7 @@ input:focus {
 /* Features Overview */
 .features-overview {
   padding: 4rem 2rem;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .features-grid {
@@ -293,9 +293,9 @@ input:focus {
 
 .testimonial-card {
   padding: 2rem;
-  background: linear-gradient(135deg, #FFF 0%, var(--background-color) 100%);
+  background-color: var(--background-color);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(255, 158, 170, 0.1);
+  box-shadow: 0 10px 30px rgba(212, 184, 168, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -325,7 +325,7 @@ input:focus {
 .bottom-cta {
   padding: 6rem 2rem;
   text-align: center;
-  background-color: var(--background-color);
+  background-color: var(--accent-color);
 }
 
 .bottom-cta h2 {
@@ -349,7 +349,7 @@ input:focus {
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  background-color: var(--primary-color);
   color: var(--button-text-color);
   text-decoration: none;
   border-radius: 25px;
@@ -359,9 +359,9 @@ input:focus {
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--accent-color-dark) 100%);
+  background-color: var(--primary-color-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 158, 170, 0.2);
+  box-shadow: 0 10px 20px rgba(212, 184, 168, 0.2);
 }
 
 /* Responsive Design */
@@ -623,7 +623,7 @@ input:focus {
 
 /* Auth Forms */
 .auth-section {
-  background: linear-gradient(135deg, var(--background-color) 0%, #ffe4e1 100%);
+  background-color: var(--accent-color);
   min-height: 100vh;
   display: flex;
   align-items: center;
