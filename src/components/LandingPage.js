@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  FaCamera, 
+  FaMicrophone, 
   FaCloud, 
   FaShare, 
-  FaMobile, 
-  FaBell, 
-  FaBabyCarriage,
-  FaHeart,
-  FaClock,
   FaBook,
+  FaLock,
+  FaDownload,
   FaApple,
   FaAndroid,
-  FaArrowRight
+  FaArrowRight,
+  FaClock,
+  FaHeart
 } from 'react-icons/fa';
 
 const heroImageUrl = "https://www.dropbox.com/scl/fi/3j35ymlx1w2q46fgfdetb/DALL-E-2024-12-24-02.37.10-A-realistic-scene-of-a-mother-sitting-on-the-floor-with-her-baby-reading-a-journal-style-baby-milestone-book-together.-The-book-is-open-showing-page.webp?rlkey=f5tbo43ed2k16smpmk2aycwvr&dl=1";
@@ -24,24 +23,24 @@ const LandingPage = () => {
       <section className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <h1>Every Milestone Is Worth Celebrating</h1>
+            <h1>Preserve Your Family's Voice Forever</h1>
             <p className="hero-subtitle">
-              The smart way to document your child's journey from pregnancy to age 5
+              Turn precious conversations and stories into beautifully transcribed memories that last a lifetime
             </p>
             <div className="hero-cta">
-              <Link to="/register" className="cta-button">Start Your Journey</Link>
+              <Link to="/register" className="cta-button">Start Recording Memories</Link>
               <div className="app-stores">
                 <button className="store-button">
-                  <FaApple /> App Store
+                  <FaApple /> iOS App
                 </button>
                 <button className="store-button">
-                  <FaAndroid /> Play Store
+                  <FaAndroid /> Android App
                 </button>
               </div>
             </div>
           </div>
           <div className="hero-image">
-            <img src={heroImageUrl} alt="Mother reading baby milestone book with her child" />
+            <img src={heroImageUrl} alt="Family sharing stories together" />
           </div>
         </div>
       </section>
@@ -50,91 +49,161 @@ const LandingPage = () => {
       <section className="features-overview">
         <div className="features-grid">
           <div className="feature-item">
-            <FaCamera className="feature-icon" />
-            <h3>Capture moments instantly</h3>
-            <p>Record precious moments as they happen with our easy-to-use mobile app</p>
+            <FaMicrophone className="feature-icon" />
+            <h3>Easy Voice Recording</h3>
+            <p>Record conversations and stories with just one tap</p>
           </div>
           <div className="feature-item">
             <FaCloud className="feature-icon" />
-            <h3>Secure cloud storage</h3>
-            <p>Your memories are safely stored and backed up in the cloud</p>
+            <h3>Instant Transcription</h3>
+            <p>AI-powered transcription converts voice to text in minutes</p>
           </div>
           <div className="feature-item">
             <FaShare className="feature-icon" />
-            <h3>Share with family</h3>
-            <p>Share special moments with loved ones through secure sharing</p>
+            <h3>Share with Family</h3>
+            <p>Share transcribed memories with loved ones securely</p>
           </div>
         </div>
       </section>
 
       {/* Main Features */}
       <section className="main-features">
-        <h2>Your Child's Story, Beautifully Documented</h2>
+        <h2>Capture Every Precious Memory</h2>
         <div className="feature-blocks">
           <div className="feature-block">
             <div className="feature-content">
-              <h3>Digital Memory Book</h3>
-              <p>Create beautiful digital memory books that capture every precious moment of your child's growth. Add photos, videos, and notes to create lasting memories.</p>
+              <h3>Voice to Text Magic</h3>
+              <p>Our advanced AI technology transforms your voice recordings into beautifully formatted text. Perfect for capturing family stories, baby's first words, or important life moments.</p>
               <Link to="/features" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Digital Memory Book" />
+              <img src={heroImageUrl} alt="Voice recording interface" />
             </div>
           </div>
 
           <div className="feature-block reverse">
             <div className="feature-content">
-              <h3>Growth Tracking</h3>
-              <p>Monitor your child's development with easy-to-use charts and milestone tracking. Compare with WHO standards and get personalized insights.</p>
+              <h3>Digital Memory Book</h3>
+              <p>Create beautiful digital books from your transcribed memories. Add photos, organize by date or theme, and preserve your family's legacy for generations to come.</p>
               <Link to="/features" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Growth Tracking" />
+              <img src={heroImageUrl} alt="Digital memory book interface" />
             </div>
           </div>
 
           <div className="feature-block">
             <div className="feature-content">
-              <h3>Family Sharing</h3>
-              <p>Share your child's precious moments with family members and close friends through secure invitations. Control who sees what with privacy settings.</p>
+              <h3>Secure Family Sharing</h3>
+              <p>Share your recorded memories with family members through secure invitations. Control who can access what, and collaborate on family stories together.</p>
               <Link to="/features" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Family Sharing" />
+              <img src={heroImageUrl} alt="Family sharing interface" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="how-it-works">
+        <h2>Record Your Legacy in 4 Easy Steps</h2>
+        <div className="steps-grid">
+          <div className="step-item">
+            <div className="step-icon">
+              <FaMicrophone />
+            </div>
+            <h3>Record</h3>
+            <p>Start recording with a single tap. Capture stories, conversations, or precious moments.</p>
+          </div>
+          <div className="step-item">
+            <div className="step-icon">
+              <FaClock />
+            </div>
+            <h3>Transcribe</h3>
+            <p>Our AI converts your recording to text in minutes with high accuracy.</p>
+          </div>
+          <div className="step-item">
+            <div className="step-icon">
+              <FaHeart />
+            </div>
+            <h3>Enhance</h3>
+            <p>Add photos, edit transcripts, and organize your memories.</p>
+          </div>
+          <div className="step-item">
+            <div className="step-icon">
+              <FaShare />
+            </div>
+            <h3>Share</h3>
+            <p>Share your memories with family or export as a beautiful book.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Finished Section */}
+      <section className="finished-section">
+        <div className="finished-content">
+          <div className="finished-text">
+            <h2>Ready to Print?</h2>
+            <p>Transform your digital memories into a beautiful physical book</p>
+            <ul className="feature-list">
+              <li>
+                <FaBook className="list-icon" />
+                <span>Hardcover & softcover options</span>
+              </li>
+              <li>
+                <FaDownload className="list-icon" />
+                <span>Choose from multiple sizes</span>
+              </li>
+              <li>
+                <FaLock className="list-icon" />
+                <span>Premium paper quality</span>
+              </li>
+              <li>
+                <FaClock className="list-icon" />
+                <span>Fast production & delivery</span>
+              </li>
+            </ul>
+            <div className="finished-buttons">
+              <Link to="/get-started" className="get-started">Get Started</Link>
+              <Link to="/pricing" className="info-pricing">Info & Pricing</Link>
+            </div>
+          </div>
+          <div className="finished-image">
+            <img src={heroImageUrl} alt="Printed memory book samples" />
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section className="testimonials">
-        <h2>What Parents Say</h2>
+        <h2>What Our Users Say</h2>
         <div className="testimonials-grid">
           <div className="testimonial-card">
-            <p>"This app has made documenting my baby's milestones so much easier. I love how I can share moments with family!"</p>
+            <p>"This app has helped me preserve my grandmother's stories for future generations. The voice-to-text feature is amazing!"</p>
             <div className="testimonial-author">
               <span>Sarah M.</span>
-              <span>Mother of 2</span>
+              <span>Using since 2023</span>
             </div>
           </div>
           <div className="testimonial-card">
-            <p>"The growth tracking feature helps me stay on top of my child's development. It's like having a digital baby book!"</p>
+            <p>"I love how easy it is to record and transcribe our family conversations. The printed books are beautiful keepsakes."</p>
             <div className="testimonial-author">
               <span>Michael P.</span>
-              <span>Father of 1</span>
+              <span>Using since 2024</span>
             </div>
           </div>
           <div className="testimonial-card">
-            <p>"I love how easy it is to capture and organize memories. The timeline feature is brilliant!"</p>
+            <p>"Perfect for capturing my children's voices as they grow. The transcription quality is excellent!"</p>
             <div className="testimonial-author">
               <span>Emma L.</span>
-              <span>Mother of 3</span>
+              <span>Using since 2023</span>
             </div>
           </div>
         </div>
@@ -142,16 +211,16 @@ const LandingPage = () => {
 
       {/* CTA Section */}
       <section className="bottom-cta">
-        <h2>Start Documenting Your Journey Today</h2>
-        <p>Join thousands of parents capturing their children's precious moments</p>
+        <h2>Start Preserving Your Memories Today</h2>
+        <p>Join thousands of families capturing their precious moments in voice and text</p>
         <div className="cta-buttons">
           <Link to="/register" className="cta-button">Start Your Free Trial</Link>
           <div className="app-stores">
             <button className="store-button">
-              <FaApple /> App Store
+              <FaApple /> iOS App
             </button>
             <button className="store-button">
-              <FaAndroid /> Play Store
+              <FaAndroid /> Android App
             </button>
           </div>
         </div>
