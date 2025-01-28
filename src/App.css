@@ -1,17 +1,17 @@
 :root {
-  --primary-color: #A7D8DE;
-  --primary-color-dark: #8ABDC3;
-  --secondary-color: #FFD3B6;
-  --secondary-color-dark: #E6BE9F;
-  --accent-color: #B5EAD7;
-  --accent-color-dark: #9ED3C1;
-  --text-color: #4A6B8C;
-  --text-color-light: #6B8CAD;
-  --background-color: #E6E6FA;
-  --border-color: #D1D1F5;
+  --primary-color: #FF9EAA;
+  --primary-color-dark: #FF8396;
+  --secondary-color: #8FB8DE;
+  --secondary-color-dark: #7AA3C9;
+  --accent-color: #FFB5C2;
+  --accent-color-dark: #FF9EAA;
+  --text-color: #2C3E50;
+  --text-color-light: #6B7C93;
+  --background-color: #FFF5F6;
+  --border-color: #E8EDF3;
   --error-color: #D93025;
   --success-color: #4A6741;
-  --button-text-color: #4A6B8C;
+  --button-text-color: #FFFFFF;
 }
 
 /* Global Styles */
@@ -107,7 +107,7 @@ input:focus {
 
 .hero {
   padding: 4rem 2rem;
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, var(--background-color) 0%, #FFF 100%);
   position: relative;
 }
 
@@ -151,18 +151,19 @@ input:focus {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
   background: transparent;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .store-button:hover {
-  background: var(--text-color);
+  background: var(--primary-color);
   color: white;
+  transform: translateY(-2px);
 }
 
 .hero-image {
@@ -199,6 +200,11 @@ input:focus {
   font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+  transform: translateY(-5px);
 }
 
 /* Main Features */
@@ -287,8 +293,14 @@ input:focus {
 
 .testimonial-card {
   padding: 2rem;
-  background-color: var(--background-color);
+  background: linear-gradient(135deg, #FFF 0%, var(--background-color) 100%);
   border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 158, 170, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
 }
 
 .testimonial-card p {
@@ -337,17 +349,19 @@ input:focus {
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
   color: var(--button-text-color);
   text-decoration: none;
   border-radius: 25px;
   font-weight: 500;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .cta-button:hover {
-  background-color: var(--primary-color-dark);
+  background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--accent-color-dark) 100%);
   transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 158, 170, 0.2);
 }
 
 /* Responsive Design */
