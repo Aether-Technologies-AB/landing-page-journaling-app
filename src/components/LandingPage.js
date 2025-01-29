@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -15,7 +14,7 @@ import {
   FaHeart
 } from 'react-icons/fa';
 
-const heroImageUrl = "https://www.dropbox.com/scl/fi/3j35ymlx1w2q46fgfdetb/DALL-E-2024-12-24-02.37.10-A-realistic-scene-of-a-mother-sitting-on-the-floor-with-her-baby-reading-a-journal-style-baby-milestone-book-together.-The-book-is-open-showing-page.webp?rlkey=f5tbo43ed2k16smpmk2aycwvr&dl=1";
+const heroImageUrl = "https://www.dropbox.com/scl/fi/t57gtd19opzn3x0d17v4x/momento-madre-nino-acurrucados-juntos-leyendo-libro-dia-madre_697880-516.jpg.avif?rlkey=mm3s6amexid3z51mxce5sctqa&st=eqjyzxqp&dl=1";
 
 const LandingPage = () => {
   return (
