@@ -15,6 +15,9 @@ import {
 } from 'react-icons/fa';
 
 const heroImageUrl = "https://www.dropbox.com/scl/fi/t57gtd19opzn3x0d17v4x/momento-madre-nino-acurrucados-juntos-leyendo-libro-dia-madre_697880-516.jpg.avif?rlkey=mm3s6amexid3z51mxce5sctqa&st=eqjyzxqp&dl=1";
+const voiceToTextImageUrl = "https://www.dropbox.com/scl/fi/ycbfxfb3kpv9cxqnb9ykf/madre-leyendo-libro-hijo_23-2148633975.jpg.avif?rlkey=fvnbvlbgz6zcfx8xhm0qxuq6j&dl=1";
+const digitalBookImageUrl = "https://www.dropbox.com/scl/fi/hcl8wgkpqbzlz1iqpxlb9/familia-feliz-tiro-medio-interior_23-2149629395.jpg.avif?rlkey=k3i4ixwqtxw8kzxfbgv6zcfyv&dl=1";
+const familySharingImageUrl = "https://www.dropbox.com/scl/fi/aqmxe5gzlxjqzwwsqtq7s/abuela-feliz-nieta-tableta_23-2149312074.jpg.avif?rlkey=iqfqbz0ckzxjqzwwsqtq7s&dl=1";
 
 const LandingPage = () => {
   return (
@@ -79,7 +82,7 @@ const LandingPage = () => {
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Voice recording interface" />
+              <img src={voiceToTextImageUrl} alt="Mother reading to child" />
             </div>
           </div>
 
@@ -92,20 +95,20 @@ const LandingPage = () => {
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Digital memory book interface" />
+              <img src={digitalBookImageUrl} alt="Happy family reading together" />
             </div>
           </div>
 
           <div className="feature-block">
             <div className="feature-content">
               <h3>Secure Family Sharing</h3>
-              <p>Share your recorded memories with family members through secure invitations. Control who can access what, and collaborate on family stories together.</p>
+              <p>Share your precious memories with family members securely. Give access to specific people and collaborate on building your family's story together.</p>
               <Link to="/features" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
             <div className="feature-image">
-              <img src={heroImageUrl} alt="Family sharing interface" />
+              <img src={familySharingImageUrl} alt="Grandmother and granddaughter sharing memories" />
             </div>
           </div>
         </div>
