@@ -24,7 +24,7 @@
 }
 
 .logo:hover {
-  color: var(--accent-color);
+  color: var(--secondary-color-dark);
 }
 
 .nav-links {
@@ -34,14 +34,14 @@
 }
 
 .nav-links a {
-  color: var(--text-color);
+  color: var(--secondary-color);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--accent-color);
+  color: var(--secondary-color-dark);
 }
 
 .user-menu {

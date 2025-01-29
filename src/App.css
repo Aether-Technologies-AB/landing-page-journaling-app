@@ -1,12 +1,12 @@
 :root {
   --primary-color: #D4B8A8;  /* Beige primary color from buttons */
   --primary-color-dark: #C5A797;
-  --secondary-color: #F5E6E0;  /* Light beige secondary color */
-  --secondary-color-dark: #E6D7D1;
+  --secondary-color: #8B6F5C;  /* Darker beige for better visibility */
+  --secondary-color-dark: #725A4A;
   --accent-color: #F8F1ED;  /* Very light beige for backgrounds */
   --accent-color-dark: #E9E2DE;
   --text-color: #4A4A4A;  /* Dark gray for text */
-  --text-color-light: #8A8A8A;
+  --text-color-light: #666666;  /* Darker gray for better visibility */
   --background-color: #FFFFFF;  /* Pure white background */
   --border-color: #E8E8E8;
   --error-color: #D93025;
