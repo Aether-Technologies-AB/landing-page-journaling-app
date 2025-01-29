@@ -218,7 +218,7 @@ const LandingPage = () => {
           </div>
           <div className="collage-grid">
             <img 
-              src="https://www.dropbox.com/scl/fi/e183y4x5kzelu13doaolo/collage.png?raw=1" 
+              src="https://www.dropbox.com/scl/fi/e183y4x5kzelu13doaolo/collage.png?rlkey=pqmx7k314kezuduqb5zc99js5&dl=1" 
               alt="Memory book collage" 
               className="collage-image"
             />
