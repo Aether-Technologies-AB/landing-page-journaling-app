@@ -15,7 +15,7 @@ import {
 } from 'react-icons/fa';
 
 const heroImageUrl = "https://www.dropbox.com/scl/fi/t57gtd19opzn3x0d17v4x/momento-madre-nino-acurrucados-juntos-leyendo-libro-dia-madre_697880-516.jpg.avif?rlkey=mm3s6amexid3z51mxce5sctqa&st=eqjyzxqp&dl=1";
-const voiceToTextImageUrl = "https://www.dropbox.com/scl/fi/ycbfxfb3kpv9cxqnb9ykf/madre-leyendo-libro-hijo_23-2148633975.jpg.avif?rlkey=fvnbvlbgz6zcfx8xhm0qxuq6j&dl=1";
+const voiceToTextImageUrl = "https://www.dropbox.com/scl/fi/35obobixxpko6304ocz1b/mother-celphone.jpg?rlkey=3ebwy0n3c29advpfu6ut3kiej&st=5589kfmk&dl=1";
 const digitalBookImageUrl = "https://www.dropbox.com/scl/fi/hcl8wgkpqbzlz1iqpxlb9/familia-feliz-tiro-medio-interior_23-2149629395.jpg.avif?rlkey=k3i4ixwqtxw8kzxfbgv6zcfyv&dl=1";
 const familySharingImageUrl = "https://www.dropbox.com/scl/fi/aqmxe5gzlxjqzwwsqtq7s/abuela-feliz-nieta-tableta_23-2149312074.jpg.avif?rlkey=iqfqbz0ckzxjqzwwsqtq7s&dl=1";
 
