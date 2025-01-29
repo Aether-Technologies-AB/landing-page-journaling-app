@@ -209,7 +209,24 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Collage Section */}
+      <section className="collage-section">
+        <div className="collage-content">
+          <div className="collage-text">
+            <h2>Create Beautiful Memory Books</h2>
+            <p>Transform your voice recordings and transcripts into timeless keepsakes</p>
+          </div>
+          <div className="collage-grid">
+            <img 
+              src="https://www.dropbox.com/scl/fi/e183y4x5kzelu13doaolo/collage.png?raw=1" 
+              alt="Memory book collage" 
+              className="collage-image"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
       <section className="bottom-cta">
         <h2>Start Preserving Your Memories Today</h2>
         <p>Join thousands of families capturing their precious moments in voice and text</p>
