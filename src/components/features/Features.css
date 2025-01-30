@@ -1,0 +1,141 @@
+.feature-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--secondary-color-dark);
+}
+
+.feature-page-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
+}
+
+.feature-section {
+  margin-bottom: 3rem;
+}
+
+.feature-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.feature-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color-light);
+}
+
+.key-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.key-feature {
+  padding: 1.5rem;
+  background: var(--accent-color);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.key-feature .feature-icon {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.key-feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.feature-list li {
+  padding: 1rem;
+  background: var(--accent-color);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.how-it-works {
+  padding-left: 1.5rem;
+}
+
+.how-it-works li {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--secondary-color-dark);
+}
+
+@media (max-width: 768px) {
+  .feature-page {
+    padding: 1rem;
+  }
+
+  .feature-page h1 {
+    font-size: 2rem;
+  }
+
+  .feature-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .key-features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}

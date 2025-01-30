@@ -9,6 +9,9 @@ import ForgotPassword from './components/ForgotPassword';
 import Profile from './components/Profile';
 import PricingPlans from './components/PricingPlans';
 import Dashboard from './components/Dashboard';
+import VoiceToText from './components/features/VoiceToText';
+import DigitalBook from './components/features/DigitalBook';
+import FamilySharing from './components/features/FamilySharing';
 import './App.css';
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/pricing" element={<PricingPlans />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/features/voice-to-text" element={<VoiceToText />} />
+              <Route path="/features/digital-book" element={<DigitalBook />} />
+              <Route path="/features/family-sharing" element={<FamilySharing />} />
             </Routes>
           </main>
         </div>

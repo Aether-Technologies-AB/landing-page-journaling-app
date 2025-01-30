@@ -77,7 +77,7 @@ const LandingPage = () => {
             <div className="feature-content">
               <h3>Voice to Text Magic</h3>
               <p>Our advanced AI technology transforms your voice recordings into beautifully formatted text. Perfect for capturing family stories, baby's first words, or important life moments.</p>
-              <Link to="/features" className="learn-more">
+              <Link to="/features/voice-to-text" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
@@ -90,7 +90,7 @@ const LandingPage = () => {
             <div className="feature-content">
               <h3>Digital Memory Book</h3>
               <p>Create beautiful digital books from your transcribed memories. Add photos, organize by date or theme, and preserve your family's legacy for generations to come.</p>
-              <Link to="/features" className="learn-more">
+              <Link to="/features/digital-book" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
@@ -103,7 +103,7 @@ const LandingPage = () => {
             <div className="feature-content">
               <h3>Secure Family Sharing</h3>
               <p>Share your precious memories with family members securely. Give access to specific people and collaborate on building your family's story together.</p>
-              <Link to="/features" className="learn-more">
+              <Link to="/features/family-sharing" className="learn-more">
                 Learn more <FaArrowRight />
               </Link>
             </div>
