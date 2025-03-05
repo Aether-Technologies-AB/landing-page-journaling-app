@@ -102,9 +102,9 @@ input:focus {
 
 /* Hero Section */
 .hero {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   background-color: var(--accent-color);
-  min-height: 80vh;
+  min-height: auto;
   display: flex;
   align-items: center;
 }
