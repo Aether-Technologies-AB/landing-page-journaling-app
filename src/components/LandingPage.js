@@ -14,10 +14,10 @@ import {
   FaHeart
 } from 'react-icons/fa';
 
-const heroImageUrl = "https://www.dropbox.com/scl/fi/t57gtd19opzn3x0d17v4x/momento-madre-nino-acurrucados-juntos-leyendo-libro-dia-madre_697880-516.jpg.avif?rlkey=mm3s6amexid3z51mxce5sctqa&st=eqjyzxqp&dl=1";
-const voiceToTextImageUrl = "https://www.dropbox.com/scl/fi/35obobixxpko6304ocz1b/mother-celphone.jpg?rlkey=3ebwy0n3c29advpfu6ut3kiej&st=5589kfmk&dl=1";
-const digitalBookImageUrl = "https://www.dropbox.com/scl/fi/eim2rwr0zb7tz5qk400mj/family-reading.jpg?rlkey=q3z5e6ltn4zm7p1evn3n3n8pr&st=45lbza7w&dl=1";
-const familySharingImageUrl = "https://www.dropbox.com/scl/fi/t2vpbj784q3lvhtyy105j/grandmother-reading.jpg?rlkey=59qf0xdyy1iex0zym2ainiy8r&st=hlnjj6ii&dl=1";
+const heroImageUrl = "https://www.dropbox.com/scl/fi/t57gtd19opzn3x0d17v4x/momento-madre-nino-acurrucados-juntos-leyendo-libro-dia-madre_697880-516.jpg?rlkey=mm3s6amexid3z51mxce5sctqa&st=eqjyzxqp&raw=1";
+const voiceToTextImageUrl = "https://www.dropbox.com/scl/fi/35obobixxpko6304ocz1b/mother-celphone.jpg?rlkey=3ebwy0n3c29advpfu6ut3kiej&st=5589kfmk&raw=1";
+const digitalBookImageUrl = "https://www.dropbox.com/scl/fi/eim2rwr0zb7tz5qk400mj/family-reading.jpg?rlkey=q3z5e6ltn4zm7p1evn3n3n8pr&st=45lbza7w&raw=1";
+const familySharingImageUrl = "https://www.dropbox.com/scl/fi/t2vpbj784q3lvhtyy105j/grandmother-reading.jpg?rlkey=59qf0xdyy1iex0zym2ainiy8r&st=hlnjj6ii&raw=1";
 
 const LandingPage = () => {
   return (
@@ -221,7 +221,7 @@ const LandingPage = () => {
           </div>
           <div className="collage-grid">
             <img 
-              src="https://www.dropbox.com/scl/fi/e183y4x5kzelu13doaolo/collage.png?rlkey=pqmx7k314kezuduqb5zc99js5&dl=1" 
+              src="https://www.dropbox.com/scl/fi/e183y4x5kzelu13doaolo/collage.png?rlkey=pqmx7k314kezuduqb5zc99js5&raw=1" 
               alt="Memory book collage" 
               className="collage-image"
             />
