@@ -1,1 +1,5 @@
-/* https://whisper-transcript-057fda7376a5.herokuapp.com/:splat 200
+# API routes should go to the backend
+/api/* https://whisper-transcript-057fda7376a5.herokuapp.com/api/:splat 200
+
+# All other routes should serve the React app (SPA fallback)
+/* /index.html 200

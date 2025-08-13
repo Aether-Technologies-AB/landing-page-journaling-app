@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,7 +6,7 @@ const Footer = () => {
       <div className="footer-content">
         <p>&copy; {new Date().getFullYear()} Nest of Memories. All rights reserved.</p>
         <nav className="footer-nav">
-          <Link to="/privacy-policy">Privacy Policy</Link>
+          <a href="/privacy-policy">Privacy Policy</a>
         </nav>
       </div>
     </footer>
