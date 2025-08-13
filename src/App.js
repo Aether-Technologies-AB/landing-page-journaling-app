@@ -12,6 +12,8 @@ import Dashboard from './components/Dashboard';
 import VoiceToText from './components/features/VoiceToText';
 import DigitalBook from './components/features/DigitalBook';
 import FamilySharing from './components/features/FamilySharing';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Footer from './components/Footer'; 
 import './App.css';
 
 function App() {
@@ -32,8 +34,10 @@ function App() {
               <Route path="/features/voice-to-text" element={<VoiceToText />} />
               <Route path="/features/digital-book" element={<DigitalBook />} />
               <Route path="/features/family-sharing" element={<FamilySharing />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </Router>
     </FirebaseProvider>
