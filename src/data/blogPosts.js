@@ -3,180 +3,107 @@
 
 const blogPosts = [
   {
-    slug: 'how-to-preserve-grandparents-stories',
-    title: 'How to Preserve Your Grandparents\' Stories (Before It\'s Too Late)',
-    metaTitle: 'How to Preserve Your Grandparents\' Stories Before It\'s Too Late | Nest of Memories',
-    metaDescription: 'A practical, heartfelt guide to recording and preserving your grandparents\' stories — questions to ask, tools to use, and how to turn conversations into a book your family keeps forever.',
-    keywords: 'how to preserve grandparents stories, record grandparents stories, grandparent interview questions, family memory book, preserve family voices',
-    category: 'Family Stories',
+    slug: 'record-childs-voice-before-it-changes',
+    title: 'Record Your Child\'s Voice Before It Changes Forever',
+    metaTitle: 'Record Your Child\'s Voice Before It Changes Forever | Nest of Memories',
+    metaDescription: 'Your toddler\'s voice, words, and the way they see the world will change faster than you think. Here\'s how to capture it — and give it back to them when they\'re grown.',
+    keywords: 'record child voice memories, preserve children memories, capture toddler moments, memory book for children, family memory app',
+    category: 'Parenting',
     date: '2026-03-04',
     readTime: '8 min read',
     heroImage: null,
-    excerpt: 'There\'s a conversation you keep meaning to have. This guide is for the people who are ready to stop meaning to do it — and actually do it.',
-    content: `There's something you keep meaning to do.
+    excerpt: 'My daughter used to call spaghetti "pasketti." I thought I\'d remember it forever. I don\'t remember when she stopped saying it.',
+    content: `My daughter used to call spaghetti "pasketti." She said it with complete confidence, every single time, for almost two years.
 
-You know the conversation you want to have. The one where you sit down with your grandmother and ask her about the war years, or the little town she grew up in, or the day she met your grandfather. You picture yourself recording it, writing it down, turning it into something real.
+I don't remember when she stopped. It just happened — one day the word was there, and then it wasn't. She grew, her mouth figured out the sounds, and "pasketti" quietly disappeared forever.
 
-You just haven't done it yet.
+I didn't record it. I thought I would remember it. I don't.
 
-Maybe there's always something more urgent. Maybe you're not sure how to start. Maybe some part of you assumes there's still plenty of time.
+This is what childhood actually looks like from the outside: a slow, beautiful disappearing act. Every few months, your child becomes slightly more themselves and slightly less the creature they were before. The mispronunciations smooth out. The made-up words get replaced by real ones. The way they used to explain things — with wild hand gestures and three-year-old logic — gets swapped for complete sentences.
 
-There isn't always time. And the cruelest thing about memory is that it doesn't warn you when it's running out.
+It's wonderful. It's also a kind of loss. And almost none of it gets captured.
 
-This guide is for the people who are ready to stop meaning to do it — and actually do it.
+## What Gets Lost Without a Record
 
-## Why Your Grandparents' Stories Matter More Than You Think
+You probably have hundreds of photos of your child. Maybe thousands.
 
-We tend to think of family history as genealogy — dates, names, places, a family tree with branches and leaves. But that's just the skeleton.
+But do you have recordings of them talking?
 
-The stories are the flesh. They're the texture of real lives. The reason your grandmother always put a pinch of salt in her coffee. The summer your grandfather worked on a fishing boat to save enough money to get married. The war, the move, the night everything changed.
+Photos capture what your child looked like. Recordings capture who they were.
 
-These aren't just personal memories. They're historical records of how ordinary people lived through extraordinary times. A century from now, your great-grandchildren will have no other way to know what life was actually like — not from textbooks, but from the inside.
+Right now, your three-year-old has opinions about everything. Strong, specific, hilarious opinions. About why dogs are better than cats. About what they want to be when they grow up. About what happens when you die. About why they definitely cannot eat their dinner because their stomach is "too full of air."
 
-And here's what most people don't realize: **your grandparents want to tell these stories.** Most of them have never been properly asked.
+In fifteen years, they won't remember any of this. And if you haven't recorded it, neither will you.
 
-## Start Here: The Conversation That Changes Everything
+## The Gift Your Child's Future Self Doesn't Know They Need
 
-You don't need a plan. You don't need a professional setup. You need to sit down, press record on your phone, and say: "Tell me about your childhood."
+You're not just recording for yourself. You're recording for them.
 
-That's it. That's the whole plan.
+Imagine your child at 25, reading a book filled with their own words from age 3, 4, 5. The stories they told. The questions they asked. The songs they made up. The way they saw the world before the world taught them to see it differently.
 
-But if you want to unlock the best stories — the ones they don't tell unprompted — here are the questions that work:
+That's not just a keepsake. That's a mirror — a piece of their own origin that almost nobody gets to have.
 
-### Questions About Their Early Life
+Most adults have almost no access to who they were as small children. Just a few photos, a handful of stories their parents tell at dinner. The voice is gone. The inner life of their three-year-old self is completely inaccessible.
 
-- "What's your earliest memory?"
-- "What was your childhood home like? Who else lived there?"
-- "What did you do after school? What games did you play?"
-- "Who was your best friend growing up, and what happened to them?"
-- "What was the biggest thing that happened in the world when you were a teenager?"
+Your child doesn't have to lose that. Not if you start recording now.
 
-### Questions About Defining Moments
+## What to Record
 
-- "What was the hardest thing you ever went through?"
-- "When did you feel most proud of yourself?"
-- "Is there a decision you made that changed the direction of your life?"
-- "What's something that happened to you that nobody in the family knows about?"
+The most valuable recordings are the ordinary ones — not the milestones.
 
-### Questions About Love and Family
+### Record Them Explaining Things
 
-- "How did you and [grandmother/grandfather] meet? Who made the first move?"
-- "What was the first year of marriage like?"
-- "What was it like when [parent's name] was born?"
-- "What did you think when you first became a grandparent?"
+Ask your child to explain something. How thunder works. Why the sky is blue. What happens at school. What they think dreams are made of.
 
-### Questions About Wisdom and Legacy
+The explanations of a four-year-old are extraordinary. Specific, logical on their own terms, often deeply funny. Record them.
 
-- "What do you know now that you wish you'd known at 25?"
-- "What's the best advice anyone ever gave you?"
-- "What do you want your grandchildren to know about you?"
-- "What are you most proud of in your life?"
+### Record Them Telling a Story
 
-### The Wildcard
+Ask them to make up a story. Or retell a movie they saw. Children's narratives are wild, digressive, and full of unexpected detail. Completely unrepeatable.
 
-"What would surprise me most about your life?"
+### Record a Normal Dinner
 
-This last one is where the best stories usually hide. Hidden talents, youthful adventures, decisions nobody talks about. Ask it. Then wait.
+Just put the phone on the table and let it run. The arguments about vegetables. The tangents. The weird questions out of nowhere. The voices you use for silly characters. This is what family life actually sounds like.
 
-## How to Record: Simple Setup That Actually Works
+### Record Their Questions
 
-You don't need professional equipment. The phone in your pocket records in better quality than any device that existed twenty years ago.
+"Why do people die?" "Do animals know they're animals?" "Was I alive before I was born?"
 
-Here's the setup that works:
+Record when these hit. Write down the date.
 
-### 1. Use your phone's voice recorder or a dedicated app
+### Record Them Reading to You
 
-Your built-in voice recorder works. Sit the phone on the table between you — don't hold it, as handling noise is distracting. If you use an app that auto-transcribes, you can skip a lot of manual work later.
+Once your child starts reading, ask them to read a book to you and press record. The stumbles, the proud moments, the commentary they add. In twenty years, this will mean everything.
 
-### 2. Choose the right environment
+## How to Make It a Habit
 
-Quiet room. No TV in the background. Kitchen tables work well — there's something about that setting that puts people at ease.
+If recording feels like a project, you won't do it.
 
-### 3. Tell them you're recording — and why
+Try this: once a week, usually Sunday evening or before bed, spend five minutes recording with your child. Ask one question. Let them talk.
 
-Don't surprise them. Say: "I'd like to record this so I don't forget anything — is that okay?" Almost everyone says yes. When you explain that you want to keep their stories for the family, they usually become more thoughtful, more detailed, more willing to go deep.
+Five minutes a week. Over a year, that's four hours of their voice, their thoughts, their world — captured at an age they'll never return to.
 
-### 4. Start with easy questions
+You don't need perfect audio. You don't need a script. You need a phone, a child, and five minutes.
 
-Don't open with the heavy stuff. Start with something warm and simple — a favorite childhood memory, a funny story. Let them settle in. The harder questions come naturally once they're in the flow.
+## From Voice to Memory Book
 
-### 5. Let them wander
+Here's what happens to most recordings: they pile up in your voice memo app labeled "Recording 047," and nobody ever goes back to them.
 
-The best moments often come from tangents. If they start talking about something that seems off-topic, follow it. Don't rush to the next question. The structured interview can wait.
+That's why transcription matters. When voice becomes text, it becomes searchable, shareable, readable — and printable.
 
-## The Problem With Just Recording
+Nest of Memories records the moment and transcribes every word automatically. You organize it over time — add photos, arrange by age. And when you're ready, you print a book your child will have for life.
 
-Here's what happens to most recordings: they sit on a phone, labeled "Voice memo 34," and nobody ever goes back to them.
+The free plan includes 100 memories. That's more than enough to start.
 
-Raw audio is hard to use. You can't search it. You can't share specific moments easily. You can't print it. And when the person who recorded it dies, the files often die with their device.
+## When to Start
 
-**Transcription turns recordings into something permanent.**
+Tonight, if you can.
 
-When a voice recording becomes text, it becomes:
+Ask your child one question before bed: "What was the best part of today?"
 
-- **Searchable** — Find grandma's story about the war without listening to three hours of audio
-- **Shareable** — Email a specific story to a cousin on another continent
-- **Readable** — Print it, read it aloud, quote from it
-- **Preservable** — Text survives every device upgrade, every cloud service shutdown
+Press record. Let them answer.
 
-You can transcribe manually — it's slow but doable. Or you can use an app that does it automatically. Nest of Memories records the conversation and transcribes every word with AI, so you have both the audio and a readable transcript within minutes.
-
-## How to Organize What You Collect
-
-One recording session is a gift. Six sessions over six months is an archive. Here's how to organize it:
-
-### Create Chapters
-
-Think of your grandparent's life as a book with chapters:
-
-- Childhood (birth to about 18)
-- Young adulthood (first jobs, independence)
-- Love and marriage
-- Raising children
-- Career and achievements
-- Later years and reflection
-
-You don't have to fill every chapter at once. Over a few visits, you'll naturally cover most of them.
-
-### Add Photos to Stories
-
-When a story mentions a specific place or time period, look for photos that match. A story about "the little apartment where we lived when your mother was born" becomes something else entirely when paired with an actual photo of that apartment.
-
-### Note the Details That Would Otherwise Disappear
-
-Names of friends, streets, towns, dishes they cooked, songs they loved. Ask follow-up questions: "What was her name?" "Where was that exactly?" "What year was this?"
-
-## Turn It Into Something Physical
-
-Digital memories are fragile. Cloud services shut down. Phones break. Accounts get forgotten.
-
-A printed book on a shelf lasts generations.
-
-Once you have transcribed recordings and photos organized, you can turn them into a real physical memory book — a hardcover or softcover book your family can hold. Future grandchildren can take it off the shelf and read their great-great-grandmother's stories in her actual words.
-
-## When to Start (The Honest Answer)
-
-Now.
-
-Not this weekend. Not after the holidays. Now.
-
-If your grandparents are in their 80s, you may have years left with them. You may also have less time than you think. Nobody tells you when the window closes.
-
-The recording you'll regret most is the one you never made.
-
-The lowest-possible-friction way to start: the next time you're with your grandparent — in person or on the phone — press record and ask them one question. Just one.
-
-"What's your earliest memory?"
-
-That's the whole first step. The rest follows naturally.
-
-## What You'll Wish You'd Started Sooner
-
-People who've gone through this process all say the same thing: they wish they'd started earlier.
-
-Not because they ran out of time — though some did. But because once they started recording, they discovered things they never knew. Stories their grandparent had never told anyone. Pieces of family history that had been sitting in one person's memory for seventy years, waiting to be asked.
-
-The stories are there. They're just waiting for you to press record.`
+That's the whole first step. The rest follows.`
   },
   {
     slug: 'questions-to-ask-grandparents',
