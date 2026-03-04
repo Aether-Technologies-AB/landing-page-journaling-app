@@ -1,5 +1,5 @@
-// Blog post data — add new posts here
-// Each post is pre-defined for SEO and easy management
+// Blog post data — 12 SEO-optimized posts for Nest of Memories
+// Each post targets parents recording memories of their children
 
 const blogPosts = [
   {
@@ -7,9 +7,9 @@ const blogPosts = [
     title: 'Record Your Child\'s Voice Before It Changes Forever',
     metaTitle: 'Record Your Child\'s Voice Before It Changes Forever | Nest of Memories',
     metaDescription: 'Your toddler\'s voice, words, and the way they see the world will change faster than you think. Here\'s how to capture it — and give it back to them when they\'re grown.',
-    keywords: 'record child voice memories, preserve children memories, capture toddler moments, memory book for children, family memory app',
+    keywords: 'record child voice memories, preserve children memories, capture toddler moments, memory book for children',
     category: 'Parenting',
-    date: '2026-03-04',
+    date: '2026-03-10',
     readTime: '8 min read',
     heroImage: null,
     excerpt: 'My daughter used to call spaghetti "pasketti." I thought I\'d remember it forever. I don\'t remember when she stopped saying it.',
@@ -41,9 +41,7 @@ You're not just recording for yourself. You're recording for them.
 
 Imagine your child at 25, reading a book filled with their own words from age 3, 4, 5. The stories they told. The questions they asked. The songs they made up. The way they saw the world before the world taught them to see it differently.
 
-That's not just a keepsake. That's a mirror — a piece of their own origin that almost nobody gets to have.
-
-Most adults have almost no access to who they were as small children. Just a few photos, a handful of stories their parents tell at dinner. The voice is gone. The inner life of their three-year-old self is completely inaccessible.
+Most adults have almost no access to who they were as small children. Just a few photos, a handful of stories their parents tell at dinner. The voice is gone.
 
 Your child doesn't have to lose that. Not if you start recording now.
 
@@ -53,43 +51,31 @@ The most valuable recordings are the ordinary ones — not the milestones.
 
 ### Record Them Explaining Things
 
-Ask your child to explain something. How thunder works. Why the sky is blue. What happens at school. What they think dreams are made of.
-
-The explanations of a four-year-old are extraordinary. Specific, logical on their own terms, often deeply funny. Record them.
+Ask your child to explain something. How thunder works. Why the sky is blue. What they think dreams are made of. The explanations of a four-year-old are extraordinary.
 
 ### Record Them Telling a Story
 
-Ask them to make up a story. Or retell a movie they saw. Children's narratives are wild, digressive, and full of unexpected detail. Completely unrepeatable.
+Ask them to make up a story. Or retell a movie they saw. Children's narratives are wild, digressive, and completely unrepeatable.
 
 ### Record a Normal Dinner
 
-Just put the phone on the table and let it run. The arguments about vegetables. The tangents. The weird questions out of nowhere. The voices you use for silly characters. This is what family life actually sounds like.
+Just put the phone on the table and let it run. The arguments about vegetables. The tangents. The weird questions out of nowhere. This is what family life actually sounds like.
 
 ### Record Their Questions
 
-"Why do people die?" "Do animals know they're animals?" "Was I alive before I was born?"
-
-Record when these hit. Write down the date.
+"Why do people die?" "Do animals know they're animals?" "Was I alive before I was born?" Record when these hit.
 
 ### Record Them Reading to You
 
-Once your child starts reading, ask them to read a book to you and press record. The stumbles, the proud moments, the commentary they add. In twenty years, this will mean everything.
+Once your child starts reading, record a session. The stumbles, the proud moments, the commentary they add. In twenty years, this will mean everything.
 
 ## How to Make It a Habit
 
-If recording feels like a project, you won't do it.
-
-Try this: once a week, usually Sunday evening or before bed, spend five minutes recording with your child. Ask one question. Let them talk.
+Once a week, usually Sunday evening or before bed, spend five minutes recording with your child. Ask one question. Let them talk.
 
 Five minutes a week. Over a year, that's four hours of their voice, their thoughts, their world — captured at an age they'll never return to.
 
-You don't need perfect audio. You don't need a script. You need a phone, a child, and five minutes.
-
 ## From Voice to Memory Book
-
-Here's what happens to most recordings: they pile up in your voice memo app labeled "Recording 047," and nobody ever goes back to them.
-
-That's why transcription matters. When voice becomes text, it becomes searchable, shareable, readable — and printable.
 
 Nest of Memories records the moment and transcribes every word automatically. You organize it over time — add photos, arrange by age. And when you're ready, you print a book your child will have for life.
 
@@ -97,230 +83,920 @@ The free plan includes 100 memories. That's more than enough to start.
 
 ## When to Start
 
-Tonight, if you can.
+Tonight, if you can. Ask your child one question before bed: "What was the best part of today?"
 
-Ask your child one question before bed: "What was the best part of today?"
+Press record. Let them answer. That's the whole first step.`
+  },
+  {
+    slug: 'what-is-childhood-amnesia',
+    title: 'What Is Childhood Amnesia? (And Why Your Toddler Won\'t Remember Being 3)',
+    metaTitle: 'What Is Childhood Amnesia? Why Your Toddler Won\'t Remember | Nest of Memories',
+    metaDescription: 'Most children can\'t recall anything before age 3-4. Here\'s the science behind childhood amnesia — and what parents can do to preserve the memories their kids will lose.',
+    keywords: 'childhood amnesia, toddler memory, when do children start remembering, preserve toddler memories',
+    category: 'Science',
+    date: '2026-03-17',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'Your three-year-old just had the best day of her life. She told you so. Three times. With hand gestures. She won\'t remember any of it.',
+    content: `Your three-year-old just had the best day of her life. She told you so. Three times. With hand gestures.
+
+She rode a carousel. She ate ice cream. She saw a dog wearing a hat. She described it all to you in vivid, breathless detail on the way home.
+
+She won't remember any of it.
+
+Not the carousel. Not the ice cream. Not the hat-wearing dog. In a few years, this entire day — one of the most joyful she's ever had — will be completely gone from her mind.
+
+This isn't a failure of her memory. It's how the brain is designed.
+
+## What Childhood Amnesia Actually Is
+
+Childhood amnesia is the term scientists use for a basic fact about human memory: most people can't recall anything that happened before age 3 or 4, and have very patchy, unreliable recall until about age 7.
+
+It's not that young children don't form memories. They clearly do — your two-year-old remembers where the cookies are kept. But these memories are built on a brain that's still under construction. The hippocampus, the part of the brain that converts short-term experiences into long-term memories, is still maturing throughout early childhood.
+
+As the brain develops, it rewires itself. And in the process, most early memories get overwritten.
+
+Patricia Bauer, a psychologist at Emory University, has studied this for decades. Her research shows that children as young as 3 can remember specific events — but by age 7, those memories start to fade rapidly. By adulthood, they're mostly gone.
+
+## What This Means for You as a Parent
+
+The years between birth and about age 5 are, for many parents, the most intense, most emotional years of family life. First steps. First words. The songs you sang at bedtime. The way they pronounced your name.
+
+Your child is living through all of this right now. They're shaped by it. But they probably won't remember it.
+
+The record of these years lives almost entirely in your head. And your memory isn't great either. You think you'll remember the details — but you won't. Not most of it.
+
+## What Parents Can Actually Do About It
+
+You can't stop childhood amnesia. It's biology. But you can make sure the memories exist somewhere outside your child's brain.
+
+### Record their voice
+
+Put your phone on the table. Press record. Ask them a question. "What did you do today?" "Tell me a story." "Why is the sky blue?" Five minutes. That's all it takes.
+
+### Write it down
+
+When your child says something remarkable — and they say remarkable things constantly — write it down immediately. If you tell yourself you'll remember it later, you won't.
+
+### Create a physical record
+
+Digital files get lost. A printed book — your child's actual words, organized by age, with photos — survives technology changes. It sits on a shelf. It's real.
+
+## The Gift Nobody Thinks to Give
+
+Imagine your child at 25, opening a book filled with their own words from age 3. Stories they told. Questions they asked. Songs they made up.
+
+Most adults have almost no access to their early childhood. You can give your child something almost nobody has: their own voice, from an age they'll never remember, preserved in a form they can hold.
+
+## One Question Tonight
+
+Tonight, before bed, ask your child: "What made you happy today?"
 
 Press record. Let them answer.
 
-That's the whole first step. The rest follows.`
+Do that once a week for a year and you'll have something extraordinary — four hours of their voice at an age they'll never return to.
+
+Childhood amnesia is inevitable. Losing the record of it isn't.`
   },
   {
-    slug: 'questions-to-ask-grandparents',
-    title: '10 Questions to Ask Your Grandparents Before It\'s Too Late',
-    metaTitle: '10 Questions to Ask Your Grandparents Before It\'s Too Late | Nest of Memories',
-    metaDescription: 'These 10 powerful questions will unlock your grandparents\' most meaningful stories. Record them now — before the memories fade.',
-    keywords: 'questions to ask grandparents, family stories, preserve family memories, grandparent interview questions',
-    category: 'Family Stories',
-    date: '2026-03-04',
-    readTime: '6 min read',
-    heroImage: null,
-    excerpt: 'There\'s a conversation you keep meaning to have. These 10 questions will help you start it — before the stories fade.',
-    content: `There's a conversation you keep meaning to have. You tell yourself you'll do it next weekend, at the next family dinner, during the next holiday visit. But life moves fast, and one day you realize the stories you grew up hearing — the ones about the war, the immigration, the first date, the little apartment where everything began — were never written down.
-
-They lived only in one person's memory. And memory doesn't last forever.
-
-This isn't meant to be heavy. It's meant to be a starting point. Sit down with your grandparents (or parents, or any elder in your life), press record, and ask them these ten questions. You'll be surprised where the conversation goes.
-
-## 1. What's your earliest memory?
-
-This one is simple and disarming. Most people smile when they think about it. You'll often get a surprisingly vivid snapshot — a kitchen, a smell, a moment of light — from seventy or eighty years ago.
-
-## 2. What was your childhood home like?
-
-Not just the building — the feeling. Who lived there? What did it smell like? Where did they eat dinner? These details paint a world your grandchildren will never see but can now imagine.
-
-## 3. How did you and Grandma/Grandpa meet?
-
-Every couple has an origin story. Some are romantic, some are hilariously mundane. Either way, it's a story your family deserves to keep.
-
-## 4. What was the hardest thing you ever went through?
-
-Be ready for this one. It might open a door to something they've never told anyone. Give them space. Let them talk. This is where the real stories live.
-
-## 5. What's the best advice anyone ever gave you?
-
-Wisdom doesn't come from books — it comes from lived experience. This question often surfaces a parent, a teacher, or a stranger who said exactly the right thing at exactly the right time.
-
-## 6. What were you like as a teenager?
-
-This is where you'll see them light up. Everyone was young once. The stories from those years — the mischief, the first jobs, the friendships — are usually the most animated and joyful.
-
-## 7. What traditions did your family have?
-
-Holiday meals, Sunday rituals, songs, recipes. These are the threads that connect generations. Some you might want to revive. Others you'll just want to remember.
-
-## 8. What do you wish you had done differently?
-
-This takes trust. Not everyone will answer it. But when they do, it's often the most valuable thing they'll tell you — because it's real, unfiltered reflection on a life fully lived.
-
-## 9. What's something about your life that would surprise me?
-
-This is the wildcard. Hidden talents, secret adventures, jobs nobody knew about. Every family has surprises. You just have to ask.
-
-## 10. What do you want your grandchildren to know about you?
-
-Let them define their own legacy. What matters to them? What do they want carried forward? This question gives them agency over how they're remembered.
-
-## Don't Just Listen — Record It
-
-Here's the truth: you'll forget the details. Even the best conversations fade within weeks. The exact words, the tone of voice, the way they laughed at their own joke — all of it slips away.
-
-That's why we built Nest of Memories. Open the app, press record, and just talk. Our AI transcribes the entire conversation — every word, preserved exactly as it was spoken.
-
-And when you're ready, you can turn those transcriptions into a printed memory book. A real, physical object your family can hold onto for generations.
-
-**Your grandparents' stories deserve more than your memory. They deserve to be preserved.**`
-  },
-  {
-    slug: 'why-children-wont-remember-childhood',
-    title: 'Why Your Children Won\'t Remember Their Childhood (And What to Do About It)',
-    metaTitle: 'Why Your Children Won\'t Remember Their Childhood — And How to Fix It | Nest of Memories',
-    metaDescription: 'Science says kids forget most of their early years. Here\'s how to preserve those precious moments so they can relive them later.',
-    keywords: 'childhood amnesia, preserve childhood memories, baby memory app, record children milestones',
+    slug: '20-things-to-record-child-saying',
+    title: '20 Things to Record Your Child Saying Before They Turn 5',
+    metaTitle: '20 Things to Record Your Child Saying Before They Turn 5 | Nest of Memories',
+    metaDescription: 'There\'s a version of your child that only exists right now. Here are 20 specific things worth recording before they grow out of them.',
+    keywords: 'things to record kids saying, record toddler talking, preserve child voice, toddler mispronunciations',
     category: 'Parenting',
-    date: '2026-03-04',
-    readTime: '5 min read',
+    date: '2026-03-24',
+    readTime: '9 min read',
     heroImage: null,
-    excerpt: 'Your three-year-old just said the funniest thing. You told yourself you\'d never forget it. Science says you will.',
-    content: `Your three-year-old just said the funniest thing. You laughed so hard you cried. You told yourself you'd never forget it.
+    excerpt: 'There\'s a version of your child that only exists right now. The way they talk, the words they use, the logic they apply — it\'s all temporary.',
+    content: `There's a version of your child that only exists right now. The way they talk, the words they use, the logic they apply to the world — it's all temporary. In a year, some of it will be gone. In five years, most of it will be gone.
 
-You will.
+Here are 20 things worth recording while they still sound like this.
 
-It's not your fault. It's science.
+## The Words They Get Wrong
 
-## The Science of Childhood Amnesia
+### 1. Their mispronunciations
 
-Researchers call it *childhood amnesia* — the well-documented phenomenon where most adults can't recall memories from before age 3-4, and have very patchy recall until age 7.
+"Pasketti." "Ambliance." "Hostibal." Every child has them, and they're the first thing to disappear. One morning, they just start saying the word correctly. You won't notice when it happens.
 
-A landmark study by Emory University psychologist Patricia Bauer found that children as young as 3 can recall events from their past, but by age 7, those memories begin to fade rapidly. By adulthood, most are gone completely.
+### 2. The names they gave things
 
-This means the years you're living right now — the first words, the bedtime stories, the silly dances, the made-up songs — will likely be forgotten by the very person who lived them.
+Before they knew the real words, they invented their own. The "cold box" (fridge). The "water room" (bathroom). "Sleeping juice" (medicine). These words are their original language.
 
-Unless you capture them.
+### 3. The songs they made up
 
-## Photos Aren't Enough
+"I'm eating my toast, it's a really good toast, it's better than most toast, I love my toast." These songs are performed once and never repeated. Record the next one you hear.
 
-You probably have thousands of photos on your phone. That's great. But photos are silent. They capture how things looked, not how they sounded. Not how your daughter pronounced "spaghetti." Not how your son narrated his toy battles. Not the bedtime story your partner made up on the spot.
+## The Questions That Stop You
 
-**Voice is the most intimate record of a person.** It carries personality, emotion, and presence in a way no photograph can match.
+### 4. Their big questions
 
-## What Actually Works
+"Why do people die?" "Was I alive before I was born?" "Where do thoughts come from?" When one lands, press record and ask them what they think the answer is.
 
-The families who preserve memories best aren't the ones with the fanciest cameras. They're the ones who **record regularly and keep it simple**.
+### 5. Their theory about how the world works
 
-### Record the small stuff
+"Thunder is when clouds are fighting." "Rain is the sky crying because it's sad." "The moon follows our car because it likes us." Record them.
 
-You don't need to wait for milestones. Record a random Tuesday dinner conversation. Record your kid explaining how butterflies work. Record bedtime. The mundane moments are the ones you'll treasure most later.
+### 6. What they think YOU do all day
 
-### Make it a habit
+Ask: "What does Mommy/Daddy do at work?" The answer will be hilarious and revealing.
 
-Once a week is enough. Set a reminder on Sunday evening: "Record one memory." It takes two minutes.
+## The Stories They Tell
 
-### Transcribe it
+### 7. A story they made up
 
-Audio files get buried. You'll never scroll through 200 voice memos to find the right one. Transcription turns voice into searchable, readable text — a family diary written in everyone's real words.
+"Tell me a story about anything." Then don't interrupt. A child's narrative has no respect for structure, genre, or physics. It will never be told the same way twice.
 
-### Print it
+### 8. Their retelling of a movie
 
-Digital is fragile. Phones break, clouds shut down, accounts get lost. A printed book sits on a shelf for decades. Your grandchildren can pick it up and read their parent's first words.
+Frozen, told by a four-year-old, is a very different story than the one Disney made.
 
-## How Nest of Memories Makes This Easy
+### 9. What happened at school today
 
-We built Nest of Memories for exactly this problem.
+Wait until bedtime. Lie down with them in the dark. Then ask. The stories that come out when they're relaxed are the real ones.
 
-1. **Record** — One tap. That's it. Record any moment, any conversation.
-2. **Transcribe** — Our AI converts voice to text in minutes. Every word, preserved.
-3. **Organize** — Add photos, sort by date or theme, create chapters of your family's story.
-4. **Print** — Turn your digital memories into a beautiful hardcover or softcover book.
+## The Things They Believe
 
-No complicated setup. No editing skills needed. Just press record and live your life.
+### 10. What they want to be when they grow up
 
-## The Gift of Memory
+A dinosaur doctor. A firefighter princess. A chef who only makes dessert. Ask every six months. The evolution is beautiful.
 
-Twenty years from now, your child will sit down and read a book filled with their own voice from age 3. They'll hear the stories they told, the questions they asked, the way they saw the world before the world taught them to see it differently.
+### 11. What they think is important
 
-That's not just a memory. That's a gift.
+"What's the most important thing in the world?" The answers range from "my family" to "snacks."
 
-**Don't wait for the perfect moment. The perfect moment is happening right now.**`
+### 12. Their rules for life
+
+"You should always share. But not your birthday cake." "Never run when you're holding soup."
+
+## The Voice Itself
+
+### 13. The way they say your name
+
+This sound will change. Record how they say "mama" or "daddy" right now.
+
+### 14. The way they count
+
+The skipped numbers. The confident wrong answers. "...eleven, twelve, firteen, fourteen, fiveteen..."
+
+### 15. The way they read
+
+The sounding-out. The guesses. The pride when they get a word right. "The... cat... sat... on... the... mat! THE CAT SAT ON THE MAT!"
+
+## The Relationship Stuff
+
+### 16. Why they love the people they love
+
+"Why do you love Grandma?" "Because she lets me eat crackers on the couch and she smells like flowers."
+
+### 17. What makes them feel safe
+
+Their answers tell you something about their emotional world you might not know otherwise.
+
+### 18. Their idea of a perfect day
+
+Probably simpler and more beautiful than you'd expect.
+
+## The Weird Stuff
+
+### 19. A conversation with their toys
+
+Leave the phone nearby while they're playing alone. The conversations they have when they think nobody's listening are pure gold.
+
+### 20. Them just being them
+
+Not answering a question. Not performing. Just narrating what they're drawing. Talking to the cat. Singing while they put on their shoes.
+
+## How to Actually Do This
+
+One recording per week. Pick one thing from this list. Press record. Five minutes.
+
+Over a year: 52 recordings. Transcribe them. Add photos. Print a book.
+
+Your child won't remember being 3. But they can read about it when they're 30 — in their own words.`
   },
   {
-    slug: 'voice-recordings-more-precious-than-photos',
-    title: 'Why Voice Recordings Are More Precious Than Photos',
-    metaTitle: 'Why Voice Recordings Are More Precious Than Photos | Nest of Memories',
-    metaDescription: 'You have thousands of photos. But do you have your loved ones\' voices? Here\'s why audio memories matter more than you think.',
-    keywords: 'voice recordings family, preserve family voices, audio memories, voice memo family',
-    category: 'Memory Preservation',
-    date: '2026-03-04',
-    readTime: '5 min read',
+    slug: 'why-does-time-go-so-fast-with-kids',
+    title: 'Why Does Time Go So Fast With Kids?',
+    metaTitle: 'Why Does Time Go So Fast With Kids? The Science + What to Do | Nest of Memories',
+    metaDescription: 'The days are long but the years are short. Here\'s the science behind why time speeds up with kids — and what you can actually do about it.',
+    keywords: 'time goes fast kids growing up, why time flies with children, slowing down parenthood, parenting time',
+    category: 'Parenting',
+    date: '2026-03-31',
+    readTime: '7 min read',
     heroImage: null,
-    excerpt: 'Close your eyes and think of someone you\'ve lost. You can picture their face. Now try to hear their voice. That\'s where it breaks.',
-    content: `Quick test: close your eyes and think of someone you've lost.
+    excerpt: 'Somebody told me the days are long but the years are short. Then my daughter turned 4 and I understood it physically.',
+    content: `Somebody told me once that the days are long but the years are short. I thought it was one of those things people say to new parents — nice but meaningless.
 
-You can probably picture their face. Maybe you can see them in a specific place — a kitchen, a garden, a favorite chair.
+Then my daughter turned 4 and I understood it physically. The feeling of looking at her and realizing the baby is gone. Not leaving. Gone.
 
-Now try to hear their voice.
+If you've felt this — that stomach-drop sensation of time slipping — you're not imagining it. There's science behind it.
 
-For most people, that's where it breaks. The voice fades first. And when it's gone, it's gone in a way that photos can never fix.
+## Why It Actually Feels Faster
 
-## We Photograph Everything. We Record Almost Nothing.
+### Your brain stops recording the routine
 
-The average person takes 2,000 photos per year. We document every meal, every sunset, every outfit. Our phones are galleries of visual memory.
+When something is new, your brain pays attention. First steps. First words. First day at nursery. Your brain encodes these in detail because they're novel.
 
-But voice? Almost no one records it intentionally. We have terabytes of pixels and almost zero seconds of the people we love just... talking.
+But by year two, three, four, your brain categorizes the daily routine as "known." It stops recording the details because it's already filed the pattern. The days blur together because your brain literally isn't making distinct memories for each one.
 
-Think about that for a moment.
+### You're exhausted
 
-## What Makes Voice So Special
+Tired brains are worse at forming memories. And parents of young children are the most chronically sleep-deprived population outside of medical residents.
 
-### Voice carries emotion that photos can't
+### You're looking forward, not present
 
-A photo of your mother smiling tells you she was happy. A recording of her laughing tells you *how* she was happy — the rhythm, the warmth, the way it builds. It's three-dimensional in a way images never are.
+Parents spend huge mental energy planning ahead. The next meal. The next nap. The next milestone. It pulls your attention away from the present moment.
 
-### Voice preserves personality
+## The Uncomfortable Math
 
-The way someone tells a story — their pauses, their emphasis, their tangents — that's who they are. It's their personality in its most raw, unedited form. You can't capture that in a photo or even a video.
+If your child is 3, you've already used up about a third of the time they'll live at home. By 10, you're past the halfway point.
 
-### Voice triggers memory more powerfully
+This isn't meant to make you sad. It's meant to make you pay attention.
 
-Neuroscience research has shown that auditory cues are exceptionally powerful memory triggers. Hearing a familiar voice can unlock entire chains of memories — smells, feelings, places — that visual cues alone can't access.
+Because time doesn't just pass. It takes things with it. The voice your child has right now will be gone within a year. The questions they ask, the logic they use — all temporary.
 
-### Voice is effortless to capture
+You can't slow time down. But you can make sure it doesn't leave empty-handed.
 
-You don't need good lighting. You don't need anyone to pose. You don't even need them to know you're recording (though you should tell them). Just press a button and let the conversation happen.
+## What Actually Helps
 
-## The Recordings You'll Wish You Had
+### Stop trying to remember. Start recording.
 
-People who've lost loved ones consistently say the same thing: **they wish they had more recordings.**
+Your memory is not a reliable archive. A recording doesn't fade. Put your phone on the kitchen table twice a week. Press record. Let the conversation happen.
 
-Not more photos. Not more videos. Recordings. Of ordinary moments:
+### Write down the small stuff
 
-- A parent telling their favorite story
-- A grandparent singing that song they always sang
-- A child explaining something in their three-year-old logic
-- A family dinner where everyone talked over each other
-- A quiet conversation before bedtime
+The thing they said at breakfast that made you laugh. The word they invented. Write it down immediately — you'll forget it by dinner.
 
-These aren't cinematic moments. They're *real* moments. And they're the ones that matter most.
+### Take fewer photos. Take more audio.
 
-## From Voice to Legacy
+You have thousands of photos. You probably have almost zero recordings of your child just talking. Audio captures who they were. Photos capture how they looked.
 
-Recording is step one. But raw audio files aren't a legacy — they're a mess of untitled voice memos buried in your phone.
+### Create weekly markers
 
-That's why transcription matters. When a voice recording becomes text, it becomes:
+Every Sunday, record one conversation. It becomes a timestamp — a fixed point in the blur. Week after week, these add up into a record of your child evolving in their own voice.
 
-- **Searchable** — find that specific story without scrubbing through hours of audio
-- **Readable** — share it with family members who weren't there
-- **Printable** — turn it into a physical book that outlasts any device
-- **Preservable** — text doesn't degrade, corrupt, or become incompatible
+### Print something physical
 
-## Start Today. It Takes 2 Minutes.
+Digital files don't feel real. A book on a shelf is a physical object that says: this happened. This mattered. This is who they were.
 
-Nest of Memories was built for this exact purpose. Record a conversation, and our AI transcribes it automatically. Organize your memories, add photos, and when you're ready, print a book your family will keep forever.
+## Time Is Going to Pass Anyway
 
-You don't need a special occasion. The most precious recording you'll ever make might be an ordinary Thursday.
+You can't slow it down. But you can choose what survives.
 
-**The best time to start recording was ten years ago. The second best time is now.**`
+The parents who feel least ambushed by the speed of time aren't the ones who had more time. They're the ones who captured more of it. Through simple, repeated habits. Five minutes a week. One question. One recording.
+
+The days are long. The years are short. And the recordings last forever.`
+  },
+  {
+    slug: 'sunday-recording-habit',
+    title: 'The Sunday Habit That Takes 5 Minutes and Lasts Forever',
+    metaTitle: 'The Sunday Recording Habit: 5 Minutes That Last Forever | Nest of Memories',
+    metaDescription: 'One question every Sunday. Five minutes of recording. Over a year, you build something your child will treasure for life.',
+    keywords: 'weekly family recording habit, recording kids routine, sunday family tradition, preserve child voice weekly',
+    category: 'Parenting',
+    date: '2026-04-07',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'Every Sunday evening, I sit at the kitchen table with my daughter. I press record. I ask her one question. Five minutes. The most valuable habit I\'ve ever built.',
+    content: `Every Sunday evening, somewhere between bath and bed, I sit at the kitchen table with my daughter. I put my phone between us. I press record. I ask her one question.
+
+"What was the best part of this week?"
+
+She talks for three or four minutes. I don't interrupt. I just let her tell me about her week in her own words.
+
+We've been doing this for about eight months. I have 35 recordings. Each one is a snapshot of who she is at that exact moment.
+
+It's the most valuable thing on my phone.
+
+## Why Sunday Works
+
+Sunday evening has a natural reflection quality. The week is winding down. There's no rush. It's a pause — and pauses are when the good conversations happen.
+
+## The Questions That Work Best
+
+Ask open-ended questions and then shut up. Don't guide the answer.
+
+**Weekly check-ins:**
+- "What was the best part of this week?"
+- "What made you laugh this week?"
+- "Did anything make you sad or angry?"
+
+**Imagination questions:**
+- "If you could have any superpower, what would it be?"
+- "If animals could talk, which one would be your friend?"
+
+**Identity questions:**
+- "What are you good at?"
+- "What do you want to be when you grow up?"
+
+**Storytelling prompts:**
+- "Tell me a story about anything"
+- "What did you dream about last night?"
+
+Repeating the same question at different ages produces incredible comparisons.
+
+## What Five Minutes a Week Adds Up To
+
+**After 1 month:** 4 recordings. You start noticing vocabulary expanding.
+
+**After 3 months:** 12 recordings. You can hear the voice changing.
+
+**After 6 months:** 24 recordings. Enough for a full chapter of their life.
+
+**After 1 year:** 52 recordings. About 4 hours of their voice. Enough for a full memory book.
+
+**After 3 years:** A detailed record from age 3 to 6 — the exact years childhood amnesia will erase.
+
+All from five minutes on a Sunday.
+
+## Making It Stick
+
+1. **Same time, same place.** Sunday evening, kitchen table.
+2. **One question only.** Don't turn it into an interview.
+3. **Don't edit.** The rambling and tangents are the good stuff.
+4. **Skip weeks guilt-free.** 80% consistent beats abandoned.
+5. **Don't listen back every week.** Just record and move on.
+
+## What to Do With the Recordings
+
+Once a month, spend 15 minutes:
+
+1. **Title each recording.** "2026-03-15 — Playground story"
+2. **Transcribe.** Manually or with Nest of Memories (automatic).
+3. **Add a photo.** One per recording, from the same week.
+
+## The Book at the End
+
+When your child turns 18, you hand them a book. Inside are their own words — transcribed from Sunday recordings from age 3 to 10. Their own voice. Their own questions. Their own view of the world at ages they can't remember.
+
+That's not a gift. That's a piece of their identity they'd never have had otherwise.
+
+And it started with five minutes on a Sunday.`
+  },
+  {
+    slug: 'do-babies-recognize-parents-voices',
+    title: 'Do Babies Recognize Their Parents\' Voices? (The Science Is Beautiful)',
+    metaTitle: 'Do Babies Recognize Parents\' Voices? The Beautiful Science | Nest of Memories',
+    metaDescription: 'Before your baby can see your face clearly, they already know your voice. Here\'s the science — and why recording both your voice and theirs matters.',
+    keywords: 'babies recognize parents voice, baby voice recognition, newborn hearing, parent child voice bond',
+    category: 'Science',
+    date: '2026-04-14',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'Before your baby can see your face clearly, before they can hold their head up — they know YOUR specific voice. And they\'ve known it since before they were born.',
+    content: `Before your baby can see your face clearly, before they can hold their head up, before they can do almost anything — they know your voice.
+
+Not in a vague, general way. They know YOUR specific voice. And they've known it since before they were born.
+
+## What Happens in the Womb
+
+By about 18 weeks of pregnancy, the auditory system starts processing sound. By the third trimester, the fetus can hear voices clearly.
+
+Your baby spent months listening to your voice before they ever saw your face. The rhythm of your speech. The pitch. The way you laugh. The songs you hummed while cooking.
+
+A study from the University of Montreal found that a newborn's brain responds differently to their mother's voice versus a stranger's voice within hours of birth. Not days. Hours.
+
+## The First Voice They Prefer
+
+Researchers at Queen's University played recordings of mothers reading a story to their newborns. The babies consistently preferred — measured by sucking rate on a pacifier — their own mother's voice over a stranger reading the same story.
+
+They don't just prefer "a female voice." They prefer HER voice. The specific one they've been listening to for months.
+
+Fathers' voices take a little longer to become preferred — simply because the father's voice doesn't travel through the body the same way during pregnancy. But within weeks of birth, babies show clear recognition for their father's voice too.
+
+## Why Voice Is the First Bond
+
+Before a baby can make eye contact, before they can smile, before they can reach for you — they can turn toward your voice. It's their first reliable compass in a world that's overwhelmingly new.
+
+Your voice isn't just something your baby hears. It's their primary source of comfort and safety. It is, in the most literal sense, their first home.
+
+## The Voice That Changes
+
+Your baby's voice will change dramatically over the next few years. First cries. First coos. First babbled syllables. First real word. First sentence.
+
+Each version exists for a brief period and then is replaced by the next. The specific sound of your baby at 6 months is different from 12 months is different from 2 years.
+
+None of these versions come back.
+
+Most parents have photos from every stage. Almost none have audio.
+
+## What Your Voice Means to Them Later
+
+Researchers at the University of Wisconsin found that hearing their mother's voice — even just on the phone — reduced cortisol (stress hormone) levels in children as effectively as a physical hug.
+
+Your voice is literally a biological stress reliever for your child.
+
+Now project forward. Your child at 20. Hearing a recording of your voice from when they were small — not just what you said, but how you said it. The way you read bedtime stories. The way you sang in the car. The way you said "I love you."
+
+That recording wouldn't just be a memory. It would be medicine.
+
+## Start a Voice Archive
+
+Record both directions.
+
+Record your child talking to you. Their questions, their stories, their voice at every age.
+
+And record yourself talking to them. Read them a story and keep the recording. Sing the lullaby and save it.
+
+Because one day, your child will want to hear how you sounded when they were small. And one day, you'll want to hear how they sounded before they grew up.
+
+Both recordings only exist if you make them.
+
+Five minutes. One recording. The most advanced form of love is the kind that thinks ahead.`
+  },
+  {
+    slug: 'unique-gifts-new-parents',
+    title: 'Unique Gifts for New Parents (That Aren\'t Baby Gear)',
+    metaTitle: 'Unique Gifts for New Parents That Aren\'t Baby Gear | Nest of Memories',
+    metaDescription: 'They already have the stroller. Here are gifts new parents actually remember years later — including the one that makes them cry.',
+    keywords: 'unique gifts new parents, meaningful baby shower gift, best gift for new mom, gift ideas new parents',
+    category: 'Gifts',
+    date: '2026-04-21',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'They already have the stroller. They\'ve received fourteen onesies. Here are the gifts new parents actually remember years later.',
+    content: `They already have the stroller. They've received fourteen onesies. Someone bought the fancy bottle sterilizer. The registry is cleared.
+
+Here's the thing about new parent gifts: the ones people remember are never the products. They're the gestures.
+
+## Gifts That Save Their Time
+
+### 1. Meal delivery subscription
+
+One home-cooked meal is nice. A three-week meal delivery subscription solves a daily problem.
+
+### 2. House cleaning service
+
+Book a deep clean for week 3 or 4 postpartum — when the help has dried up but the mess hasn't. Nothing says "I love you" like someone else scrubbing their bathroom.
+
+### 3. A specific babysitting offer
+
+Not "let me know if you ever need help." A date: "I'm coming over Saturday at 6pm so you two can go to dinner."
+
+## Gifts That Create Meaning
+
+### 4. A memory recording system
+
+This is the one nobody thinks of — and the one that matters most ten years later.
+
+New parents are about to enter the most intense years of their lives. First words. The way their baby's voice changes month by month. Almost all of it goes unrecorded.
+
+Nest of Memories helps parents record their child's voice, automatically transcribes it, and lets them print a physical memory book. Free to start.
+
+### 5. A letter to be opened later
+
+Write a letter to the baby. Seal it. Write "Open on your 18th birthday." Tell the parents to add their own letters over the years.
+
+Cost: nothing. Value: incalculable.
+
+### 6. A family photo session at 4-6 months
+
+Not a newborn shoot — everyone does that. Book a session for when the baby is smiling and interactive and the parents have somewhat recovered.
+
+### 7. A book of first-year prompts
+
+A journal with monthly prompts: "What surprised you about this month?" These become priceless when the child is older.
+
+## Gifts That Support the Parents
+
+### 8. A massage gift card
+
+New parents are physically wrecked. A massage isn't luxury — it's medical intervention.
+
+### 9. A really good insulated coffee mug
+
+New parents start 40 cups of coffee a day and finish maybe two. A vacuum-insulated mug is used daily for years.
+
+### 10. Noise-canceling headphones
+
+For the partner who isn't on baby duty. A relationship-saving gift.
+
+## Gifts to Avoid
+
+- **Newborn clothes** — too many, outgrown in weeks
+- **Parenting books** — they're too tired to read
+- **Anything that requires assembly** — just no
+- **Perfume/cologne** — their sense of smell has been hijacked by diapers
+
+## The Gift They'll Talk About in 10 Years
+
+The best gift I ever received as a new parent wasn't a thing. It was a friend who said: "Record everything. You think you'll remember. You won't."
+
+If you want to give something truly unique: give them a way to capture these years. A recording setup. A memory book system. A note that says: "Start recording their voice now. Future you will be grateful."
+
+That's a gift for the next twenty years, not just the next twenty days.`
+  },
+  {
+    slug: 'things-to-remember-about-3-year-old',
+    title: 'Things I Want to Remember About My 3-Year-Old',
+    metaTitle: 'Things I Want to Remember About My 3-Year-Old | Nest of Memories',
+    metaDescription: 'I started this list because I realized I was already forgetting things. She\'s only 3 and the details from age 2 are already blurring.',
+    keywords: 'things to remember about toddler, toddler memories, remember about my child, preserve toddler moments',
+    category: 'Parenting',
+    date: '2026-04-28',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'I started writing this list because I realized I was already forgetting things. She\'s only 3 and some of the details from age 2 are already blurring.',
+    content: `I started writing this list because I realized I was already forgetting things. She's only 3 and some of the details from age 2 are already blurring — not the big events, but the small things. The texture of daily life with her.
+
+So I wrote them down. Not because they're remarkable. Because they're leaving.
+
+## The way she says things
+
+She calls elevators "alligators." She says "lasterday" for anything that happened in the past. Breakfast is "brefkist." She asks "what's that noise is?" with the extra "is" at the end, every single time.
+
+There's a window — maybe a year — where these exist. Then they correct themselves and the words are gone.
+
+## Her morning ritual
+
+She wakes up and talks to her stuffed animals first. I can hear her through the door — a low, serious conversation with Bear about the day's plans. "Okay Bear, first we're going to eat brefkist, and THEN we're going to play."
+
+She plans her whole day for Bear before she'll get out of bed.
+
+## How she eats
+
+She eats pasta one noodle at a time. She picks up each one, examines it like a scientist, then eats it. A bowl of spaghetti takes 45 minutes.
+
+She refuses to let any foods touch each other on the plate.
+
+## Her questions
+
+"Daddy, are clouds heavy?"
+"If I eat a seed, will a tree grow in my stomach?"
+"Why do we have to sleep?"
+"Do fish know they're wet?"
+"When you were little, was everything in black and white?"
+
+They arrive without warning and demand real answers.
+
+## What she does when she thinks no one is watching
+
+She narrates everything in a whispered commentary, like a nature documentary. "And now she's going to get the crayon... she's picking the blue one..."
+
+She practices facial expressions in the mirror. Happy, sad, surprised, angry. Then she makes one she calls "mysterious" — which is just squinting with her mouth open.
+
+She sings to herself constantly. Made-up songs with made-up words.
+
+## Her logic
+
+She believes the ice cream truck plays music because it's happy. I haven't corrected this.
+
+She thinks the moon follows our car because it likes our family.
+
+She's convinced that putting a bandaid on anything — including a broken toy and once a wilting plant — will fix it.
+
+## How she shows love
+
+She gives me things. Rocks, mostly. But also leaves, stickers, a single cheerio she saved from breakfast. Each one is presented like a treasure.
+
+She says "I love you more than space" which is her largest concept.
+
+When she's tired, she puts her hand on my face and just holds it there. Doesn't say anything.
+
+## Why I'm writing this down
+
+Because I'm going to forget most of it. Not on purpose. But that's what brains do.
+
+More than that — I want HER to know these things. She won't remember being 3. But if I record it, write it down, put it in a book — she can read about who she was someday.
+
+## How I'm keeping track
+
+**1. Weekly voice recordings.** Sunday evenings. One question. Press record. Five minutes.
+
+**2. A running notes file.** When she says something worth keeping, I type it out. Date and quote. Ten seconds.
+
+**3. Monthly photos matched to recordings.** Not special photos — just ordinary ones.
+
+At the end of the year, I'll transcribe the recordings, combine them with notes and photos, and print a book. One year of her life. In her own words.
+
+She can have it when she's ready.
+
+## Your version of this list
+
+Open your phone right now. Write down five things about your child that you don't want to forget. The funny words. The weird habits. The way they show love.
+
+Write them down. Record their voice. Take the ordinary photos. Because this version of them is temporary. And it's worth keeping.`
+  },
+  {
+    slug: 'meaningful-mothers-day-gifts',
+    title: 'Mother\'s Day Gift Ideas That Actually Mean Something',
+    metaTitle: 'Mother\'s Day Gift Ideas That Actually Mean Something | Nest of Memories',
+    metaDescription: 'Not flowers. Not a mug. Here are Mother\'s Day gifts she\'ll still have on a shelf in twenty years — including the one that makes moms cry.',
+    keywords: 'meaningful mothers day gifts, unique mothers day gift ideas, best gift for mom from kids, mothers day gift from toddler',
+    category: 'Gifts',
+    date: '2026-05-05',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'Not flowers. Not a mug. Not a candle. Here are the gifts she\'ll still have on a shelf in twenty years.',
+    content: `Every year, about two weeks before Mother's Day, the same panic sets in. Not flowers again. Not a mug. Not a candle.
+
+You want something that actually means something. Something she'll keep. Something that in twenty years she'll still have on a shelf.
+
+That's a short list. Here's what belongs on it.
+
+## 1. A book of her child's voice
+
+This is the one that makes mothers cry. In a good way.
+
+Record your child answering questions about their mom: Why do you love Mommy? What does Mommy do best? What makes Mommy laugh? What's your favorite thing to do with Mommy?
+
+The answers of a 3-year-old are honest, unexpected, and achingly sweet. "I love Mommy because she smells like warm" is better than any card.
+
+Transcribe the recordings. Add photos. Print a book.
+
+She will keep this book forever.
+
+## 2. A letter from the future
+
+Write a letter as if you're writing from ten years in the future. Tell her what the kids are like now. What they became. How they turned out.
+
+She'll read it on a hard day and remember why she does this.
+
+## 3. A full day of nothing
+
+Not a spa day. A day where she has zero responsibilities and zero decisions. You take the kids. She does whatever she wants.
+
+This costs nothing and is worth more than jewelry.
+
+## 4. A video montage of the kids talking about her
+
+Sit each child down. Ask them to say one thing they love about their mom. Film it. Edit it together.
+
+A 4-year-old looking at the camera and saying "I love Mommy because she always finds my shoes" — that's the whole gift.
+
+## 5. Their handprints — actual size, right now
+
+Paint. Canvas. Press. Date. Frame. Do this every year. By age 10 you have a wall of growth.
+
+## 6. A recording of her reading the bedtime story
+
+Without telling her, record the next bedtime story she reads. The voices she does, the interruptions from the child, the way she says goodnight.
+
+Don't give it to her now. Give it to her in ten years, when bedtime reading is over.
+
+## 7. A date that isn't about the kids
+
+Dinner at a restaurant with no crayons on the table. A movie without animated characters. You made the reservation. You arranged the babysitter. All she does is show up.
+
+## What NOT to give her
+
+- A kitchen appliance (unless she asked for it)
+- Anything that implies she needs fixing
+- A gift card with no thought
+- Nothing
+
+## The Gift That Keeps Going
+
+The best Mother's Day gifts last. A book of her child's voice at age 3. Handprints that grow every year. A recording of bedtime stories she'll listen to when the kids have left.
+
+These get more valuable with time. They're artifacts of a life she's building — one she'll want evidence of later.
+
+Give her something that says: I see what you're doing. I know it matters. And I'm helping you keep it.`
+  },
+  {
+    slug: 'best-family-memory-apps-2026',
+    title: 'Best Apps to Record and Preserve Your Child\'s Memories (2026)',
+    metaTitle: 'Best Family Memory Apps 2026: Record & Preserve Your Child\'s Voice | Nest of Memories',
+    metaDescription: 'A honest comparison of memory apps for parents — from voice recording to photo sharing to printed books. What each does well and where they fall short.',
+    keywords: 'best family memory app 2026, baby milestone app, record child memories app, family memory book app',
+    category: 'Reviews',
+    date: '2026-05-12',
+    readTime: '8 min read',
+    heroImage: null,
+    excerpt: 'The photos aren\'t enough. You want to capture their voice, their words, the things they say that you keep meaning to write down. Here\'s what\'s available.',
+    content: `If you're reading this, you've already had the realization: the photos aren't enough. You want to capture their voice, their words, the things they say that you keep meaning to write down.
+
+Here's what's actually available.
+
+## What to Look For
+
+- **Can you record voice?** Photos are covered. Voice is the gap.
+- **Does it transcribe?** Audio files that sit untouched aren't memories — they're clutter. Transcription turns voice into something readable.
+- **Can you print?** Digital is fragile. A printed book lasts.
+- **Is it simple?** If it takes more than 30 seconds to start recording, you won't use it.
+- **Free tier?** You shouldn't pay to find out if it works for your family.
+
+## The Apps
+
+### Nest of Memories
+**Best for:** Parents who want voice recording + transcription + printed books
+
+Record directly in the app. AI transcribes every recording automatically. Organize by date, age, theme. Add photos. Print books when ready. Free tier: 100 memories.
+
+**Strengths:** Only app doing the full pipeline. Designed specifically for parents recording children. Transcription means a usable archive, not a graveyard of voice memos.
+
+**Price:** Free / Enhanced 29 SEK/mo / Premium 39 SEK/mo | iOS, Android, Web
+
+### StoryWorth
+**Best for:** Email-based storytelling for adults sharing their own life stories
+
+Weekly email prompts. Recipients write text answers. After a year, compiles into a book. Popular gift for parents/grandparents.
+
+**Strengths:** Proven model, beautiful books. **Weaknesses:** No voice recording. Text only. $99/year. Not designed for young children.
+
+### FamilyAlbum
+**Best for:** Photo and video sharing with extended family
+
+Unlimited photo/video storage. Share with family. Auto-organized by month.
+
+**Strengths:** Great for sharing with grandparents. **Weaknesses:** No voice recording. No transcription. No story component.
+
+### Tinybeans
+**Best for:** Milestone tracking for babies
+
+Daily photo journal. Milestone tracking with prompts. Share with family.
+
+**Strengths:** Good for the first year. **Weaknesses:** Photo-focused. Feels less relevant after year one. Doesn't capture voice or personality.
+
+### Day One
+**Best for:** Personal journaling for the parent
+
+Text journaling with photo support. Strong privacy. Audio possible but not transcribed.
+
+**Strengths:** Beautiful journaling app. **Weaknesses:** Not designed for recording children. No printing. It's a personal journal, not a family tool.
+
+### Qeepsake
+**Best for:** Text-based baby journals via SMS
+
+Text message prompts. Reply with text and photos. Compiles into a book.
+
+**Strengths:** Very low friction. **Weaknesses:** Text-only. You're describing your child instead of capturing their actual voice.
+
+## Quick Comparison
+
+**Voice recording:** Nest of Memories only
+**AI transcription:** Nest of Memories only
+**Printed books:** Nest of Memories, StoryWorth, FamilyAlbum, Qeepsake
+**Free tier:** All except StoryWorth
+**For young children:** Nest of Memories, Tinybeans, Qeepsake
+
+## What I'd Recommend
+
+**To capture your child's actual voice and words:** Nest of Memories. The only app that records, transcribes, and prints.
+
+**For photo sharing with family:** FamilyAlbum.
+
+**For journaling about parenthood:** Day One.
+
+**For gifting a life story to a grandparent:** StoryWorth.
+
+The honest truth: if you only do one thing, make it voice recording. Photos, you already have. Your child's voice at age 3? That's the thing you'll wish you'd captured.`
+  },
+  {
+    slug: 'time-capsule-for-your-child',
+    title: 'How to Create a Time Capsule for Your Child',
+    metaTitle: 'How to Create a Time Capsule for Your Child | Nest of Memories',
+    metaDescription: 'Not just stuff in a box. Here\'s how to build a time capsule your child will actually treasure — including voice recordings from every age.',
+    keywords: 'time capsule ideas for kids, time capsule for children, memory box for child, birthday time capsule',
+    category: 'Parenting',
+    date: '2026-05-19',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: 'A time capsule isn\'t just stuff in a box. It\'s a portal to a specific moment. And the most powerful portals aren\'t objects — they\'re sounds.',
+    content: `When my daughter was born, someone suggested I write her a letter. "Give it to her when she's 18."
+
+I did. Then I thought: what if the time capsule wasn't just FROM me — but of HER? What if I could give her not just words on a page, but her own voice?
+
+## What Makes a Great Time Capsule
+
+Most time capsules fail because they're filled with things that seem meaningful now but won't be later. A newspaper. A trending toy. These are artifacts that date quickly.
+
+The capsules that actually deliver contain three things:
+
+1. **The person's own voice** from that age
+2. **Details about daily life** (routines, not events)
+3. **Things only that specific moment could produce**
+
+## The Modern Time Capsule
+
+### Layer 1: Their voice
+
+Record your child answering these questions at each birthday:
+- "How old are you?"
+- "What's your favorite thing to do?"
+- "Who's your best friend?"
+- "What do you want to be when you grow up?"
+- "What makes you happy?"
+- "What's your favorite food?"
+- "What do you love about our family?"
+
+Same questions every year. Different answers every year.
+
+### Layer 2: Their words (transcribed)
+
+When recordings are transcribed, your child can read through years of their own thoughts like a diary they didn't know they were writing.
+
+### Layer 3: Their world
+
+Add context: a photo from that month. Their current height. The name of their teacher and best friend. What they were obsessed with. A funny thing they said. A drawing they made.
+
+### Layer 4: Letters from everyone who loves them
+
+At each birthday, ask family members to write a short note. By the time the child opens the capsule, they'll have messages spanning years.
+
+## Physical Box vs Digital Archive
+
+### The Physical Box
+
+A sturdy container. Add items each year: a letter, a drawing, a photo, a small object from that year, a USB with recordings.
+
+**Pro:** Tangible, ceremonial. **Con:** Items degrade. USBs become obsolete.
+
+### The Digital + Printed Archive
+
+Voice recordings + transcription + photos built as a living archive. At a milestone birthday, print it as a book.
+
+**Pro:** Nothing degrades. Voice stays perfect. Printed book is durable. **Con:** Less ceremonial.
+
+**Best approach:** Both. Physical box for objects. Digital archive for voice and photos. Merge them at the end.
+
+## When to Open It
+
+- **18th birthday** — classic
+- **21st birthday** — some families prefer this
+- **When they have their own first child** — ultimate full-circle
+
+## Start Today
+
+Tonight, sit with your child. Press record. Ask one question from the birthday list.
+
+That's the first artifact. Add to it when you can.
+
+In fifteen years, "imperfect and existing" beats "planned but never started" every time.
+
+The best time to start was the day they were born. The second best time is today.`
+  },
+  {
+    slug: 'the-voice-thats-changing-right-now',
+    title: 'The Voice You\'ll Miss Most Is the One That\'s Changing Right Now',
+    metaTitle: 'The Voice You\'ll Miss Most Is Changing Right Now | Nest of Memories',
+    metaDescription: 'Your child\'s voice at 3 is not the same as at 4. By 5, the 3-year-old is gone. Here\'s how their voice changes — and why you should record every version.',
+    keywords: 'child voice changes, preserve child voice, toddler voice recording, how children voice develops',
+    category: 'Parenting',
+    date: '2026-05-26',
+    readTime: '8 min read',
+    heroImage: null,
+    excerpt: 'You hear it every day. So you don\'t notice it changing. But your child\'s voice at 3 is not the same as their voice at 4. And by 5, the 3-year-old is gone.',
+    content: `You hear it every day. So you don't notice it changing.
+
+But your child's voice at 3 is not the same as their voice at 4. And by 5, the 3-year-old is gone. Not gradually fading — gone. Replaced by someone slightly taller, slightly more articulate, who has no memory of who they were before.
+
+If someone told you your child's appearance would completely change every 18 months, you'd photograph them constantly. That's exactly what's happening with their voice. And almost nobody records it.
+
+## How a Child's Voice Changes
+
+### Age 1-2: The invention phase
+
+First words from babbling. Sounds are approximations. The voice is soft, high, tentative. This is the voice you forget fastest — there's so little verbal content to anchor it.
+
+### Age 2-3: The explosion
+
+Vocabulary explodes from 50 to 1000 words. Sentences appear. Grammar is creative — "I goed to the park." Peak mispronunciation territory. Every child has their own set, and every one disappears without warning.
+
+### Age 3-4: The storytelling age
+
+Long, winding stories. Opinions emerge. "I don't want the blue cup BECAUSE it's Tuesday and Tuesday is a red day." This is the age most parents say "I wish I'd recorded more."
+
+### Age 4-5: The competence shift
+
+Mispronunciations correct. The voice drops slightly. Grammar smooths out. Parents often feel a strange grief — nothing is wrong, but the baby voice is leaving.
+
+### Age 5-7: The school voice
+
+New vocabulary, new patterns, new influences. They start talking like their peers. By 7, the 3-year-old's voice and worldview are completely gone.
+
+## What You Actually Lose
+
+**Their logic.** Three-year-old reasoning is a specific intelligence that doesn't exist at any other age.
+
+**Their honesty.** Young children haven't learned to filter. Their answers are direct and unedited.
+
+**Their wonder.** Genuine astonishment at ordinary things. Once the world becomes familiar, the wonder dampens.
+
+**Their specific sound.** The pitch, the rhythm, the way they emphasize words.
+
+## The Two-Year Rule
+
+Any recording of your child from two or more years ago will sound like a different person.
+
+Go check right now. If you have any voice memos from two years ago, listen. You'll hear a child you've already forgotten.
+
+Now think forward two years. This exact voice will be equally unrecognizable. Unless you record it.
+
+## Start With This
+
+One recording. Tonight. Before bed.
+
+Ask them: "Tell me about your day."
+
+Let them talk. Don't correct or guide. Just listen and record.
+
+Do it again next week. Let it become a small habit.
+
+Over time, you'll build something nobody else can give your child: a record of every version of their voice, from the earliest sounds to the moment they no longer needed you to ask.
+
+That's not a recording. That's a love letter in reverse — made before they could read it, to be opened when they're ready.`
   }
 ];
 
