@@ -3,6 +3,182 @@
 
 const blogPosts = [
   {
+    slug: 'how-to-preserve-grandparents-stories',
+    title: 'How to Preserve Your Grandparents\' Stories (Before It\'s Too Late)',
+    metaTitle: 'How to Preserve Your Grandparents\' Stories Before It\'s Too Late | Nest of Memories',
+    metaDescription: 'A practical, heartfelt guide to recording and preserving your grandparents\' stories — questions to ask, tools to use, and how to turn conversations into a book your family keeps forever.',
+    keywords: 'how to preserve grandparents stories, record grandparents stories, grandparent interview questions, family memory book, preserve family voices',
+    category: 'Family Stories',
+    date: '2026-03-04',
+    readTime: '8 min read',
+    heroImage: null,
+    excerpt: 'There\'s a conversation you keep meaning to have. This guide is for the people who are ready to stop meaning to do it — and actually do it.',
+    content: `There's something you keep meaning to do.
+
+You know the conversation you want to have. The one where you sit down with your grandmother and ask her about the war years, or the little town she grew up in, or the day she met your grandfather. You picture yourself recording it, writing it down, turning it into something real.
+
+You just haven't done it yet.
+
+Maybe there's always something more urgent. Maybe you're not sure how to start. Maybe some part of you assumes there's still plenty of time.
+
+There isn't always time. And the cruelest thing about memory is that it doesn't warn you when it's running out.
+
+This guide is for the people who are ready to stop meaning to do it — and actually do it.
+
+## Why Your Grandparents' Stories Matter More Than You Think
+
+We tend to think of family history as genealogy — dates, names, places, a family tree with branches and leaves. But that's just the skeleton.
+
+The stories are the flesh. They're the texture of real lives. The reason your grandmother always put a pinch of salt in her coffee. The summer your grandfather worked on a fishing boat to save enough money to get married. The war, the move, the night everything changed.
+
+These aren't just personal memories. They're historical records of how ordinary people lived through extraordinary times. A century from now, your great-grandchildren will have no other way to know what life was actually like — not from textbooks, but from the inside.
+
+And here's what most people don't realize: **your grandparents want to tell these stories.** Most of them have never been properly asked.
+
+## Start Here: The Conversation That Changes Everything
+
+You don't need a plan. You don't need a professional setup. You need to sit down, press record on your phone, and say: "Tell me about your childhood."
+
+That's it. That's the whole plan.
+
+But if you want to unlock the best stories — the ones they don't tell unprompted — here are the questions that work:
+
+### Questions About Their Early Life
+
+- "What's your earliest memory?"
+- "What was your childhood home like? Who else lived there?"
+- "What did you do after school? What games did you play?"
+- "Who was your best friend growing up, and what happened to them?"
+- "What was the biggest thing that happened in the world when you were a teenager?"
+
+### Questions About Defining Moments
+
+- "What was the hardest thing you ever went through?"
+- "When did you feel most proud of yourself?"
+- "Is there a decision you made that changed the direction of your life?"
+- "What's something that happened to you that nobody in the family knows about?"
+
+### Questions About Love and Family
+
+- "How did you and [grandmother/grandfather] meet? Who made the first move?"
+- "What was the first year of marriage like?"
+- "What was it like when [parent's name] was born?"
+- "What did you think when you first became a grandparent?"
+
+### Questions About Wisdom and Legacy
+
+- "What do you know now that you wish you'd known at 25?"
+- "What's the best advice anyone ever gave you?"
+- "What do you want your grandchildren to know about you?"
+- "What are you most proud of in your life?"
+
+### The Wildcard
+
+"What would surprise me most about your life?"
+
+This last one is where the best stories usually hide. Hidden talents, youthful adventures, decisions nobody talks about. Ask it. Then wait.
+
+## How to Record: Simple Setup That Actually Works
+
+You don't need professional equipment. The phone in your pocket records in better quality than any device that existed twenty years ago.
+
+Here's the setup that works:
+
+### 1. Use your phone's voice recorder or a dedicated app
+
+Your built-in voice recorder works. Sit the phone on the table between you — don't hold it, as handling noise is distracting. If you use an app that auto-transcribes, you can skip a lot of manual work later.
+
+### 2. Choose the right environment
+
+Quiet room. No TV in the background. Kitchen tables work well — there's something about that setting that puts people at ease.
+
+### 3. Tell them you're recording — and why
+
+Don't surprise them. Say: "I'd like to record this so I don't forget anything — is that okay?" Almost everyone says yes. When you explain that you want to keep their stories for the family, they usually become more thoughtful, more detailed, more willing to go deep.
+
+### 4. Start with easy questions
+
+Don't open with the heavy stuff. Start with something warm and simple — a favorite childhood memory, a funny story. Let them settle in. The harder questions come naturally once they're in the flow.
+
+### 5. Let them wander
+
+The best moments often come from tangents. If they start talking about something that seems off-topic, follow it. Don't rush to the next question. The structured interview can wait.
+
+## The Problem With Just Recording
+
+Here's what happens to most recordings: they sit on a phone, labeled "Voice memo 34," and nobody ever goes back to them.
+
+Raw audio is hard to use. You can't search it. You can't share specific moments easily. You can't print it. And when the person who recorded it dies, the files often die with their device.
+
+**Transcription turns recordings into something permanent.**
+
+When a voice recording becomes text, it becomes:
+
+- **Searchable** — Find grandma's story about the war without listening to three hours of audio
+- **Shareable** — Email a specific story to a cousin on another continent
+- **Readable** — Print it, read it aloud, quote from it
+- **Preservable** — Text survives every device upgrade, every cloud service shutdown
+
+You can transcribe manually — it's slow but doable. Or you can use an app that does it automatically. Nest of Memories records the conversation and transcribes every word with AI, so you have both the audio and a readable transcript within minutes.
+
+## How to Organize What You Collect
+
+One recording session is a gift. Six sessions over six months is an archive. Here's how to organize it:
+
+### Create Chapters
+
+Think of your grandparent's life as a book with chapters:
+
+- Childhood (birth to about 18)
+- Young adulthood (first jobs, independence)
+- Love and marriage
+- Raising children
+- Career and achievements
+- Later years and reflection
+
+You don't have to fill every chapter at once. Over a few visits, you'll naturally cover most of them.
+
+### Add Photos to Stories
+
+When a story mentions a specific place or time period, look for photos that match. A story about "the little apartment where we lived when your mother was born" becomes something else entirely when paired with an actual photo of that apartment.
+
+### Note the Details That Would Otherwise Disappear
+
+Names of friends, streets, towns, dishes they cooked, songs they loved. Ask follow-up questions: "What was her name?" "Where was that exactly?" "What year was this?"
+
+## Turn It Into Something Physical
+
+Digital memories are fragile. Cloud services shut down. Phones break. Accounts get forgotten.
+
+A printed book on a shelf lasts generations.
+
+Once you have transcribed recordings and photos organized, you can turn them into a real physical memory book — a hardcover or softcover book your family can hold. Future grandchildren can take it off the shelf and read their great-great-grandmother's stories in her actual words.
+
+## When to Start (The Honest Answer)
+
+Now.
+
+Not this weekend. Not after the holidays. Now.
+
+If your grandparents are in their 80s, you may have years left with them. You may also have less time than you think. Nobody tells you when the window closes.
+
+The recording you'll regret most is the one you never made.
+
+The lowest-possible-friction way to start: the next time you're with your grandparent — in person or on the phone — press record and ask them one question. Just one.
+
+"What's your earliest memory?"
+
+That's the whole first step. The rest follows naturally.
+
+## What You'll Wish You'd Started Sooner
+
+People who've gone through this process all say the same thing: they wish they'd started earlier.
+
+Not because they ran out of time — though some did. But because once they started recording, they discovered things they never knew. Stories their grandparent had never told anyone. Pieces of family history that had been sitting in one person's memory for seventy years, waiting to be asked.
+
+The stories are there. They're just waiting for you to press record.`
+  },
+  {
     slug: 'questions-to-ask-grandparents',
     title: '10 Questions to Ask Your Grandparents Before It\'s Too Late',
     metaTitle: '10 Questions to Ask Your Grandparents Before It\'s Too Late | Nest of Memories',
