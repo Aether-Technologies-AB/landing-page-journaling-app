@@ -2,6 +2,12 @@
   command = "CI=false npm run build"
   publish = "build"
 
+# Enable Netlify prerendering for SEO bots (Google, Bing, etc.)
+# This ensures blog posts are indexable even though it's a React SPA
+[build.processing]
+  [build.processing.html]
+    pretty_urls = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

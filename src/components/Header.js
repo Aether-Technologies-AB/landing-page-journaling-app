@@ -40,6 +40,7 @@ const Header = () => {
             </>
           ) : (
             <>
+              <Link to="/blog">Blog</Link>
               <Link to="/pricing">Pricing</Link>
               <Link to="/login" className="auth-link">Login</Link>
               <Link to="/register" className="auth-link highlight">
