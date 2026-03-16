@@ -88,7 +88,7 @@ Tonight, if you can. Ask your child one question before bed: "What was the best 
 Press record. Let them answer. That's the whole first step.`
   },
   {
-    slug: 'what-is-childhood-amnesia',
+    slug: 'childhood-amnesia-why-toddler-wont-remember',
     title: 'What Is Childhood Amnesia? (And Why Your Toddler Won\'t Remember Being 3)',
     metaTitle: 'What Is Childhood Amnesia? Why Your Toddler Won\'t Remember | Nest of Memories',
     metaDescription: 'Most children can\'t recall anything before age 3-4. Here\'s the science behind childhood amnesia — and what parents can do to preserve the memories their kids will lose.',
