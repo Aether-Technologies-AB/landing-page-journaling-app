@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NewsletterSection from './NewsletterSection';
 import { 
   FaMicrophone, 
   FaCloud, 
@@ -228,6 +229,9 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Newsletter */}
+      <NewsletterSection />
 
       {/* Bottom CTA */}
       <section className="bottom-cta">

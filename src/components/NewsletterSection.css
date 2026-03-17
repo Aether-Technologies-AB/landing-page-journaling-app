@@ -1,0 +1,140 @@
+/* NewsletterSection.css */
+
+.newsletter-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.newsletter-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.newsletter-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.newsletter-text p {
+  font-size: 1.05rem;
+  color: #b0bec5;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (min-width: 480px) {
+  .newsletter-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.newsletter-input::placeholder {
+  color: #78909c;
+}
+
+.newsletter-input:focus {
+  border-color: #4fc3f7;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.newsletter-button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #e91e8c, #c2185b);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  white-space: nowrap;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .newsletter-button {
+    width: auto;
+  }
+}
+
+.newsletter-button:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.newsletter-button:disabled,
+.newsletter-button.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.newsletter-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgba(79, 195, 247, 0.12);
+  border: 1px solid rgba(79, 195, 247, 0.3);
+  border-radius: 10px;
+}
+
+.newsletter-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #4fc3f7;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.newsletter-success p {
+  color: #e0f7fa;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.newsletter-error {
+  width: 100%;
+  color: #ef9a9a;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.newsletter-disclaimer {
+  color: #546e7a;
+  font-size: 0.8rem;
+  margin-top: 16px;
+}
