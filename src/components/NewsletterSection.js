@@ -23,7 +23,7 @@ const NewsletterSection = () => {
 
       if (res.ok && data.success) {
         setStatus('success');
-        setMessage('You're in! 🎉 Check your inbox for a welcome from us.');
+        setMessage("You're in! 🎉 Check your inbox for a welcome from us.");
         setEmail('');
       } else {
         setStatus('error');
