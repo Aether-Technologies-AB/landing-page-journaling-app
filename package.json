@@ -21,6 +21,7 @@
     "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^3.0.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
@@ -29,15 +30,40 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "react-snap": "^1.23.0",
     "webpack-dev-server": "^4.15.1"
   },
   "scripts": {
     "dev": "react-scripts start",
     "start": "node server.js",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "GENERATE_SOURCEMAP=false npm run build"
+  },
+  "reactSnap": {
+    "source": "build",
+    "minifyHtml": { "collapseWhitespace": false },
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "crawl": true,
+    "include": [
+      "/",
+      "/blog",
+      "/pricing",
+      "/blog/record-childs-voice-before-it-changes",
+      "/blog/childhood-amnesia-why-toddler-wont-remember",
+      "/blog/20-things-to-record-child-saying",
+      "/blog/why-does-time-go-so-fast-with-kids",
+      "/blog/sunday-recording-habit",
+      "/blog/do-babies-recognize-parents-voices",
+      "/blog/unique-gifts-new-parents",
+      "/blog/things-to-remember-about-3-year-old",
+      "/blog/meaningful-mothers-day-gifts",
+      "/blog/best-family-memory-apps-2026",
+      "/blog/time-capsule-for-your-child",
+      "/blog/the-voice-thats-changing-right-now"
+    ]
   },
   "eslintConfig": {
     "extends": [

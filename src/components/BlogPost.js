@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { FaClock, FaTag, FaArrowLeft, FaApple, FaAndroid } from 'react-icons/fa';
 import blogPosts from '../data/blogPosts';
@@ -9,54 +10,8 @@ const BlogPost = () => {
   const post = blogPosts.find(p => p.slug === slug);
 
   useEffect(() => {
-    if (post) {
-      // Update document title and meta tags for SEO
-      document.title = post.metaTitle;
-      
-      // Update meta description
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta');
-        metaDesc.name = 'description';
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.content = post.metaDescription;
-
-      // Update meta keywords
-      let metaKeys = document.querySelector('meta[name="keywords"]');
-      if (!metaKeys) {
-        metaKeys = document.createElement('meta');
-        metaKeys.name = 'keywords';
-        document.head.appendChild(metaKeys);
-      }
-      metaKeys.content = post.keywords;
-
-      // Open Graph tags
-      const ogTags = {
-        'og:title': post.metaTitle,
-        'og:description': post.metaDescription,
-        'og:type': 'article',
-        'og:url': `https://nestofmemories.com/blog/${post.slug}`,
-      };
-
-      Object.entries(ogTags).forEach(([property, content]) => {
-        let tag = document.querySelector(`meta[property="${property}"]`);
-        if (!tag) {
-          tag = document.createElement('meta');
-          tag.setAttribute('property', property);
-          document.head.appendChild(tag);
-        }
-        tag.content = content;
-      });
-
-      // Scroll to top
-      window.scrollTo(0, 0);
-    }
-
-    return () => {
-      document.title = 'Nest of Memories';
-    };
-  }, [post]);
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -171,6 +126,15 @@ const BlogPost = () => {
 
   return (
     <div className="blog-post-page">
+      <Helmet>
+        <title>{post.metaTitle}</title>
+        <meta name="description" content={post.metaDescription} />
+        <meta name="keywords" content={post.keywords} />
+        <meta property="og:title" content={post.metaTitle} />
+        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://nestofmemories.com/blog/${post.slug}`} />
+      </Helmet>
       <article className="blog-article">
         <Link to="/blog" className="blog-back-link">
           <FaArrowLeft /> All Articles
