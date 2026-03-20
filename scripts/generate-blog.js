@@ -93,6 +93,14 @@ function postHtml(post) {
   <meta name="twitter:title" content="${esc(post.metaTitle)}" />
   <meta name="twitter:description" content="${esc(post.metaDescription)}" />
   <link rel="stylesheet" href="/blog/static-blog.css" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SMMRWEK7SR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SMMRWEK7SR');
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -121,8 +129,8 @@ function postHtml(post) {
       <h3>Preserve your family's memories before they fade</h3>
       <p>Nest of Memories lets you record your child's voice, transcribe the stories, and print a real memory book they'll treasure forever.</p>
       <div class="cta-buttons">
-        <a href="https://apps.apple.com/app/nest-of-memories/id6740286198" class="cta-btn cta-apple">📱 Download on App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.nestofmemories.app" class="cta-btn cta-google">🤖 Get on Google Play</a>
+        <a href="https://apps.apple.com/app/nest-of-memories/id6740286198" class="cta-btn cta-apple" onclick="gtag('event','click',{event_category:'cta',event_label:'app_store',page_slug:'${post.slug}'})">📱 Download on App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.nestofmemories.app" class="cta-btn cta-google" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play',page_slug:'${post.slug}'})">🤖 Get on Google Play</a>
       </div>
       <a href="${BASE_URL}" class="cta-link">Learn more at nestofmemories.com →</a>
     </div>
@@ -163,6 +171,14 @@ function listingHtml(posts) {
   <meta property="og:description" content="Practical guides for preserving your family's voice, memories, and stories." />
   <meta property="og:url" content="${BASE_URL}/blog" />
   <link rel="stylesheet" href="/blog/static-blog.css" />
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SMMRWEK7SR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SMMRWEK7SR');
+  </script>
 </head>
 <body>
   <header class="site-header">
