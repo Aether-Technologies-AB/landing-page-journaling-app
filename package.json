@@ -37,7 +37,7 @@
     "dev": "react-scripts start",
     "start": "node server.js",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap || echo \"react-snap prerender skipped\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "heroku-postbuild": "GENERATE_SOURCEMAP=false npm run build"
@@ -45,7 +45,7 @@
   "reactSnap": {
     "source": "build",
     "minifyHtml": { "collapseWhitespace": false },
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
     "crawl": true,
     "include": [
       "/",

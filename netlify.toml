@@ -11,6 +11,8 @@
 # Enable this in Netlify dashboard: Site Settings → Build & deploy → Prerendering → Enable
 [build.environment]
   NETLIFY_PRERENDER = "true"
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+  PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium-browser"
 
 # Security & performance headers
 [[headers]]
