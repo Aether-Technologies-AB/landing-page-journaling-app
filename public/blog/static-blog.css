@@ -1,0 +1,281 @@
+/* static-blog.css — Nest of Memories blog static pages */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+/* ── Header ── */
+.site-header {
+  background: #fff;
+  border-bottom: 3px solid #FF7A00;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.logo:hover { color: #FF7A00; }
+
+.nav-link {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  color: #666;
+  text-decoration: none;
+}
+
+.nav-link:hover { color: #FF7A00; }
+
+/* ── Article ── */
+.article-container {
+  max-width: 740px;
+  margin: 48px auto;
+  padding: 0 24px 80px;
+}
+
+.article-meta {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.category {
+  background: #FFF0E0;
+  color: #FF7A00;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sep { color: #ccc; }
+
+h1 {
+  font-size: 38px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111;
+}
+
+p.excerpt {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  border-left: 4px solid #FF7A00;
+  padding-left: 20px;
+  margin-bottom: 40px;
+}
+
+/* ── Article body ── */
+.article-body h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 48px 0 16px;
+  color: #111;
+}
+
+.article-body h3 {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: #222;
+}
+
+.article-body p {
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.article-body ul {
+  margin: 0 0 24px 24px;
+}
+
+.article-body li {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.article-body strong { color: #111; }
+
+.article-body a {
+  color: #FF7A00;
+  text-decoration: underline;
+}
+
+/* ── CTA Box ── */
+.cta-box {
+  background: #FFF8F0;
+  border: 2px solid #FF7A00;
+  border-radius: 12px;
+  padding: 36px 40px;
+  margin: 64px 0 0;
+  text-align: center;
+}
+
+.cta-box h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.cta-box p {
+  font-size: 17px;
+  color: #555;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.cta-btn {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cta-btn:hover { opacity: 0.85; }
+
+.cta-apple {
+  background: #111;
+  color: #fff;
+}
+
+.cta-google {
+  background: #FF7A00;
+  color: #fff;
+}
+
+.cta-link {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  color: #FF7A00;
+  text-decoration: none;
+  display: block;
+}
+
+.cta-link:hover { text-decoration: underline; }
+
+/* ── Blog listing ── */
+.listing-container {
+  max-width: 740px;
+  margin: 48px auto;
+  padding: 0 24px 80px;
+}
+
+.listing-header {
+  margin-bottom: 48px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 32px;
+}
+
+.listing-header h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.listing-header p {
+  font-size: 20px;
+  color: #666;
+}
+
+.post-card {
+  padding: 32px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-card .post-meta {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.post-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.post-card h2 a {
+  color: #111;
+  text-decoration: none;
+}
+
+.post-card h2 a:hover { color: #FF7A00; }
+
+.post-card .excerpt {
+  font-size: 17px;
+  color: #555;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.read-more {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FF7A00;
+  text-decoration: none;
+}
+
+.read-more:hover { text-decoration: underline; }
+
+/* ── Footer ── */
+.site-footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #aaa;
+  border-top: 1px solid #eee;
+}
+
+.site-footer a { color: #aaa; }
+.site-footer a:hover { color: #FF7A00; }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  h1 { font-size: 28px; }
+  .article-container, .listing-container { padding: 0 16px 60px; }
+  .cta-box { padding: 24px 20px; }
+  .cta-box h3 { font-size: 20px; }
+  .site-header { padding: 12px 16px; }
+}
