@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { FaClock, FaTag, FaArrowRight } from 'react-icons/fa';
 import blogPosts from '../data/blogPosts';
@@ -7,6 +8,10 @@ import './Blog.css';
 const Blog = () => {
   return (
     <div className="blog-page">
+      <Helmet>
+        <title>Blog | Nest of Memories</title>
+        <meta name="description" content="Tips, guides, and inspiration for preserving your family's most precious memories. Record your child's voice, beat childhood amnesia, and create lasting memory books." />
+      </Helmet>
       <section className="blog-hero">
         <h1>Stories Worth Keeping</h1>
         <p>Tips, guides, and inspiration for preserving your family's most precious memories</p>
