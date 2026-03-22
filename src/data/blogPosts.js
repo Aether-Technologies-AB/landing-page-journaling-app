@@ -1,4 +1,4 @@
-// Blog post data — 12 SEO-optimized posts for Nest of Memories
+﻿// Blog post data — 12 SEO-optimized posts for Nest of Memories
 // Each post targets parents recording memories of their children
 
 const blogPosts = [
@@ -997,6 +997,101 @@ Do it again next week. Let it become a small habit.
 Over time, you'll build something nobody else can give your child: a record of every version of their voice, from the earliest sounds to the moment they no longer needed you to ask.
 
 That's not a recording. That's a love letter in reverse — made before they could read it, to be opened when they're ready.`
+  }  ,
+  {
+    slug: 'how-to-capture-baby-first-words',
+    title: "How to Capture Your Baby's First Words Before They Disappear Forever",
+    metaTitle: "How to Capture Your Baby's First Words | Nest of Memories",
+    metaDescription: "Your baby's first words vanish faster than you think. Here's how to capture them with simple methods any parent can start today.",
+    keywords: 'capture baby first words memories, record baby first words, preserve baby voice, baby memory keeping',
+    category: 'Parenting',
+    date: '2026-03-22',
+    readTime: '7 min read',
+    heroImage: null,
+    excerpt: "Most parents can recall the moment their baby said their first word. Almost none of them recorded it. Here is why that matters more than you think.",
+    content: `Mostparents remember the moment their baby said their first word.
+
+Almost none of them recorded it.
+
+They remember the look on their child's face. The surprise of it. The way time seemed to stop. They'll tell the story at birthday dinners for years. But the actual sound — the exact pitch and stumble and wonder of that specific word, said by that specific child, at that specific age — is gone.
+
+This is the quiet tragedy of early parenthood. You live through the most unrepeatable moments of another person's life, and most of them slip through without a trace.
+
+The good news: it is completely fixable. And it takes less effort than you'd think.
+
+## Why First Words Disappear (Even When You Were There)
+
+Memory is reconstructive. Every time you remember something, your brain rebuilds it from fragments — filling in gaps, smoothing edges, adjusting the story slightly. Over years, what you "remember" becomes a composite, not a recording.
+
+Your child's first word is a perfect example. You remember that it happened. You remember feeling something. But the actual sound? The way they looked up at you? The second word they tried right after? That's already fading.
+
+Add to this the fact that children under 4 have almost no autobiographical memory — they genuinely will not remember being this age. So the only record that will ever exist of this period is the one you create right now.
+
+If you don't record it, it doesn't exist. Not for you, and not for them.
+
+## What "First Words" Actually Means
+
+Parents tend to focus on the first word — usually something like "mama," "dada," or "more." But that's only a fraction of what's worth capturing.
+
+The real treasure is what comes after.
+
+Around 12 to 18 months, babies begin building vocabulary fast. Mispronounced words. Made-up words. Private language that only your family uses. The specific way your child says "banana" or "blanket" or "I love you" before their tongue fully figures out how.
+
+These are the words that parents cry about losing. Not the first word — the whole language of being small that quietly disappears as kids grow up.
+
+By 3 or 4, most children are speaking in full sentences. The baby talk is gone. The invented sounds are gone. And if you haven't captured it, all of it is gone.
+
+## 5 Simple Ways to Capture First Words (Starting Today)
+
+### 1. Record Before You Think About It
+
+The biggest mistake parents make is waiting for a moment worth recording. Every moment is worth recording. The ordinary ones especially.
+
+Set a 5-minute reminder once a week. Open your phone's voice recorder, point it at your baby, and just let it run. Bath time, feeding time, getting dressed — it doesn't matter. In ten years, any of these will be extraordinary.
+
+### 2. Ask One Question at Bedtime
+
+Once your child starts talking — even just single words and short phrases — make a habit of asking one question before sleep. Something simple: "What did you do today?" or "What made you happy?" or "What are you thinking about?"
+
+Press record. Let them answer. This takes 3 minutes and produces some of the most genuine content you'll ever capture.
+
+### 3. Keep Your Phone on the Table at Meals
+
+Family mealtimes are where the best material happens. Unprompted. Unscripted. Kids process their days at the dinner table — they ask the questions they have been holding all day, say the things that seem to come from nowhere, and reveal how they see the world.
+
+You don't need to do anything. Just record it.
+
+### 4. Capture the Mispronunciations Intentionally
+
+When you notice a mispronunciation your child uses consistently — and you know it won't last — record it on purpose. Ask them to say it. Ask them to use it in a sentence. Make a small game of it.
+
+These recordings will be some of the most-played in the family for decades.
+
+### 5. Record Their Own Voice Telling Their Story
+
+At around 2-3 years old, children can start telling simple stories. Their version of events is almost always more interesting than the actual events. Ask them to tell you what happened at the park. What the movie was about. What they dreamed.
+
+Let them talk for as long as they want. Don't correct. Don't redirect. Just capture.
+
+## From Scattered Recordings to Something They Can Keep
+
+Voice memos are a start. But scattered files across multiple devices don't survive long — they get lost, forgotten, or deleted in a phone upgrade.
+
+Nest of Memories is designed specifically for this. You record short voice notes and the app transcribes everything automatically. Over time, you build a structured archive of your child's voice, organized by age.
+
+When you're ready, you can print it as a physical memory book. Your child's first words. Their stories. Their questions. All in a book they can hold, read, and pass on.
+
+The free plan gives you 100 memories — more than enough to start.
+
+## The Right Time to Start Is Always Now
+
+Parents who wait until their child starts talking miss the babbling phase. Parents who wait until the babbling gets clearer miss the early attempts. Parents who wait until they have more time miss everything.
+
+Your child's voice at this age is already unrepeatable. Twelve months from now, they will sound different. Different words, different pitch, different way of moving through language.
+
+You can't go back. You can only capture what's here right now.
+
+Press record tonight. Even 3 minutes. Future you — and future them — will be grateful you did.`
   }
 ];
 

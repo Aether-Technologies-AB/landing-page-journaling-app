@@ -1,60 +1,61 @@
-{
-  "name": "landing-page",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "node": "18.x",
-    "npm": "9.x"
-  },
-  "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@stripe/react-stripe-js": "^3.1.1",
-    "@stripe/stripe-js": "^5.4.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.9",
-    "dotenv": "^16.4.7",
-    "express": "^4.18.2",
-    "firebase": "^10.7.1",
-    "firebase-admin": "^13.0.2",
-    "path": "^0.12.7",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.4.0",
-    "react-router-dom": "^7.1.1",
-    "react-scripts": "5.0.1",
-    "stripe": "^17.5.0",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
-    "webpack-dev-server": "^4.15.1"
-  },
-  "scripts": {
-    "dev": "react-scripts start",
-    "start": "node server.js",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "GENERATE_SOURCEMAP=false npm run build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+﻿{
+    "name":  "landing-page",
+    "version":  "0.1.0",
+    "private":  true,
+    "engines":  {
+                    "node":  "18.x",
+                    "npm":  "9.x"
+                },
+    "dependencies":  {
+                         "@babel/plugin-proposal-private-property-in-object":  "^7.21.11",
+                         "@stripe/react-stripe-js":  "^3.1.1",
+                         "@stripe/stripe-js":  "^5.4.0",
+                         "@testing-library/jest-dom":  "^5.17.0",
+                         "@testing-library/react":  "^13.4.0",
+                         "@testing-library/user-event":  "^13.5.0",
+                         "axios":  "^1.7.9",
+                         "dotenv":  "^16.4.7",
+                         "express":  "^4.18.2",
+                         "firebase":  "^10.7.1",
+                         "firebase-admin":  "^13.0.2",
+                         "path":  "^0.12.7",
+                         "react":  "^18.3.1",
+                         "react-dom":  "^18.3.1",
+                         "react-icons":  "^5.4.0",
+                         "react-router-dom":  "^7.1.1",
+                         "react-scripts":  "5.0.1",
+                         "stripe":  "^17.5.0",
+                         "typescript":  "^4.9.5",
+                         "web-vitals":  "^2.1.4"
+                     },
+    "devDependencies":  {
+                            "webpack-dev-server":  "^4.15.1"
+                        },
+    "scripts":  {
+                    "dev":  "react-scripts start",
+                    "start":  "node server.js",
+                    "build":  "GENERATE_SOURCEMAP=false react-scripts build",
+                    "test":  "react-scripts test",
+                    "eject":  "react-scripts eject",
+                    "heroku-postbuild":  "GENERATE_SOURCEMAP=false npm run build",
+                    "postbuild":  "node scripts/generate-blog.mjs"
+                },
+    "eslintConfig":  {
+                         "extends":  [
+                                         "react-app",
+                                         "react-app/jest"
+                                     ]
+                     },
+    "browserslist":  {
+                         "production":  [
+                                            "\u003e0.2%",
+                                            "not dead",
+                                            "not op_mini all"
+                                        ],
+                         "development":  [
+                                             "last 1 chrome version",
+                                             "last 1 firefox version",
+                                             "last 1 safari version"
+                                         ]
+                     }
 }
