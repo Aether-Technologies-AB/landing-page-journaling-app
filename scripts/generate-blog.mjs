@@ -209,17 +209,22 @@ function formatDate(dateStr) {
 let generated = 0;
 for (const post of blogPosts) {
   if (!post.slug) continue;
-  const dir = join(ROOT, 'public/blog', post.slug);
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-  const html = generatePostHtml(post);
-  writeFileSync(join(dir, 'index.html'), html, 'utf8');
+  // Write to build/blog (Netlify publish dir) AND public/blog (local dev)
+  for (const base of ['build', 'public']) {
+    const dir = join(ROOT, `${base}/blog`, post.slug);
+    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+    const html = generatePostHtml(post);
+    writeFileSync(join(dir, 'index.html'), html, 'utf8');
+  }
   console.log(`  ✓ /blog/${post.slug}`);
   generated++;
 }
 
-// Generate listing page
-const listDir = join(ROOT, 'public/blog');
-if (!existsSync(listDir)) mkdirSync(listDir, { recursive: true });
-writeFileSync(join(listDir, 'index.html'), generateListingHtml(blogPosts), 'utf8');
+// Generate listing page in both public/ and build/
+for (const base of ['build', 'public']) {
+  const listDir = join(ROOT, `${base}/blog`);
+  if (!existsSync(listDir)) mkdirSync(listDir, { recursive: true });
+  writeFileSync(join(listDir, 'index.html'), generateListingHtml(blogPosts), 'utf8');
+}
 console.log(`  ✓ /blog (listing, ${blogPosts.length} posts)`);
 console.log(`\nGenerated ${generated} blog pages + listing page.`);
