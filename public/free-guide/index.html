@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Recording Guide — 10 Questions to Ask Your Child This Week | Nest of Memories</title>
+  <meta name="description" content="Free download: 10 questions every parent should record their child answering — before their voice changes forever. No email required.">
+  <link rel="canonical" href="https://nestofmemories.com/free-guide">
+  <meta property="og:title" content="Free: 10 Questions to Record Your Child Saying This Week">
+  <meta property="og:description" content="Before their voice changes. Download the free recording guide from Nest of Memories.">
+  <meta property="og:url" content="https://nestofmemories.com/free-guide">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #FF7A00;
+      --dark: #1a1a1a;
+      --mid: #555;
+      --light: #888;
+      --bg: #faf8f5;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    header {
+      padding: 20px 24px;
+      border-bottom: 1px solid #e8e0d5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+    }
+    .logo { font-weight: 700; font-size: 1rem; color: var(--dark); text-decoration: none; }
+    .logo span { color: var(--orange); }
+
+    .hero {
+      background: var(--dark);
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .pdf-preview {
+      background: #fff;
+      border: 2px solid var(--orange);
+      border-radius: 12px;
+      padding: 24px 28px;
+      max-width: 420px;
+      margin: 0 auto 32px;
+      text-align: left;
+    }
+    .pdf-preview .pdf-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .pdf-preview .pdf-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .pdf-preview .pdf-meta {
+      font-size: 0.85rem;
+      color: var(--mid);
+    }
+    .pdf-preview .pdf-pages {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: var(--light);
+    }
+
+    /* EMAIL FORM */
+    .form-section {
+      background: #fff;
+      padding: 56px 24px;
+    }
+    .form-wrap {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form-wrap h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .form-wrap p {
+      color: var(--mid);
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+
+    /* ConvertKit form will be injected here */
+    #convertkit-form {
+      margin-bottom: 16px;
+    }
+
+    /* Fallback direct download (visible until CK is set up) */
+    .direct-download {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--light);
+    }
+
+    /* WHAT'S INSIDE */
+    .inside {
+      padding: 56px 24px;
+      background: var(--bg);
+    }
+    .inside-wrap { max-width: 680px; margin: 0 auto; }
+    .inside h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .questions-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .questions-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .q-num {
+      background: var(--orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .q-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+    .q-text span { font-size: 0.9rem; color: var(--mid); }
+
+    /* WHY section */
+    .why {
+      background: var(--dark);
+      color: #fff;
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .why-wrap { max-width: 600px; margin: 0 auto; }
+    .why h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+    .why p { color: #ccc; font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+    .why p strong { color: var(--orange); }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--light);
+      border-top: 1px solid #e8e0d5;
+    }
+    footer a { color: var(--orange); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Nest <span>of Memories</span></a>
+  <a href="https://nestofmemories.com" style="font-size:0.85rem;color:var(--mid);text-decoration:none;">← Back to site</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="tag">Free Download</div>
+  <h1>10 Questions to Record Your Child Saying <em>This Week</em></h1>
+  <p>Before their voice changes — and it will. These prompts take 5 minutes and create memories that last forever.</p>
+
+  <div class="pdf-preview">
+    <div class="pdf-label">📄 Free PDF Guide</div>
+    <div class="pdf-title">10 Questions to Record Your Child Saying This Week</div>
+    <div class="pdf-meta">Nest of Memories · Recording prompts for parents</div>
+    <div class="pdf-pages">6 pages · Instant download · No signup required</div>
+  </div>
+</section>
+
+<!-- FORM / DOWNLOAD -->
+<section class="form-section">
+  <div class="form-wrap">
+    <h2>Get the free guide</h2>
+    <p>Enter your email and we'll send it straight to your inbox — along with weekly tips for capturing your child's voice before it's gone.</p>
+
+    <!-- CONVERTKIT FORM PLACEHOLDER -->
+    <!-- When ConvertKit is ready, replace the direct-download div below with the CK embed code -->
+    <div id="convertkit-form">
+      <!-- ConvertKit embed goes here -->
+    </div>
+
+    <!-- DIRECT DOWNLOAD (fallback until ConvertKit form is live) -->
+    <div class="direct-download">
+      <a href="https://pub-9f6edc3b1933461d93f20d620e26a20d.r2.dev/assets/lead_magnet.pdf"
+         class="btn-primary"
+         download="10-questions-nest-of-memories.pdf"
+         target="_blank">
+        ⬇ Download free PDF
+      </a>
+      <p class="form-note">No email required · 78KB PDF · Opens on any device</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside">
+  <div class="inside-wrap">
+    <h2>What's inside</h2>
+    <ul class="questions-list">
+      <li><div class="q-num">1</div><div class="q-text"><strong>"Tell me about your best friend."</strong><span>Children's friendships at 3–5 are intensely specific and completely forgotten by 10.</span></div></li>
+      <li><div class="q-num">2</div><div class="q-text"><strong>"What happens when you dream?"</strong><span>A 4-year-old's theory of dreams is unlike anything you'll hear again.</span></div></li>
+      <li><div class="q-num">3</div><div class="q-text"><strong>"What do you want to be when you grow up — and why?"</strong><span>The 'why' is the golden part. Record this every 6 months.</span></div></li>
+      <li><div class="q-num">4</div><div class="q-text"><strong>"Tell me the funniest thing you know."</strong><span>Their delivery, timing, the things they find funny — all unrepeatable.</span></div></li>
+      <li><div class="q-num">5</div><div class="q-text"><strong>"What do you think happens when people get very old?"</strong><span>These answers change dramatically as they grow. Capture the before.</span></div></li>
+      <li><div class="q-num">6</div><div class="q-text"><strong>"What's the best thing about our family?"</strong><span>You will cry. That's okay.</span></div></li>
+      <li><div class="q-num">7</div><div class="q-text"><strong>"Sing me your favourite song right now."</strong><span>The 3-year-old version of a song is gone by 5. Time-sensitive.</span></div></li>
+      <li><div class="q-num">8</div><div class="q-text"><strong>"Tell me something you know that most people don't."</strong><span>What they think is secret tells you everything about what they're thinking.</span></div></li>
+      <li><div class="q-num">9</div><div class="q-text"><strong>"What were you like when you were a baby?"</strong><span>Kids have strong opinions about who they were before they can remember.</span></div></li>
+      <li><div class="q-num">10</div><div class="q-text"><strong>"What do you want me to remember about you?"</strong><span>Save this one for last. Some children say something that stays with you forever.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="why-wrap">
+    <h2>Why this matters</h2>
+    <p>Your child's voice at 3 sounds nothing like it will at 5. By 7, <strong>childhood amnesia</strong> means they won't remember most of what's happening right now.</p>
+    <p>A photo captures what they looked like. A voice recording captures <strong>who they were</strong> — the mispronounced words, the wild theories, the way they said your name.</p>
+    <p>Most parents know this. Almost none have recordings.</p>
+    <p>This guide takes 5 minutes. Press record tonight.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Made by <a href="https://nestofmemories.com">Nest of Memories</a> — Record. Transcribe. Print. · <a href="https://pub-9f6edc3b1933461d93f20d620e26a20d.r2.dev/assets/lead_magnet.pdf" target="_blank">Download PDF directly</a></p>
+</footer>
+
+</body>
+</html>
